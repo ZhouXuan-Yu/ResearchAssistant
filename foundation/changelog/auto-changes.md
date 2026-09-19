@@ -25,3 +25,17 @@
 
 **文件清单**：
 - `foundation/tools/_msg.txt`
+
+## 2026-09-19 18:25:09
+
+**说明**：chore: 变更记录加"不含本记录文件"说明；新增 fix_ps1_bom.py
+
+- auto-changes 条目的文件清单注明不含本记录文件自身，避免与 git show --stat 数目看起来矛盾
+- fix_ps1_bom.py：批量确保含中文的 .ps1 带 UTF-8 BOM（PS 5.1 无 BOM 会按 ANSI 解码）
+- 实测：现有 16 个 .ps1 中 1 个需要 BOM（已有）、15 个为纯 ASCII 无需处理
+
+**变更规模**：2 files changed, 42 insertions(+), 1 deletion(-)
+
+**文件清单**（不含本记录文件自身）：
+- `foundation/tools/fix_ps1_bom.py`
+- `foundation/tools/git_snapshot.ps1`

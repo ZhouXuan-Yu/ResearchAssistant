@@ -42,7 +42,7 @@ $lines.Add("**说明**：" + $Message)
 $lines.Add("")
 $lines.Add("**变更规模**：" + ($(if ($stat.Count -gt 0) { $stat[0].Trim() } else { "(无统计)" })))
 $lines.Add("")
-$lines.Add("**文件清单**：")
+$lines.Add("**文件清单**（不含本记录文件自身）：")
 foreach ($f in ($stagedFiles | Select-Object -First 40)) { $lines.Add("- ``" + $f + "``") }
 if ($stagedFiles.Count -gt 40) { $lines.Add("- …共 " + $stagedFiles.Count + " 个文件") }
 $lines.Add("")
