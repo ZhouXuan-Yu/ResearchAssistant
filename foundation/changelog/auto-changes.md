@@ -69,3 +69,14 @@
 - `foundation/tools/_fixmsg.py`
 - `foundation/tools/_goodmsg.txt`
 - `foundation/tools/git_snapshot.ps1`
+
+## 2026-09-19 18:47:53
+
+**说明**：chore: 右侧 Git 面板插件 git-save-load v2.3.2 落位并记录用法
+
+**变更规模**：3 files changed, 20 insertions(+), 1 deletion(-)
+
+**文件清单**（不含本记录文件自身）：
+- `.gitignore`
+- `"OH-Works/\347\232\207\345\256\266\345\215\253\345\243\253GGOB\347\232\204\345\267\241\346\243\200/patrol-log.md"`
+- `foundation/docs/git-tracking.md`

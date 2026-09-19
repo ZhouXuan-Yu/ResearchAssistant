@@ -53,3 +53,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -File foundation\tools\git_snapsho
 验收标准：`git diff <old-tip> <new-tip>` **必须为空**（内容字节级一致，只换消息）。本次结果为空，通过。
 
 回滚：重写前旧链可由 reflog / `refs/original` 找回；本次已 gc 清理，旧链不再可达。若需再次重写，务必先打 tag 或备份裸仓库。
+
+## 6. 右侧 Git 面板（插件 `git-save-load`）
+
+- 来源：用户提供的 `git-save-load-v2.3.2.zip`（上游 GitHub `H-i-m-s/git-save-load`，v2.3.2）。
+- 安装方式：**走宿主正式接口** `POST /api/plugins/install`，body `{"path":"<zip 绝对路径>"}`，`Authorization: Bearer <server-info.json 的 token>`。
+  教训：手工把文件放进 `%USERPROFILE%\.hanako\plugins\` **不会**被 `plugin-installs.json` 注册，宿主只在启动时扫描目录——必须用这个接口。
+- 落位：`%USERPROFILE%\.hanako\plugins\git-save-load`；注册项 `source: "local"`（平台自身取值），`installedVersion: 2.3.2`。
+- 数据目录：`%USERPROFILE%\.hanako\plugin-data\git-save-load`。
+- 已预置配置：`repoPath = C:\Users\ZhouXuan\Desktop\OH-WorkSpace`（通过 `PUT /api/plugins/git-save-load/config`，body `{scope:"global",values:{...}}`）。
+- 表面：`contributes.widget` 已注册（右侧挂件 “Git”，`/api/plugins/git-save-load/widget`）；
+  `contributes.cards`（整页 `/git`）在当前宿主版本诊断中 `routes.pages` 为空，**未注册**。
+- Agent 工具：`git-save-load_git_status` / `_git_commit` / `_git_log` / `_git_reset`。
+- 卸载：`DELETE /api/plugins/git-save-load?token=...`（或界面删除）；重新安装需保留 workspace 里的 zip，因为它被记为 `sourcePath`。
+- ⚠️ 上游仓库**没有 LICENSE 文件**：本地自用可以，二次分发授权状态不明。
+- ⚠️ `trust: full-access`，且带 Agent 工具，会以当前用户权限执行 git 命令。
+
