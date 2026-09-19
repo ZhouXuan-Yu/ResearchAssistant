@@ -1,0 +1,5 @@
+chore: 启用 git 追踪并加入快照助手
+
+- 新增 .gitignore：严格排除凭据（cookies/env/auth/security/*.key）、大体积第三方克隆、构建中间产物与临时文件
+- 新增 foundation/tools/git_snapshot.ps1：每次改动后 add+commit，无改动则不提交
+- 实测：410 个受控文件，凭据扫描为空，仓库 10.48 MiB
