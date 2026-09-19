@@ -68,17 +68,68 @@ hyperframesCommand = D:/Node/node.exe D:/Node/node_modules/npm/bin/npx-cli.js --
 
 ## 2. 右侧 Git 面板（git-save-load）不显示
 
-### 已验证的服务端事实
-- `GET /api/plugins/widgets` 返回：`{pluginId:"git-save-load", title:"Git", routeUrl:"/api/plugins/git-save-load/widget", hostCapabilities:["external.open","clipboard.writeText"]}`。
-- `GET /api/plugins/git-save-load/widget` 200，页面 62558 字节；其 `git-asset/*` 子资源带 token 均 200。
-- 插件多次加载日志均正常（`loaded "git-save-load" widget`）。
+### 结论（已定位到确定成因）
+插件本身没有被禁用、没有被隐藏、权限门槛也通过了。面板不出现的直接原因是：宿主渲染层在**窗口启动时**拉取一次插件 UI 清单（store 字段 `pluginWidgets`），而本窗口启动在前、插件安装在后 —— 清单里从来没有 git-save-load。
 
-### 推断原因
-宿主渲染层在**应用启动时**拉取一次 widget 列表。本窗口启动于 18:27，插件安装于 18:44，即当前窗口从未看到该插件。
+### 服务端事实（全部实测，2026-09-19 当晚）
+| 检查项 | 结果 |
+| --- | --- |
+| `GET /api/plugins/widgets` | `[{pluginId:"git-save-load", title:"Git", routeUrl:"/api/plugins/git-save-load/widget", hostCapabilities:["external.open","clipboard.writeText"]}]` |
+| `GET /api/plugins/git-save-load/widget` | 200，61505 字节（`<title>Save/Load</title>`，`data-hana-widget="1"`） |
+| `GET /api/preferences/plugin-ui` | `{"hiddenWidgets":[],"hiddenTabs":[],"tabOrder":[]}` —— 没有被隐藏 |
+| `~/.hanako/user/preferences.json` | `allow_full_access_plugins: true`、`disabled_plugins: []` —— 全权限门槛已开，且不在禁用名单 |
+| 插件目录 | 根目录仅 `manifest.json / assets / docs / routes / tools / *.md`，**没有 `index.js`** |
 
-### 处置
-重载应用窗口（Ctrl+R / F5）或重启 HanaAgent，然后在右侧面板的组件列表中选 Git。
-未能自证：面板的实际视觉渲染只能由用户确认。
+### "Activation: none" 是什么（重要，易误读）
+插件详情里那行 Activation 显示 `none`，容易被读成"没激活所以用不了"。宿主实现如下：
+
+```js
+async _activatePluginEntry(t, r = {}, n = t._loadToken) {
+  if (!t.hasLifecycle || t.activationState === "activated") return t;   // ← 无生命周期入口，直接返回
+  ...
+}
+```
+
+`hasLifecycle` 取决于插件根目录是否存在生命周期入口（`index.js`）。git-save-load 没有 → 宿主**按设计跳过**激活 → `activationState` 永远停在 `none`。它的工具在**加载阶段**就已注册（`_loadTools`），widget 路由由宿主静态托管，二者都不依赖激活。
+
+对照：hanako-hyperframes 带 `index.js` 且 `activationEvents:["onStartup"]`，所以显示 `activated`。
+
+**结论：`none` 不是开关、不是缺陷、也不是面板不显示的原因，修改不了也不需要修改。**
+
+### Git 面板的入口位置（渲染层实证）
+渲染层 `ChatPage` 标题栏右侧按钮组（`tb-right-group`，与"预览"开关同一排）：
+
+```js
+h.jsxs("div",{className:"tb-right-group",children:[ f && h.jsx(X0,{}), d && a && h.jsx("button",{className:"tb-toggle tb-toggle-preview",...}) ]})
+```
+
+而 `X0()` 的第一句是硬门槛：
+
+```js
+if (s !== "chat" || n.length === 0) return null;   // s = currentTab，n = pluginWidgets
+```
+
+即：**必须停在聊天页，且 `pluginWidgets` 非空**，按钮才会渲染。该插件未提供 icon，按钮以标题文字 "Git" 呈现；点击后把右侧栏切到 `jianView = "widget:git-save-load"`（`openWidget(pluginId)`）。
+
+### 处置（已执行，免重启）
+宿主在插件安装/卸载/启停/权限变更时都会广播 `plugin_ui_changed`；渲染层 WebSocket 处理器收到后重新拉取清单：
+
+```js
+case "plugin_ui_changed": import("./plugin-ui-actions-....js").then(n => n.refreshPluginUI()); break;
+```
+
+因此对当前窗口执行一次幂等的启用即可触发刷新：
+
+```
+PUT /api/plugins/git-save-load/enabled   body {"enabled":true}
+→ 200 {"ok":true}     # enablePlugin 内部 emit({type:"plugin_ui_changed"})
+```
+
+已执行；执行后 `GET /api/plugins/widgets` 仍正确返回该 widget。
+
+**未自证**：该 WebSocket 消息在运行窗口中的接收与最终渲染结果属窗口内状态，外部不可观测。若聊天页标题栏仍未出现 "Git" 按钮，重载窗口（Ctrl+R）或重启 HanaAgent 后再点。
+
+补充（客户端刷新路径亦已查明）：`plugin-ui-actions` 导出的 `refreshPluginUI()` 在启动时以及收到 `plugin_ui_changed` 时调用；`hiddenWidgets` 为空的插件按钮按标题文字渲染，"Hidden plugins → Show" 仅对已隐藏项出现。
 
 ---
 
@@ -118,6 +169,8 @@ I = async (e) => { ...; const j = Wn?.getFilePath?.(e.dataTransfer.files[0]) || 
 | 卸载插件 | `DELETE /api/plugins/:id` |
 | widget 列表 | `GET /api/plugins/widgets` |
 | 页面列表 | `GET /api/plugins/pages` |
+| 组件显隐偏好 | `GET/PUT /api/preferences/plugin-ui`（字段 `hiddenWidgets,hiddenTabs,tabOrder`） |
+| 刷新客户端插件 UI | 服务端广播 WS 消息 `plugin_ui_changed` → 渲染层 `refreshPluginUI()` |
 | 插件自检 | `GET /api/plugins/hanako-hyperframes/api/diagnostics` |
 | 启动/停止预览 | `POST / DELETE /api/plugins/hanako-hyperframes/api/projects/:id/preview` |
 

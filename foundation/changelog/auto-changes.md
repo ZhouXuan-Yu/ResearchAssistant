@@ -89,3 +89,23 @@
 
 **文件清单**（不含本记录文件自身）：
 - `foundation/docs/plugin-fixes.md`
+
+## 2026-09-19 19:15:11
+
+**说明**：docs(plugins): pin down why the git-save-load widget does not show
+
+- evidence: /api/plugins/widgets registers "Git"; /api/preferences/plugin-ui
+  hiddenWidgets empty; allow_full_access_plugins=true; disabled_plugins empty;
+  GET /api/plugins/git-save-load/widget -> 200 (61505 bytes)
+- host _activatePluginEntry returns early when the plugin has no lifecycle entry
+  (no index.js at plugin root) => activationState "none" is by design, not a switch
+- widget entry renders in ChatPage titlebar right group (tb-right-group), gated by
+  currentTab === "chat" && pluginWidgets.length > 0
+- fix applied: idempotent PUT /api/plugins/git-save-load/enabled {enabled:true}
+  -> enablePlugin emits plugin_ui_changed -> renderer refreshPluginUI()
+- cleanup: removed temporary probe scripts from foundation/tools
+
+**变更规模**：1 file changed, 62 insertions(+), 9 deletions(-)
+
+**文件清单**（不含本记录文件自身）：
+- `foundation/docs/plugin-fixes.md`
