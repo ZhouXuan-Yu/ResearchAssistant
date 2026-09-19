@@ -1,7 +1,7 @@
 # 🗂️ HanaAgent 技能索引
 
 > 超级AI个体 · 全栈编程 + UI设计 + 项目规划
-> 最后更新：2026-09-19 · 总计 135 个技能（索引 136 行条目；`code-tour` 跨支援层 S1 / 参考层 R2 重复列示。2026-09-16 新增科研技能 22 项；2026-09-18 新增 scipilot-figure-skill、自建 hana-agent-ops、research-os-router；2026-09-19 新增自建 idea-forge）
+> 最后更新：2026-09-19 · 总计 136 个技能（索引 137 行条目；`code-tour` 跨支援层 S1 / 参考层 R2 重复列示。2026-09-16 新增科研技能 22 项；2026-09-18 新增 scipilot-figure-skill、自建 hana-agent-ops、research-os-router；2026-09-19 新增自建 idea-forge、平台技能 character-creator）
 
 ---
 
@@ -279,6 +279,7 @@
 | A2 | `hana-plugin-creator` | Hana 插件开发 | 平台专属,非通用 |
 | A3 | `user-guide` | HanaAgent 用户说明书 | 平台专属 |
 | A4 | `skill-creator` | 技能创建器(系统内置) | 系统默认可用 |
+| A5 | `character-creator` | 角色创建向导:采访→人格底座→技能→头像→角色卡打包 | 平台专属,默认未启用 |
 
 ---
 

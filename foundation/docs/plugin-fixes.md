@@ -61,7 +61,7 @@ hyperframesCommand = D:/Node/node.exe D:/Node/node_modules/npm/bin/npx-cli.js --
 
 ### 残留问题
 1. **诊断面板会误报 `node` FAIL**：插件自检用同一套 cmd 包装去 spawn 裸命令 `node`，必然失败。属误报，不影响功能；修它需要改插件源码（上游 bug），改动会被插件更新覆盖。
-2. **ffmpeg / ffprobe 未安装**（PATH 中确认不存在）。这是真缺口：视频渲染与媒体探测不可用。与上述引号缺陷无关。
+2. ~~**ffmpeg / ffprobe 未安装**~~ —— **已解决（2026-09-19 19:32）**：以官方上游便携构建装入 `C:\Users\ZhouXuan\tools\ffmpeg\bin`，用户级 PATH 已追加，端到端编码与探测均已验证通过。详见 `foundation/docs/ffmpeg-install.md`。注意生效条件：HanaAgent 重启后其子进程才能看到新的 PATH。
 3. 该配置是绕过，不是根治。根治需修 `lib/command-runner.js` 的引号拼接；插件升级后需复核配置是否仍被保留。
 
 ---

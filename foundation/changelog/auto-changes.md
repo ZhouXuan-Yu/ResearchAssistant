@@ -109,3 +109,28 @@
 
 **文件清单**（不含本记录文件自身）：
 - `foundation/docs/plugin-fixes.md`
+
+## 2026-09-19 19:32:55
+
+**说明**：chore(env): install ffmpeg/ffprobe as a portable user-scoped build
+
+- channel choice: winget absent; choco needs admin; bundled ffmpeg.exe (YouNavi,
+  shadowbot) has no sibling ffprobe -> used upstream BtbN master-win64-gpl zip
+- installed to C:\Users\ZhouXuan\tools\ffmpeg\bin (ffmpeg, ffprobe, ffplay),
+  user-level PATH append, original PATH backed up next to it
+- verified: both -version strings, plus a real testsrc -> h264 mp4 encode (exit 0,
+  7341 bytes) and an ffprobe stream dump (h264 320x240)
+- caveat: HanaAgent's child processes inherit the pre-change env block, so a
+  restart is required before plugins/CLI can see ffmpeg
+- docs: foundation/docs/ffmpeg-install.md; plugin-fixes.md residual item closed
+- tools kept: install_ffmpeg.ps1, verify_ffmpeg.ps1, install_ffmpeg.log
+
+**变更规模**：6 files changed, 167 insertions(+), 3 deletions(-)
+
+**文件清单**（不含本记录文件自身）：
+- `"OH-Works/\347\232\207\345\256\266\345\215\253\345\243\253GGOB\347\232\204\345\267\241\346\243\200/patrol-log.md"`
+- `SKILL_INDEX.md`
+- `foundation/docs/ffmpeg-install.md`
+- `foundation/docs/plugin-fixes.md`
+- `foundation/tools/install_ffmpeg.ps1`
+- `foundation/tools/verify_ffmpeg.ps1`
