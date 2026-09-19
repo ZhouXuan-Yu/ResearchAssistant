@@ -158,3 +158,21 @@
 - `foundation/tools/clone_plugins.ps1`
 - `foundation/tools/hana_api.ps1`
 - `foundation/tools/plugin_source_diff.ps1`
+
+## 2026-09-19 20:02:11
+
+**说明**：docs(plugin): record local adaptation install of hana-paper-reader 0.9.0
+
+- §5 rewritten: keep the 409 / cards / minAppVersion evidence, correct the
+  earlier claim that lowering minAppVersion yields a UI-less plugin.
+- §5.2 new: two disclosed local adaptations in the -local copy
+  (minAppVersion 0.686.15 -> 0.449.0; added contributes.page -> /page),
+  regular install via POST /api/plugins/install, full endpoint probe table.
+- §5.3-5.5 new: honest boundary (MinerU token required, rendering unverified),
+  rollback/reinstall commands, post-upgrade path.
+- §7.1/§9 updated accordingly.
+
+**变更规模**：1 file changed, 73 insertions(+), 14 deletions(-)
+
+**文件清单**（不含本记录文件自身）：
+- `foundation/docs/plugin-code-management.md`

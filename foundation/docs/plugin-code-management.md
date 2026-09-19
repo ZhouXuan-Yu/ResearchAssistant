@@ -78,9 +78,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\ZhouXuan\Desktop\OH
 
 ---
 
-## 5. hana-paper-reader：当前版本在本机装不上（结论 + 三重证据）
+## 5. hana-paper-reader：版本门槛、本地适配与安装记录（结论 + 证据）
 
-**结论：0.9.0 无法装在 0.449.0 上，且这不是配置问题，也不是本机环境损坏。已实测尝试安装，被宿主拒绝，本机未发生任何安装副作用。**
+**结论（更新于 2026-09-19）：原始发行包仍被宿主硬拒（HTTP 409）；在**已披露的两处本地适配**下，插件已在 0.449.0 上完成正式安装与激活，宿主入口 + 插件页面 + 插件 API + 宿主会话/模型桥全部实测可通。完整记录见 §5.2；作者声明的最低宿主版本（0.686.15）在本机**并未**被满足，这一点不因安装成功而改变。**
+
+以下 §5 开头三段证据仍然有效，说明「为什么原始包装不上」。
 
 ### 证据 1：宿主硬拒绝（实测）
 
@@ -116,23 +118,78 @@ POST /api/plugins/install  {"path":".../foundation/external/hana-paper-reader-0.
 
 而公开宿主最高只有 **v0.450.0**（证据 1/第 1 节）。作者自己的 README 也写明「环境要求：HanaAgent `0.686.15` 或更高版本」；`RELEASE_NOTES_0.9.0.md` 记录的实机回归环境是 **HanaAgent 0.769.0**。即：**插件瞄准的是尚未公开发布的宿主版本**。
 
-### 那么能不能「只把门槛改小」？
+### 5.1 「只把门槛改小」够不够？（原判断 + 实测修正）
 
-不建议，理由是可核验的：门槛虽能改，但证据 2 的能力缺口改不掉（cards/functionPanel 不被支持），结果是「装上了、启用了、界面上什么都没有」。这属于把不兼容伪装成可用，不做。
-若你明确要求做这个实验，做法是在 `foundation\external\` 下的**副本**里改 `minAppVersion`（原始发行包保持不动），在文档中标注「本地强制放开，非作者支持配置」，测完用 `DELETE /api/plugins/hana-paper-reader` 完全撤销。
+原先的判断是：不够，因为 cards/functionPanel 不被支持，装上了也「界面上什么都没有」。
 
-### 什么时候能装（一步到位命令）
+**该推论已被实测推翻，在此更正**：
 
-宿主升到 ≥0.686.15 后：
+- 仍然成立的部分：`contributes.cards` / `functionPanel` / `realization` 在 0.449.0 中确实不被识别（证据 2），插件**自带的那个卡片入口**永远不会出现。
+- 被推翻的部分：由此推出「因此没有界面可显示」。这个插件不依赖 cards 也能用——它全部功能走**自己的 HTTP 路由**（`routes/ui.js` 提供 `GET /card`、`GET /page` 两个 HTML 外壳），而宿主的 `contributes.page` 在 0.449.0 里是**支持**的（`index.js:16885`，与 hanako-hyperframes 走同一条通道）。
+- 因此可行的适配是两处：(a) 放开 `minAppVersion`；(b) 补一个 `contributes.page` 指向插件自带的 `/page`。
 
-```powershell
-# 修改 foundation\tools\api_request.json 为：
-# {"method":"POST","path":"/api/plugins/install","body":{"path":"C:/Users/ZhouXuan/Desktop/OH-WorkSpace/foundation/external/hana-paper-reader-0.9.0.zip"}}
-powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\ZhouXuan\Desktop\OH-WorkSpace\foundation\tools\hana_api.ps1
-# 然后启用：PUT /api/plugins/hana-paper-reader/enabled {"enabled":true}
+### 5.2 本机适配安装（已完成 + 实测）
+
+适配副本：`foundation\external\hana-paper-reader-0.9.0-local\`。**原始发行包（zip）与原始解包目录均未改动**，本次适配只存在于这份副本里。
+
+相对原包只有两处改动：
+
+| # | 位置 | 原值 | 本机值 | 理由 |
+| --- | --- | --- | --- | --- |
+| 1 | `manifest.json` → `minAppVersion` | `0.686.15` | `0.449.0` | 让当前宿主放行 |
+| 2 | `manifest.json` → `contributes.page` | 不存在 | `{title, route:"/page", icon}` | 补界面入口，指向插件自带路由 |
+
+两处改动之外，副本与原包逐字节相同（副本由原始解包目录直接复制而来）；附件 zip 与仓库基线包 SHA-256 一致：`E731FE47...11CF193`。
+
+**安装结果（实测）**
+
+```
+POST /api/plugins/install {"path":".../foundation/external/hana-paper-reader-0.9.0-local"}
+→ HTTP 200；status=loaded，activationState=activated，error=null，
+  source=community，pluginKey=community:hana-paper-reader，accessLevel=full-access
 ```
 
-装完必做：在阅读器右上角 MinerU 设置里填 `mineruApiToken`（**只能由你提供，我不会编造**），否则 PDF 解析不可用（0.9.0 只支持 MinerU API 解析，本地解析已移除）。
+| 检查项 | 结果 |
+| --- | --- |
+| `GET /api/plugins` | 列出 hana-paper-reader（loaded） |
+| `GET /api/plugins/pages` | **已包含** hana-paper-reader，`routeUrl=/api/plugins/hana-paper-reader/page` |
+| `GET .../hana-paper-reader/page`、`/card` | 200，`text/html`，1166 B（同一外壳，`data-surface` 随路由变为 page/card） |
+| `GET .../assets/panel.js` | 200，234,949 B |
+| `GET .../assets/research-tools.js` | 200，77,184 B |
+| `GET .../assets/pdfjs.mjs` | 200，1,634,464 B |
+| `GET .../api/mineru-settings` | 200，`{"ok":true,"configured":false,...}` |
+| `GET .../api/session-targets` | 200，27,680 B（真实会话列表） |
+| `GET .../api/agents` | 200，8,707 B |
+| `GET .../api/models` | 200，961 B |
+| `GET .../api/research/library` | 200，`{"ok":true,"items":[],"total":0}` |
+| `GET .../config` | 200，9 项 MinerU 配置 schema |
+| 安装目录 | `~\.hanako\plugins\hana-paper-reader`，53 文件 / 3,872,058 B |
+| `plugin-installs.json` | 已登记：version 0.9.0、source `local`、sourcePath 指向 `-local` 目录 |
+
+即：**插件已实际安装并激活**，宿主侧入口、插件页面、插件 API、宿主能力代理均通。这属于「本地适配下可达」，不等于作者声明的最低宿主版本被满足。
+
+### 5.3 装完以后：能用 / 不能用（诚实边界）
+
+- **能用**（实测返回真实数据）：页面外壳、文库与研究工作区 API、MinerU 设置读写、模型目录、助手目录、会话目标列表与投递。`session` / `provider.read` / `model.sample` 三个 capability 在本机均可用。
+- **不能用（需要你）**：`mineruApiToken` 未配置 → `configured:false`，**PDF 精准解析不可用**（0.9.0 已移除本地解析，必须走 MinerU API）。Token 只能由你提供，我不编造。
+- **未验证**：插件页面在宿主窗口内的**实际渲染效果**（当前会话模型无图像输入能力，截图核验不可用）；宿主窗口是否已即时刷新出该入口（页面列表在启动时拉取，本次已用 `PUT /enabled` 触发过一次 UI 刷新通知，但服务端无法确认渲染进程是否已重取）。
+- **未消除的风险**：作者声明下限 0.686.15，本机 0.449.0。我在可观测层面（路由、能力、配置）未发现不兼容，但 0.9.0 面向 0.769.0 做过实机回归，宿主 API 的细节差异可能落在尚未走到的代码路径上。出现异常时优先怀疑此版本差。
+
+### 5.4 回滚与重装
+
+```powershell
+# 完全卸载（含 ~\.hanako\plugins\hana-paper-reader 与登记信息）
+#   api_request.json: {"method":"DELETE","path":"/api/plugins/hana-paper-reader"}
+# 重装（改完 -local 副本后重装，宿主会覆盖插件目录）
+#   api_request.json: {"method":"POST","path":"/api/plugins/install","body":"{\"path\":\"C:/Users/ZhouXuan/Desktop/OH-WorkSpace/foundation/external/hana-paper-reader-0.9.0-local\"}"}
+powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\ZhouXuan\Desktop\OH-WorkSpace\foundation\tools\hana_api.ps1
+```
+
+注意 `body` 必须是 **JSON 字符串**：`hana_api.ps1` 会 `[string]$req.body` 后直接作为请求体发出，写成 JSON 对象会在宿主侧解析失败。
+
+### 5.5 宿主升到 ≥0.686.15 之后
+
+改用原包安装（`hana-paper-reader-0.9.0.zip`）：届时 `contributes.cards` 若被新宿主支持，卡片入口也会出现，本节的 `-local` 副本即可废弃。装完仍须在阅读器右上角 MinerU 设置里填 `mineruApiToken`。
 
 ---
 
@@ -163,7 +220,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\ZhouXuan\Desktop\OH
 
 | 文件 | 体量 | 角色 |
 | --- | --- | --- |
-| `manifest.json` | 3.6 KB | 插件声明：id/version/minAppVersion/trust=`full-access`、capabilities、network.allowedHosts、configuration 9 项、一个 `cards` 贡献 |
+| `manifest.json` | 3.6 KB | 插件声明：id/version/minAppVersion/trust=`full-access`、capabilities、network.allowedHosts、configuration 9 项、一个 `cards` 贡献（0.449.0 忽略）。`-local` 副本在此之上另加 `page` 并下调 `minAppVersion`，见 §5.2 |
 | `index.js` | 618 B | 生命周期入口。`onload` 注册总线处理器 `hana-paper-reader:status`；`onunload` 记日志。真正的逻辑不在这里 |
 | `routes/ui.js` | 4.4 KB | 两个 HTML 外壳路由：`GET /card`、`GET /page`。注入 `hana-css`/`hana-theme`/`hana-asset-base` 查询参数，`sanitizeAssetBase` 只接受同源且路径等于默认资源根的基址（保留宿主注入的 surface session 凭据） |
 | `routes/api.js` | 103 KB / 2168 行 | 后端主体，约 45 个 API。另导出 `recentWorkspacePaper`、`saveFileToDisk` |
@@ -238,5 +295,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\ZhouXuan\Desktop\OH
 
 - 未验证：是否存在非公开的 HanaAgent 内测通道可拿到 ≥0.686.15（本机 OTA 通道已坏，无法自查）。
 - 未验证：`contributes.cards` 是否会随宿主升级出现（结论基于 0.449.0 产物，宿主升级后需重测）。
-- 待办：宿主升到 ≥0.686.15 后，按 §5 的命令安装 + 填 MinerU Token + 打开卡片做一次实机验收。
-- 待办：`foundation\patches\` 目录尚未建立（第一次真正改插件时建立）。
+- 未验证：hana-paper-reader 页面在宿主窗口内的真实渲染效果（受限于当前模型无图像输入，无法截图核验）。首次打开时如出现空白或报错，先看 `GET /api/plugins` 的 `error` 与宿主日志，再回滚 §5.4。
+- 待办：宿主升到 ≥0.686.15 后，改用原包安装（§5.5）并做一次实机验收。
+- 待办：用户提供 `mineruApiToken` 后，跑通一次「导入 PDF → 精准解析 → 精读」的端到端流程，记录耗时与失败点。
+- 待办：`foundation\patches\` 目录尚未建立（第一次真正改插件时建立；本次适配属副本内改动，未产生补丁）。
