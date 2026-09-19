@@ -49,3 +49,7 @@ _scratch/
 # ── 本地产物缓存（可重建） ─────────────────────────────────────────
 foundation/dryrun/*/visual_audit/preview/
 contract_check.md
+
+# ── 快照助手用的临时消息文件（本地保留、不入库） ────────────────
+_snapshot_msg.txt
+**/_snapshot_msg.txt
