@@ -134,3 +134,27 @@
 - `foundation/docs/plugin-fixes.md`
 - `foundation/tools/install_ffmpeg.ps1`
 - `foundation/tools/verify_ffmpeg.ps1`
+
+## 2026-09-19 19:56:20
+
+**说明**：docs(plugins): 补全插件代码管理地图并记录 hana-paper-reader 安装阻断
+
+- foundation/docs/plugin-code-management.md 重写：修正上一版对 contributes.cards
+  的错误判断（0.449.0 宿主只认 page/widget/settingsTab，cards 被静默忽略），
+  补全两个插件的逐文件改造地图、后端端点分区、宿主总线耦合点、发布包与上游差异。
+- 记录 hana-paper-reader 0.9.0 三重复核证据：POST /api/plugins/install 返回 409
+  PLUGIN_VERSION_INCOMPATIBLE（需 0.686.15+，当前 0.449.0）；cards 贡献在本机无
+  对应宿主实现；公开最高版本 v0.450.0 且 OTA stable 清单拉取失败。本机未安装任何东西。
+- foundation/tools/ 新增 hana_api.ps1（请求描述文件式宿主 API 调用）、
+  clone_plugins.ps1（上游克隆）、plugin_source_diff.ps1（逐文件哈希比对，含行尾归一化）。
+- .gitignore 增补 foundation/vendor/ 与 foundation/tools/api_request.json。
+
+**变更规模**：6 files changed, 390 insertions(+), 1 deletion(-)
+
+**文件清单**（不含本记录文件自身）：
+- `.gitignore`
+- `"OH-Works/\347\232\207\345\256\266\345\215\253\345\243\253GGOB\347\232\204\345\267\241\346\243\200/patrol-log.md"`
+- `foundation/docs/plugin-code-management.md`
+- `foundation/tools/clone_plugins.ps1`
+- `foundation/tools/hana_api.ps1`
+- `foundation/tools/plugin_source_diff.ps1`

@@ -1,4 +1,3 @@
-- [2026-06-21 15:06] 巡检完毕，无需行动。周日凌晨01:14，网络服务已恢复（周六22:39确认，中断约127小时后），距上次巡检仅31分钟，工作区无新变动，自主活动目录60份文档状态良好，周末深夜无需行动。
 - [2026-06-21 15:07] 周日凌晨05:05，网络服务已恢复（22:39确认），创建最新AI导航研究进展笔记，包含Qwen-RobotNav、NVIDIA Alpamayo-R1 VLA模型、DVGT等前沿研究整理，对毕业论文方向有重要参考价值。自主活动目录61份文档状态良好，工作区无变动。
 - [2026-06-21 15:39] 周日下午15:06，网络服务完全恢复（自6/20 22:39起稳定运行约16.5小时）。搜索并整理AgenticNav论文笔记（零样本VLN-CE工具调用范式），更新网络故障分析笔记，创建GPT-5.6 Agent化能力笔记，发送桌面通知提醒用户网络状态和重要研究进展。
 - [2026-06-21 16:10] 周日下午16:08，网络服务完全恢复（自6/20 22:39起稳定运行约17.5小时）。搜索并整理最新AI Agent框架进展笔记，包含Vercel Eve（目录即Agent）、Mastra Harness（Agent harness层）、Microsoft Agent Framework（企业级编排）等框架对比分析，以及对"超级AI个体"构建的技术启示。自主活动目录63份文档状态良好，工作区无变动。
@@ -49,3 +48,4 @@
 - [2026-09-19 18:15] 巡检完毕，无需行动：工作台顶层无新实质变动，SKILL_INDEX.md(17:13)与SKILLS-GOVERNANCE.md(17:01)自上一轮登记后未再变、索引自洽（135技能/136行条目），.hanako/skills 中14:47批量touch的四个目录经核对均已登记（A2/A3/A4/S50），idea-forge即上轮R45，foundation/与contract_check.md为科研助手paper-spine干跑实时产物未触碰，未通知、未新建文件。
 - [2026-09-19 18:46] 巡检完毕，无需行动：工作台顶层18:40-18:45的.git/.gitignore变动为科研助手搭建git工作流（接入GitHub远端ResearchAssistant.git+local-backup镜像、快照自动提交）；核查414个已追踪文件未见cookies/env_vars/凭据类误入库，敏感面干净；SKILLS-GOVERNANCE.md(17:01)与SKILL_INDEX.md(17:13)自上一轮登记后未变、索引自洽，foundation/external/git-save-load为其实时产物未触碰，未通知、未新建文件。
 - [2026-09-19 19:18] 两处被删的 debug*.png（.gitignore 内的 Playwright/Zotero 调试残留，未入库）无需处理；核查发现 18:28 平台批量刷新技能目录，其中 character-creator 为新增平台技能（default-enabled:false）且其4个同类兄弟均已登记，按约定补入 SKILL_INDEX.md 归档层 A5、页首总数 135→136（条目 137），未通知、未触碰科研助手文件。
+- [2026-09-19 19:48] 巡检完毕，无需行动：工作台顶层变动仅 .git/.gitignore/foundation（科研助手 git 工作流与 paper-spine 实时产出，19:47 仍在写），未触碰；复核 .gitignore 与 git ls-files，凭据类文件（qpyun_cookies.txt/env_vars.json）均已忽略、tracked 清单内无真实凭据，新增的 hana_api.ps1 仅从 server-info.json 运行时读取 token、无硬编码密钥；SKILLS-GOVERNANCE.md 止于 17:01、SKILL_INDEX.md 自 19:18 自身登记后未变（无新技能待补），索引自洽，未通知、未新建文件。

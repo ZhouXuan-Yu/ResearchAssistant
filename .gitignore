@@ -25,6 +25,8 @@ foundation/packages/
 foundation/external/
 foundation/backup/
 foundation/tools/poppler/
+foundation/vendor/
+foundation/tools/api_request.json
 
 # ── 构建中间产物：可重建，不入库 ─────────────────────────────────────
 foundation/dryrun/*/texbuild/
