@@ -1,0 +1,150 @@
+# 科研技能路由规则（机器可读）
+# 供 research-os-router 消费。人读版见 RESEARCH-SKILL-MAP.md。
+# 注意：Hana 无原生技能触发遥测，本规则是"应当如何路由"的规范，不是统计结果。
+
+version: 1
+updated: "2026-09-18"
+owner: agent-mu42qzfz
+
+principles:
+  - id: explicit_first
+    rule: 用户显式点名的技能优先于任何默认路由
+  - id: one_primary
+    rule: 同一功能组默认只走主选，备选仅在主选不适用时启用
+  - id: no_stacking
+    rule: 同类产物不叠加两个技能（绘图、润色尤其）
+  - id: ask_when_ambiguous
+    rule: 粒度或阶段不明确时，先确认再执行，不猜测
+  - id: evidence_labels
+    rule: 输出结论必须标注 F(事实)/L(文献)/I(推断)/U(未知)；U 不得补全
+
+groups:
+  A_topic_proposal:
+    primary: idea-forge
+    secondary: [quiet-musing, researchwrite]
+    note: 选题与新颖性判定=idea-forge（人主导）；想清楚问题=quiet-musing；产出计划书/开题正文=researchwrite
+    ruling: "2026-09-19 冲突裁决：A 组原 primary=researchwrite 降为 secondary；理由——A 组的入口意图是生成并判定研究问题，计划书撰写是其下游产物，两者产物不同，不构成能力重叠"
+  B_literature_search:
+    primary: nature-academic-search
+    secondary: [nature-literature-pipeline, nature-downloader, deep-research]
+    mcp: [academic-search]
+    note: 单点检索=academic-search（技能与其自带 MCP 同源）；穷尽综述=literature-pipeline；全文获取=downloader；引文图扩展=zotero.find_related_papers
+  C_reading:
+    primary: nature-paper-card
+    secondary: [nature-reader, paper-deep-reading]
+    note: 要产物= nature-*；只要理解= paper-deep-reading
+  D_citation_verification:
+    primary: nature-ref-verifier
+    secondary: [nature-citation]
+    mcp: [academic-search, zotero]
+    note: 引用真伪=ref-verifier 或 academic-search.get_paper_by_id；引用语境与撤稿检测=zotero.scite_*；引文图=zotero.find_related_papers
+  E_stats_figures:
+    primary: nature-statistics          # 统计
+    figures_primary: scipilot-figure-skill   # 数据图
+    figures_secondary: nature-figure         # 图形摘要/机制图/Nature系
+  F_experiment:
+    primary: nature-experiment-log
+    secondary: [hana-agent-ops]
+  G_writing:
+    primary: nature-writing
+    secondary: [nature-polishing, researchwrite]
+  H_review_rebuttal:
+    primary: academic-paper-reviewer
+    secondary: [nature-reviewer, nature-response]
+  I_submission_data:
+    primary: nature-data
+    secondary: [nature-paper-to-patent]
+  J_knowledge_memory:
+    primary: understand-knowledge
+    secondary: [navi-memory, navi-notes, obsidian-cli]
+  K_presentation:
+    primary: nature-paper2ppt
+    secondary: [nature-image2ppt]
+  L_orchestration:
+    primary: hana-agent-ops
+    spine: paper-spine
+    secondary: [skill-creator, luban, token-guard]
+    note: paper-spine 为【主框架/编排脊柱】，负责跨阶段调度与门控，**非默认入口**，须显式请求才启用；本组 primary 仍为运维治理。单点写作/绘图/审稿仍归 G/E/H 各自的 primary，不双重调度。架构见 ARCHITECTURE-SPINE.md
+  M_document_base:
+    primary: office-documents
+    secondary: [pdf, docx, xlsx, doc]
+
+intents:
+  - match: ["查文献", "检索", "找文献", "检索式", "search literature"]
+    skill: nature-academic-search
+  - match: ["系统综述", "研究现状", "文献综述", "systematic review"]
+    skill: nature-literature-pipeline
+  - match: ["下载全文", "拿全文", "获取原文"]
+    skill: nature-downloader
+  - match: ["中英对照", "英文对照", "reader", "逐段翻译"]
+    skill: nature-reader
+  - match: ["精读", "paper card", "结构化摘要", "提炼方法和证据"]
+    skill: nature-paper-card
+  - match: ["读一下这篇", "快速吃透", "讲讲这篇讲了什么"]
+    skill: paper-deep-reading
+  - match: ["核验引用", "引用是不是真的", "查 doi", "核对参考文献"]
+    skill: nature-ref-verifier
+  - match: ["找支撑文献", "有没有文献支持", "找论据"]
+    skill: nature-citation
+  - match: ["统计审查", "p值", "效应量", "置信区间", "样本量", "多重比较"]
+    skill: nature-statistics
+  - match: ["画论文图", "画图", "科研绘图", "多面板", "误差棒", "箱线图"]
+    skill: scipilot-figure-skill
+  - match: ["图形摘要", "机制示意图", "graphical abstract", "示意图"]
+    skill: nature-figure
+  - match: ["实验记录", "记实验", "复现实验", "实验日志"]
+    skill: nature-experiment-log
+  - match: ["润色", "改写语言", "polish", "翻译成英文（不改内容）"]
+    skill: nature-polishing
+  - match: ["搭结构", "写引言", "写讨论", "组织论证", "draft"]
+    skill: nature-writing
+  - match: ["写计划书", "开题", "proposal", "申报书"]
+    skill: researchwrite
+  - match: ["选题", "想题目", "找一个题", "选题评估", "研究问题定义", "新颖性", "有没有人做过", "值不值得做"]
+    skill: idea-forge
+  - match: ["模拟审稿", "审一下我的稿", "预投稿审查"]
+    skill: academic-paper-reviewer
+  - match: ["写审稿回复", "返修", "rebuttal", "回复审稿人"]
+    skill: nature-response
+  - match: ["数据可用性", "code availability", "FAIR", "数据仓储"]
+    skill: nature-data
+  - match: ["做成 ppt", "组会汇报", "汇报材料"]
+    skill: nature-paper2ppt
+  - match: ["环境自检", "健康检查", "记忆不工作", "模型不通", "看不到图", "配置漂移", "回滚"]
+    skill: hana-agent-ops
+  - match: ["造技能", "新建 skill", "打磨技能"]
+    skill: skill-creator
+  - match: ["省 token", "优化 token"]
+    skill: token-guard
+  - match: ["paperspine", "PaperSpine", "论文全流程", "从零写一篇论文", "全流程写论文", "端到端出稿"]
+    skill: paper-spine
+# MCP 工具（非技能）：真实调用名为 mcp_<connector>_<tool>，用短名会报 Tool not found。
+# 完整登记见 MCP-CAPABILITIES.md
+mcp_capabilities:
+  academic-search:
+    source: skills/nature-academic-search/mcp-server
+    keyless: [crossref, pubmed, arxiv]
+    needs_config: [scopus, sciencedirect]
+    role: [B_literature_search, D_citation_verification]
+  zotero:
+    source: zotero-mcp.exe (ZOTERO_LOCAL=true)
+    role: [B_literature_search, C_reading, D_citation_verification, J_knowledge_memory]
+    notable: [find_related_papers, scite_check_retractions, read_pdf_pages]
+
+guards:
+  - id: G1_citation_before_submission
+    when: 稿件进入投稿准备
+    require: 全部引用经 nature-ref-verifier 核验；未核验标注"尚未完成外部验证"
+  - id: G2_stats_before_submission
+    when: 稿件含定量结果
+    require: 经 nature-statistics 审查统计表述与多重比较
+  - id: G3_reproducibility
+    when: 任何实验结果入稿
+    require: 实验日志含数据版本、代码提交、随机种子；否则不得写入结论
+  - id: G4_no_fabrication
+    when: always
+    require: 不生成虚假文献/DOI/数据；相关不表述为因果；缺失标"待确认"
+
+disabled:
+  - id: academic-research-suite
+    reason: 空壳技能（仅 1 个 SKILL.md），不主动触发；待 research-os-router 取代

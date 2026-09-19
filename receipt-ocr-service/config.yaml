@@ -1,0 +1,13 @@
+# Receipt OCR Service Configuration
+
+server:
+  host: "0.0.0.0"
+  port: 8001
+  workers: 1               # PaddleOCR 非线程安全，单 worker
+
+ocr:
+  lang_list: ["ch_sim", "en"]  # EasyOCR 语言列表
+  use_gpu: false               # Docker CPU 模式；GPU 需 nvidia-docker
+
+logging:
+  level: "INFO"

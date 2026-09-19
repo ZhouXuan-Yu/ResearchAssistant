@@ -1,0 +1,33 @@
+contract_version: "1.0"
+stage: S1
+phase: Creation
+autonomy: 人主导
+produced_by: idea-forge
+produced_at: "2026-09-19T17:40:00+08:00"
+subject: "idea-002 真实选题演练：MM-RAG 视觉证据归因（公开领域，非用户选题提案）"
+upstream: []
+inputs: []
+artifacts:
+  - foundation/dryrun/idea-002/idea_options.md
+  - foundation/dryrun/idea-002/novelty_check.md
+claims: []
+gates:
+  nearest_work_present: pass
+  falsifier_present: pass
+  feasibility_stated: pass
+  no_hype_words: pass
+reproducibility:
+  data_version: "n/a（S1 不产数据；候选基准许可未核实）"
+  code_commit: "n/a"
+  seed: "n/a"
+verification:
+  checked: 3
+  unresolved: 5
+  notes: "3 个候选：1 合格、1 待核、1 不合格被排除；C3 的排除依据为 arXiv:2607.16604 摘要原文"
+unresolved:
+  - "C1/C2 的最近邻未读全文，不得声称此前无人研究；C2 新颖性仅到待核级"
+  - "仅一次定向检索，未做系统检索，不排除更近先期工作"
+  - "候选所用基准的使用许可未核实"
+  - "算力与时间估计未做实测校准"
+  - "C1 的扰动设计存在整体退化混杂风险，需先做对照实验定标"
+next: S2

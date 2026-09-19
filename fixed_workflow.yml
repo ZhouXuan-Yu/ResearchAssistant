@@ -1,0 +1,767 @@
+app:
+  description: HR简历筛选助手 - 自动拉取邮件、解析简历、AI评估打分
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 简历-招聘
+workflow:
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1782725211723-source-1782722679833-target
+      selected: false
+      source: '1782725211723'
+      sourceHandle: source
+      target: '1782722679833'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1782725226412-source-1782790100001-target
+      selected: false
+      source: '1782725226412'
+      sourceHandle: source
+      target: '1782790100001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1782790100001-source-answer-target
+      selected: false
+      source: '1782790100001'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: http-request
+      id: 1782706958988-source-1782723109454-target
+      selected: false
+      source: '1782706958988'
+      sourceHandle: source
+      target: '1782723109454'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1782723109454-source-1782725211723-target
+      selected: false
+      source: '1782723109454'
+      sourceHandle: source
+      target: '1782725211723'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: 1782704623626-source-1782706958988-target
+      selected: false
+      source: '1782704623626'
+      sourceHandle: source
+      target: '1782706958988'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1782725226412'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1782725226412start-source-1782727072077-target
+      selected: false
+      source: 1782725226412start
+      sourceHandle: source
+      target: '1782727072077'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1782722679833-source-1782786694136-target
+      source: '1782722679833'
+      sourceHandle: source
+      target: '1782786694136'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: iteration
+      id: 1782786694136-source-1782725226412-target
+      source: '1782786694136'
+      sourceHandle: source
+      target: '1782725226412'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1782725226412'
+        sourceType: iteration-start
+        targetType: llm
+      id: e0754e4b-a933-43b9-aca2-dfec695d0ff4
+      source: 1782725226412start
+      sourceHandle: source
+      target: '1782727041328'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: 已在邮件网关 /accounts/ 配置时可留空
+          label: 邮箱地址
+          max_length: null
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: email_address
+        - default: ''
+          hint: 已在邮件网关 /accounts/ 配置时可留空
+          label: ' IMAP 授权码'
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: auth_code
+        - default: ''
+          hint: ''
+          label: 岗位描述
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: raw_jd_text
+      height: 160
+      id: '1782704623626'
+      position:
+        x: -2141.5100835656053
+        y: -232.22946211736254
+      positionAbsolute:
+        x: -2141.5100835656053
+        y: -232.22946211736254
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1782790100001.report#}}'
+        selected: false
+        title: 结束
+        type: answer
+        variables: []
+      height: 102
+      id: answer
+      position:
+        x: 888.6412799579583
+        y: 5.101669328008484
+      positionAbsolute:
+        x: 888.6412799579583
+        y: 5.101669328008484
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        error_strategy: fail-branch
+        headers: ''
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 3000
+        selected: false
+        ssl_verify: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 120
+        title: 拉取邮件
+        type: http-request
+        url: http://email-gateway:8899/api/v1/crawl
+        variables: []
+      height: 172
+      id: '1782706958988'
+      position:
+        x: -1695.4175790098286
+        y: -231.88271349892608
+      positionAbsolute:
+        x: -1695.4175790098286
+        y: -231.88271349892608
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        error_strategy: fail-branch
+        model:
+          completion_params:
+            max_tokens: 2048
+            temperature: 0.2
+            top_p: 1
+          mode: chat
+          name: qwen3.5-35b
+          provider: yangyaofei/vllm/vllm
+        prompt_template:
+        - id: b4e0dec4-a074-4de3-81e5-d26d26e7cdce
+          role: system
+          text: '你是资深招聘专家，基于短JD扩写标准化岗位匹配JSON，严格遵守规则：
+
+            1. 完全依托原文扩写，不许擅自修改岗位、编造年限/技术/福利；
+
+            2. 原文所有技术、招聘类型、优先条件必须完整保留，仅整理润色，语义不变；
+
+            输出仅纯净JSON，禁止markdown、```、额外文字，固定结构不可增删：
+
+            {"title":"","requirements":[],"nice_to_have":[],"full_jd_text":""}
+
+            字段规范：
+
+            title：贴合原文岗位名，标注实习/全职；
+
+            requirements：硬性基础要求3~6条；
+
+            nice_to_have：加分优先项2~5条；
+
+            full_jd_text：200-400字完整岗位描述，含职责、招聘类型、福利，用于简历匹配打分。'
+        - id: 01e1bbc9-8f11-48c7-901b-8e1951c30140
+          role: user
+          text: '【短JD】
+
+            {{#1782704623626.raw_jd_text#}}'
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: 扩写JD
+        type: llm
+        vision:
+          enabled: false
+      height: 152
+      id: '1782722679833'
+      position:
+        x: -659.4576066637512
+        y: -175.51724161591767
+      positionAbsolute:
+        x: -659.4576066637512
+        y: -175.51724161591767
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 30
+        title: 获取候选人
+        type: http-request
+        url: http://email-gateway:8899/api/v1/extractions?per_page=50
+        variables: []
+      height: 152
+      id: '1782723109454'
+      position:
+        x: -1326.2951765692271
+        y: -211.22946211736254
+      positionAbsolute:
+        x: -1326.2951765692271
+        y: -211.22946211736254
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\n\nJUNK_NAMES = {\"这里退订\", \"官方实习\", \"考试大纲\", \"智联招聘\"\
+          , \"HarmonyOS\"}\n\ndef main(candidates_body: str) -> dict:\n    try:\n\
+          \        data = json.loads(candidates_body) if candidates_body else {}\n\
+          \    except Exception:\n        data = {}\n\n    items = data.get(\"items\"\
+          ) or []\n    normal = []\n    review = []\n\n    for c in items:\n     \
+          \   name = (c.get(\"name\") or \"\").strip()\n        phone = (c.get(\"\
+          phone\") or \"\").strip()\n        raw_text = (c.get(\"raw_text\") or \"\
+          \").strip()\n        confidence = c.get(\"confidence\") or 0\n\n       \
+          \ is_junk = (name in JUNK_NAMES) or (\"退订\" in name)\n        has_content\
+          \ = len(raw_text) > 80 or bool(phone)\n        is_resume = has_content and\
+          \ confidence >= 0.25 and not is_junk\n\n        if is_resume:\n        \
+          \    entry = dict(c)\n            entry[\"raw_text_short\"] = raw_text[:2500]\n\
+          \            normal.append(entry)\n        else:\n            reason = \"\
+          解析置信度低或内容不足，需人工复核\"\n            if is_junk:\n                reason = \"\
+          疑似营销邮件\"\n            elif not raw_text:\n                reason = \"QQ超大附件未下载或PDF解析失败\"\
+          \n            review.append({\n                \"id\": c.get(\"id\"),\n\
+          \                \"name\": name or \"未知\",\n                \"reason\":\
+          \ reason,\n            })\n\n    normal = normal[:10]\n    review = review[:20]\n\
+          \n    return {\n        \"normal_list\": normal,\n        \"review_list\"\
+          : review,\n        \"normal_count\": len(normal),\n        \"review_count\"\
+          : len(review),\n    }"
+        code_language: python3
+        error_strategy: fail-branch
+        outputs:
+          normal_count:
+            children: null
+            type: number
+          normal_list:
+            children: null
+            type: array[object]
+          review_count:
+            children: null
+            type: number
+          review_list:
+            children: null
+            type: array[object]
+        selected: false
+        title: 过滤分流
+        type: code
+        variables:
+        - value_selector:
+          - '1782723109454'
+          - body
+          value_type: string
+          variable: candidates_body
+      height: 87
+      id: '1782725211723'
+      position:
+        x: -1060.8433691521225
+        y: -131.81787050061163
+      positionAbsolute:
+        x: -1060.8433691521225
+        y: -131.81787050061163
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        error_handle_mode: continue-on-error
+        flatten_output: true
+        height: 293
+        is_parallel: false
+        iterator_input_type: array[object]
+        iterator_selector:
+        - '1782725211723'
+        - normal_list
+        output_selector:
+        - '1782727072077'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1782725226412start
+        title: 遍历候选人
+        type: iteration
+        width: 961.0865426293628
+      height: 293
+      id: '1782725226412'
+      position:
+        x: -104.76753558642491
+        y: -257.2341343347882
+      positionAbsolute:
+        x: -104.76753558642491
+        y: -257.2341343347882
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 961
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1782725226412start
+      parentId: '1782725226412'
+      position:
+        x: 60
+        y: 60
+      positionAbsolute:
+        x: -44.76753558642491
+        y: -197.23413433478822
+      selectable: false
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        error_strategy: fail-branch
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1782725226412'
+        model:
+          completion_params:
+            max_tokens: 2048
+            temperature: 0.3
+            top_p: 1
+          mode: chat
+          name: qwen3.5-35b
+          provider: yangyaofei/vllm/vllm
+        prompt_template:
+        - id: 6781e75d-d7db-4997-90c9-731099009bc2
+          role: system
+          text: '抽取画像和技能标签，不要打分。
+
+
+            姓名：{{#1782725226412.item.name#}}
+
+            电话：{{#1782725226412.item.phone#}}
+
+            邮箱：{{#1782725226412.item.email#}}
+
+            技能：{{#1782725226412.item.skills#}}
+
+            教育：{{#1782725226412.item.education#}}
+
+            经历：{{#1782725226412.item.experience#}}
+
+            简历正文：{{#1782725226412.item.raw_text_short#}}
+
+
+            只输出 JSON：
+
+            {"summary_50":"","content":"","key_points":[],"skills":[{"skill":"","category":"","proficiency":"","years":0}]}'
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: 画像标签
+        type: llm
+        vision:
+          enabled: false
+      height: 152
+      id: '1782727041328'
+      parentId: '1782725226412'
+      position:
+        x: 126.2921396079915
+        y: 65
+      positionAbsolute:
+        x: 21.52460402156659
+        y: -192.23413433478822
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        error_strategy: fail-branch
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1782725226412'
+        model:
+          completion_params:
+            max_tokens: 1024
+            temperature: 0.2
+            top_p: 1
+          mode: chat
+          name: qwen3.5-35b
+          provider: yangyaofei/vllm/vllm
+        prompt_template:
+        - id: 005133e5-c89d-4383-b588-aa22b2524068
+          role: system
+          text: '你是专业招聘匹配专家。根据岗位JD与候选人简历信息，输出0-100分匹配结果。
+
+            硬性规则： 1. 仅输出纯净JSON，禁止markdown和```； 2. tier仅允许：推荐面试 / 待定 / 归档； 3. 80~100推荐面试，60~79待定，0~59归档；
+
+            固定结构： {"name":"","match_score":0,"tier":"","match_reason":"","key_points":[],"summary_50":""}'
+        - id: 9b9b274e-29f5-4c6c-81fb-1e251ddb9f91
+          role: user
+          text: '【岗位JD】 {{#1782786694136.full_jd_text#}} {{#1782704623626.raw_jd_text#}}
+
+            【候选人】 姓名：{{#1782725226412.item.name#}} 电话：{{#1782725226412.item.phone#}}
+            技能：{{#1782725226412.item.skills#}} 简历正文：{{#1782725226412.item.raw_text_short#}}
+
+            请输出匹配打分JSON。'
+        retry_config:
+          max_retries: 2
+          retry_enabled: true
+          retry_interval: 2000
+        selected: false
+        title: 匹配打分
+        type: llm
+        vision:
+          enabled: false
+      height: 152
+      id: '1782727072077'
+      parentId: '1782725226412'
+      position:
+        x: 399.6620476077616
+        y: 70.6979800864047
+      positionAbsolute:
+        x: 294.8945120213367
+        y: -186.53615424838353
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "import json\nimport re\n\ndef main(jd_text: str) -> dict:\n    text\
+          \ = (jd_text or \"\").strip()\n    text = re.sub(r\"^```(?:json)?\\s*\"\
+          , \"\", text, flags=re.IGNORECASE)\n    text = re.sub(r\"\\s*```$\", \"\"\
+          , text)\n\n    try:\n        data = json.loads(text)\n    except Exception:\n\
+          \        data = {\n            \"title\": \"\",\n            \"requirements\"\
+          : [],\n            \"nice_to_have\": [],\n            \"full_jd_text\":\
+          \ text,\n        }\n\n    return {\n        \"result\": json.dumps(data,\
+          \ ensure_ascii=False),\n        \"full_jd_text\": data.get(\"full_jd_text\"\
+          ) or \"\",\n        \"jd_title\": data.get(\"title\") or \"\",\n    }"
+        code_language: python3
+        error_strategy: fail-branch
+        outputs:
+          full_jd_text:
+            children: null
+            type: string
+          jd_title:
+            children: null
+            type: string
+          result:
+            children: null
+            type: string
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: 解析JD
+        type: code
+        variables:
+        - value_selector:
+          - '1782722679833'
+          - text
+          value_type: string
+          variable: jd_text
+      height: 116
+      id: '1782786694136'
+      position:
+        x: -370.55616101401876
+        y: -340.07666212409424
+      positionAbsolute:
+        x: -370.55616101401876
+        y: -340.07666212409424
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\n\ndef _parse_llm(text: str) -> dict | None:\n\
+          \    if not text:\n        return None\n    t = text.strip()\n    t = re.sub(r\"\
+          ^```(?:json)?\\s*\", \"\", t, flags=re.I)\n    t = re.sub(r\"\\s*```$\"\
+          , \"\", t)\n    try:\n        return json.loads(t)\n    except Exception:\n\
+          \        return {\"name\": \"\", \"match_score\": 0, \"tier\": \"未知\", \"\
+          match_reason\": t[:300], \"key_points\": [], \"summary_50\": \"\"}\n\ndef\
+          \ main(match_outputs: list, review_list: list, crawl_body: str, full_jd_text:\
+          \ str, jd_title: str, normal_count: int) -> dict:\n    parsed = []\n   \
+          \ for raw in (match_outputs or []):\n        p = _parse_llm(raw)\n     \
+          \   if p:\n            parsed.append(p)\n    parsed.sort(key=lambda x: x.get(\"\
+          match_score\") or 0, reverse=True)\n\n    tier1, tier2, tier3 = [], [],\
+          \ []\n    for p in parsed:\n        score = p.get(\"match_score\") or 0\n\
+          \        tier = str(p.get(\"tier\") or \"\")\n        if score >= 80 or\
+          \ \"推荐\" in tier:\n            tier1.append(p)\n        elif score >= 60\
+          \ or \"待定\" in tier:\n            tier2.append(p)\n        else:\n     \
+          \       tier3.append(p)\n\n    try:\n        crawl = json.loads(crawl_body)\
+          \ if crawl_body else {}\n    except Exception:\n        crawl = {}\n\n \
+          \   lines = [\"# \U0001F4CB 简历初筛报告\", \"\"]\n    lines.append(f\"**岗位**：{jd_title\
+          \ or '（见下方）'}\")\n    lines.append(f\"**本轮评分**：{len(parsed)} 人 | **进入匹配池**：{normal_count}\
+          \ 人\")\n    lines.append(\"\")\n\n    if crawl:\n        lines.append(\"\
+          ## \U0001F4EC 拉信摘要\")\n        lines.append(f\"- 处理邮件：{crawl.get('emails_processed',\
+          \ '?')} 封\")\n        lines.append(f\"- 本轮新解析：{crawl.get('parsed', '?')}\
+          \ 份（0 表示沿用历史解析结果）\")\n        lines.append(f\"- 同步人才库：{crawl.get('candidates_synced',\
+          \ '?')} 人\")\n        errs = crawl.get('errors') or []\n        if errs:\n\
+          \            lines.append(f\"- ⚠️ 附件下载失败：{len(errs)} 条（QQ超大附件需Cookie或手动上传）\"\
+          )\n        lines.append(\"\")\n\n    jd = (full_jd_text or \"\").strip()\n\
+          \    if jd:\n        lines.append(\"## \U0001F4CC 岗位要求\")\n        lines.append(jd[:600])\n\
+          \        lines.append(\"\")\n\n    def block(title: str, rows: list, icon:\
+          \ str):\n        if not rows:\n            return\n        lines.append(f\"\
+          ## {icon} {title}（{len(rows)} 人）\")\n        lines.append(\"\")\n      \
+          \  for i, p in enumerate(rows, 1):\n            name = p.get(\"name\") or\
+          \ \"未知\"\n            score = p.get(\"match_score\") or 0\n            lines.append(f\"\
+          ### {i}. {name} · {score} 分 · {p.get('tier') or '-'}\")\n            if\
+          \ p.get(\"summary_50\"):\n                lines.append(f\"> {p['summary_50']}\"\
+          )\n            if p.get(\"match_reason\"):\n                lines.append(f\"\
+          **分析**：{p['match_reason']}\")\n            kps = p.get(\"key_points\") or\
+          \ []\n            if kps:\n                lines.append(\"**要点**：\" + \"\
+          \ · \".join(str(k) for k in kps[:8]))\n            lines.append(\"\")\n\n\
+          \    block(\"推荐面试（80+）\", tier1, \"\U0001F7E2\")\n    block(\"待定 / 进一步了解（60-79）\"\
+          , tier2, \"\U0001F7E1\")\n    block(\"归档 / 暂不推荐（<60）\", tier3, \"\U0001F534\
+          \")\n\n    reviews = review_list if isinstance(review_list, list) else []\n\
+          \    if reviews:\n        lines.append(\"## ⚠️ 需人工复核\")\n        for r in\
+          \ reviews:\n            if isinstance(r, dict):\n                lines.append(f\"\
+          - **{r.get('name','?')}**：{r.get('reason','')}\")\n        lines.append(\"\
+          \")\n\n    if not parsed:\n        lines.append(\"## ❗ 提示\")\n        lines.append(\"\
+          本轮未产生有效评分 JSON，请检查「匹配打分」LLM 节点是否报错。\")\n        lines.append(\"\")\n\n \
+          \   lines.append(\"---\")\n    lines.append(\"*自动初筛仅供参考，面试决策请 HR 最终确认。*\"\
+          )\n    return {\"report\": \"\\n\".join(lines)}"
+        code_language: python3
+        outputs:
+          report:
+            children: null
+            type: string
+        selected: false
+        title: 汇总报告
+        type: code
+        variables:
+        - value_selector:
+          - '1782725226412'
+          - output
+          value_type: array[string]
+          variable: match_outputs
+        - value_selector:
+          - '1782725211723'
+          - review_list
+          value_type: array[object]
+          variable: review_list
+        - value_selector:
+          - '1782706958988'
+          - body
+          value_type: string
+          variable: crawl_body
+        - value_selector:
+          - '1782786694136'
+          - full_jd_text
+          value_type: string
+          variable: full_jd_text
+        - value_selector:
+          - '1782786694136'
+          - jd_title
+          value_type: string
+          variable: jd_title
+        - value_selector:
+          - '1782725211723'
+          - normal_count
+          value_type: number
+          variable: normal_count
+      height: 51
+      id: '1782790100001'
+      position:
+        x: 520
+        y: -120
+      positionAbsolute:
+        x: 520
+        y: -120
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 41.98666820232074
+      y: 562.8343019242436
+      zoom: 0.6738985415672271

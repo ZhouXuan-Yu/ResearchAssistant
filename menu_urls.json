@@ -1,0 +1,802 @@
+[
+  {
+    "url": "ale/Index.aspx?1=1&ModuleID=1845",
+    "text": "销售管理"
+  },
+  {
+    "url": "ale/Index.aspx?1=1&ModuleID=1845",
+    "text": "销售看板"
+  },
+  {
+    "url": "ommon/customerinfomanager.aspx?flag=1&moduleid=361&uniquecode=menu_bas_customer_list",
+    "text": "客户档案"
+  },
+  {
+    "url": "ommon/usersalestaskmanage.aspx?moduleid=2851&uniquecode=",
+    "text": "业务员销售任务管理"
+  },
+  {
+    "url": "urchase/limitprice.aspx?1=1&moduleid=2770&uniquecode=",
+    "text": "个性限价"
+  },
+  {
+    "url": "eport/reportstockquery.aspx?1=1&flag=2&moduleid=4270&uniquecode=",
+    "text": "缺件满足情况"
+  },
+  {
+    "url": "ttps://report.qpyun.cn/reportcustomercontract/index?1=1&moduleid=4210&uniquecode=",
+    "text": "客户合同"
+  },
+  {
+    "url": "ommon/logisticsinfomanage.aspx?1=1&flag=3&moduleid=2&uniquecode=",
+    "text": "物流公司资料"
+  },
+  {
+    "url": "tock/otherinoutinfomanage.aspx?1=1&flagid=-1&typeid=1&moduleid=2330&uniquecode=",
+    "text": "客户赠品"
+  },
+  {
+    "url": "ecommerce/customersalestracking.aspx?flag=1&moduleid=6710&uniquecode=",
+    "text": "线索推销过程追踪"
+  },
+  {
+    "url": "ale/salqacardmanage.aspx?1=1&moduleid=6430&uniquecode=",
+    "text": "质保管理"
+  },
+  {
+    "url": "ommon/logisticsinfomanage.aspx?1=1&flag=3&isplatform=1&moduleid=5090&uniquecode=",
+    "text": "平台档案"
+  },
+  {
+    "url": "ale/saladpricemanage.aspx?1=1&moduleid=1230&uniquecode=",
+    "text": "销售调价"
+  },
+  {
+    "url": "ale/orderinfomanage.aspx?1=1&moduleid=179&uniquecode=menu_sal_order_list",
+    "text": "销售手推车"
+  },
+  {
+    "url": "ale/saleinfomanage.aspx?1=1&moduleid=173&uniquecode=menu_sal_sale_list",
+    "text": "销售单"
+  },
+  {
+    "url": "ale/requireinfomanage.aspx?1=1&moduleid=172&uniquecode=",
+    "text": "销售缺件"
+  },
+  {
+    "url": "ale/quoteinfomanage.aspx?1=1&moduleid=832&uniquecode=menu_sal_quote_list",
+    "text": "报价订单"
+  },
+  {
+    "url": "eport/reportcreatercommissionlink.aspx?1=1&ispeportpopdeoms=3&moduleid=3990&uniquecode=",
+    "text": "我的业绩"
+  },
+  {
+    "url": "ale/returninfomanage.aspx?1=1&moduleid=169&uniquecode=menu_sal_return_list",
+    "text": "销售退货"
+  },
+  {
+    "url": "ale/shoppingbillinfomanage.aspx?1=1&moduleid=772&uniquecode=",
+    "text": "报销单"
+  },
+  {
+    "url": "ale/orderinfomanage.aspx?isquick=1&moduleid=5050&uniquecode=",
+    "text": "简易开单"
+  },
+  {
+    "url": "ale/quickquotationmanage.aspx?1=1&moduleid=3370&uniquecode=",
+    "text": "快速报价"
+  },
+  {
+    "url": "ale/presellplan.aspx?moduleid=5250&uniquecode=",
+    "text": "预售订单"
+  },
+  {
+    "url": "ale/insuranceinfomanage.aspx?moduleid=5230&uniquecode=",
+    "text": "保单处理"
+  },
+  {
+    "url": "eport/index.aspx?1=1&moduleid=284&uniquecode=",
+    "text": "报表中心"
+  },
+  {
+    "url": "tock/Index.aspx?1=1&ModuleID=1843",
+    "text": "库存管理"
+  },
+  {
+    "url": "tock/Index.aspx?1=1&ModuleID=1843",
+    "text": "库存看板"
+  },
+  {
+    "url": "tock/ininfomanage.aspx?1=1&moduleid=432&uniquecode=",
+    "text": "入仓单"
+  },
+  {
+    "url": "urchase/purchaseallotinfoedit.aspx?1=1&moduleid=2752&uniquecode=",
+    "text": "调拨入库"
+  },
+  {
+    "url": "tock/allotreturnforchainpurchase.aspx?moduleid=3090&uniquecode=",
+    "text": "调拨退货"
+  },
+  {
+    "url": "tock/otherinoutinfomanage.aspx?flagid=1&moduleid=1310&uniquecode=",
+    "text": "其他入库"
+  },
+  {
+    "url": "tock/outinfomanage.aspx?1=1&moduleid=433&uniquecode=",
+    "text": "出仓单"
+  },
+  {
+    "url": "tock/allotinfomanage.aspx?1=1&moduleid=186&uniquecode=menu_stk_allot_list",
+    "text": "调拨出库"
+  },
+  {
+    "url": "tock/in_out_whousegroupmanagement.aspx?moduleid=3830&uniquecode=",
+    "text": "出入仓分组管理"
+  },
+  {
+    "url": "tock/outinfoconsole.aspx?&moduleid=3951&uniquecode=",
+    "text": "发货区控制台"
+  },
+  {
+    "url": "tock/otherinoutinfomanage.aspx?flagid=-1&moduleid=1311&uniquecode=menu_stk_otherin_list",
+    "text": "其他出库"
+  },
+  {
+    "url": "tock/checklistinfomanage.aspx?1=1&moduleid=426&uniquecode=",
+    "text": "盘点清单"
+  },
+  {
+    "url": "tock/checkinfomanage.aspx?1=1&action=query&moduleid=431&uniquecode=",
+    "text": "盘点调整单"
+  },
+  {
+    "url": "tock/moveinfomanage.aspx?1=1&moduleid=188&uniquecode=",
+    "text": "仓库移货"
+  },
+  {
+    "url": "tock/chainrepairmanage.aspx?1=1&moduleid=1992&uniquecode=",
+    "text": "连锁补货"
+  },
+  {
+    "url": "eport/stkbalance.aspx?typeid=1&moduleid=692&uniquecode=",
+    "text": "库存浏览"
+  },
+  {
+    "url": "report/reportbanlanceforbatch.aspx?typeid=1&moduleid=4770&uniquecode=",
+    "text": "批次码浏览"
+  },
+  {
+    "url": "tock/otherinoutinfomanage.aspx?1=1&flagid=-1&pagefrom=prodscrap&moduleid=2910&uniquecode=",
+    "text": "配件报废"
+  },
+  {
+    "url": "eport/reportproductpriceinfoedit.aspx?1=1&moduleid=1130&uniquecode=",
+    "text": "库存优化"
+  },
+  {
+    "url": "eport/reportbalanceformoreshelf.aspx?1=1&typeid=1&moduleid=6150&uniquecode=",
+    "text": "一货多位库存查询"
+  },
+  {
+    "url": "eport/centralizewhbanlance.aspx?1=1&moduleid=6730&uniquecode=",
+    "text": "集中仓库存查询"
+  },
+  {
+    "url": "ommon/structureinfomamage.aspx?1=1&moduleid=1093&uniquecode=",
+    "text": "模块管理"
+  },
+  {
+    "url": "urchase/purpackageinfomanage.aspx?1=1&moduleid=1090&uniquecode=",
+    "text": "套件组装"
+  },
+  {
+    "url": "urchase/purdismountinginfomanage.aspx?1=1&moduleid=1091&uniquecode=",
+    "text": "套件拆装"
+  },
+  {
+    "url": "urchase/purkitassemblyinfomanage.aspx?moduleid=5390&uniquecode=",
+    "text": "套件装配"
+  },
+  {
+    "url": "tock/receivingmanage.aspx?1=1&moduleid=1950&uniquecode=",
+    "text": "物流收货单"
+  },
+  {
+    "url": "ale/deliveryinfomanage.aspx?1=1&moduleid=1951&uniquecode=",
+    "text": "物流发运单"
+  },
+  {
+    "url": "tock/deliverybehalfcheck.aspx?moduleid=3030&uniquecode=",
+    "text": "物流代收对账"
+  },
+  {
+    "url": "tock/deliverysendstate.aspx?moduleid=3011&uniquecode=",
+    "text": "发货查询"
+  },
+  {
+    "url": "eport/index.aspx?1=1&moduleid=187&uniquecode=",
+    "text": "报表中心"
+  },
+  {
+    "url": "ModuleID=3930",
+    "text": "云仓管理"
+  },
+  {
+    "url": "tock/routelossdeal.aspx?1=1&moduleid=3931&uniquecode=",
+    "text": "云仓途损处理"
+  },
+  {
+    "url": "tock/reportcloudstoreoutrate.aspx?1=1&moduleid=5850&uniquecode=",
+    "text": "仓储出仓进度查询"
+  },
+  {
+    "url": "ttps://report.qpyun.cn//reportcloudstoreinrate/index?1=1&moduleid=5810&uniquecode=",
+    "text": "仓储入仓进度查询"
+  },
+  {
+    "url": "urchase/Index.aspx?1=1&ModuleID=1844",
+    "text": "采购管理"
+  },
+  {
+    "url": "urchase/Index.aspx?1=1&ModuleID=1844",
+    "text": "采购看板"
+  },
+  {
+    "url": "urchase/orderformula.aspx?1=1&moduleid=424&uniquecode=",
+    "text": "采购订货公式"
+  },
+  {
+    "url": "ommon/customerinfomanager.aspx?flag=2&moduleid=403&uniquecode=menu_bas_vendor_list",
+    "text": "供应商档案"
+  },
+  {
+    "url": "tock/otherinoutinfomanage.aspx?1=1&flagid=1&typeid=1&moduleid=2331&uniquecode=",
+    "text": "供应商赠品"
+  },
+  {
+    "url": "urchase/ordersmanage.aspx?1=1&moduleid=184&uniquecode=menu_pur_order_list",
+    "text": "采购订单"
+  },
+  {
+    "url": "urchase/purchaseinfomanage.aspx?1=1&moduleid=183&uniquecode=menu_pur_purchase_list",
+    "text": "采购入库"
+  },
+  {
+    "url": "ale/exigenceinfomanage.aspx?1=1&moduleid=673&uniquecode=menu_sal_exigence_list",
+    "text": "急件处理"
+  },
+  {
+    "url": "urchase/returninfomanage.aspx?1=1&moduleid=182&uniquecode=menu_pur_return_list",
+    "text": "采购退货"
+  },
+  {
+    "url": "urchase/purchasereadjustinfomanage.aspx?1=1&moduleid=2232&uniquecode=",
+    "text": "采购调价"
+  },
+  {
+    "url": "urchase/unsalablerecommendmanage.aspx?1=1&moduleid=5212&uniquecode=",
+    "text": "滞品汇优势推荐"
+  },
+  {
+    "url": "ccount/accpaymentinfomanage.aspx?1=1&pagefrom=payapply&moduleid=2510&uniquecode=",
+    "text": "支付申请"
+  },
+  {
+    "url": "ccount/chainaccpaymentinfomanage.aspx?moduleid=5010&uniquecode=",
+    "text": "分店支付申请"
+  },
+  {
+    "url": "eport/index.aspx?1=1&moduleid=180&uniquecode=",
+    "text": "报表中心"
+  },
+  {
+    "url": "ccount/Index.aspx?1=1&ModuleID=1846",
+    "text": "资金管理"
+  },
+  {
+    "url": "ccount/Index.aspx?1=1&ModuleID=1846",
+    "text": "资金看板"
+  },
+  {
+    "url": "ccount/accreceivableinfomanage.aspx?1=1&moduleid=178&uniquecode=",
+    "text": "应收账款"
+  },
+  {
+    "url": "ccount/predictreceiveinfomange.aspx?1=1&moduleid=176&uniquecode=",
+    "text": "预收账款"
+  },
+  {
+    "url": "ccount/dealinfomanage.aspx?1=1&moduleid=1312&uniquecode=",
+    "text": "批量收款"
+  },
+  {
+    "url": "ale/settlementmanage.aspx?1=1&moduleid=532&uniquecode=",
+    "text": "现金收银"
+  },
+  {
+    "url": "ccount/exigencesaleaccreceivable.aspx?moduleid=3810&uniquecode=",
+    "text": "急件销售单收款"
+  },
+  {
+    "url": "ccount/accotherinfomanage.aspx?1=1&flag=in&moduleid=732&uniquecode=",
+    "text": "其他收入"
+  },
+  {
+    "url": "ccount/accrebateinfomanege.aspx?1=1&moduleid=6670&uniquecode=",
+    "text": "返利单"
+  },
+  {
+    "url": "ccount/accreceivableconfirminfomanage.aspx?1=1&moduleid=2470&uniquecode=",
+    "text": "应收确认"
+  },
+  {
+    "url": "ccount/accreceivabledetailinfosearchmanage.aspx?1=1&moduleid=2954&uniquecode=",
+    "text": "其他应收"
+  },
+  {
+    "url": "ale/noteinfomanage.aspx?1=1&moduleid=1510&uniquecode=",
+    "text": "销售票据"
+  },
+  {
+    "url": "ccount/accgatheringinfomanage.aspx?1=1&moduleid=472&uniquecode=",
+    "text": "收款"
+  },
+  {
+    "url": "ccount/accpaymentinfomanage.aspx?1=1&moduleid=492&uniquecode=",
+    "text": "付款"
+  },
+  {
+    "url": "ccount/accountwriteoffslist.aspx?1=1&moduleid=2110&uniquecode=",
+    "text": "应收冲应付"
+  },
+  {
+    "url": "ccount/tripartitewriteoff.aspx?moduleid=4811&uniquecode=",
+    "text": "三方应收冲应付"
+  },
+  {
+    "url": "ccount/accpayableinfomanage.aspx?1=1&moduleid=177&uniquecode=",
+    "text": "应付账款"
+  },
+  {
+    "url": "ccount/predictpayinfomanage.aspx?1=1&moduleid=175&uniquecode=",
+    "text": "预付账款"
+  },
+  {
+    "url": "ccount/dealtovendorinfomanage.aspx?1=1&moduleid=1314&uniquecode=",
+    "text": "批量付款"
+  },
+  {
+    "url": "ccount/acccash.aspx?1=1&moduleid=892&uniquecode=",
+    "text": "现金付款"
+  },
+  {
+    "url": "ccount/accotherinfomanage.aspx?1=1&flag=out&moduleid=752&uniquecode=",
+    "text": "费用支出"
+  },
+  {
+    "url": "ccount/accpayconfirminfomanage.aspx?moduleid=3690&uniquecode=",
+    "text": "应付确认"
+  },
+  {
+    "url": "ccount/chainaccotherinfomanage.aspx?1=1&moduleid=6290&uniquecode=",
+    "text": "连锁费用支出管理"
+  },
+  {
+    "url": "ccount/accbalanceinfomanage.aspx?1=1&moduleid=455&uniquecode=",
+    "text": "支付方式"
+  },
+  {
+    "url": "ccount/accexpensesinfomanege.aspx?1=1&moduleid=1371&uniquecode=",
+    "text": "费用报销"
+  },
+  {
+    "url": "ccount/accpayabledetailinfosearchmanage.aspx?1=1&moduleid=2955&uniquecode=",
+    "text": "其他应付"
+  },
+  {
+    "url": "urchase/noteinfomanage.aspx?1=1&moduleid=2090&uniquecode=",
+    "text": "采购票据"
+  },
+  {
+    "url": "ccount/grouppayableinfomanage.aspx?type=1&moduleid=4850&uniquecode=",
+    "text": "单店集团付款"
+  },
+  {
+    "url": "ccount/accountinfomanage.aspx?1=1&moduleid=453&uniquecode=",
+    "text": "账户"
+  },
+  {
+    "url": "ccount/acc_bankaccessinfomanage.aspx?1=1&moduleid=612&uniquecode=",
+    "text": "银行转出帐"
+  },
+  {
+    "url": "ull?ModuleID=4710",
+    "text": "会员管理"
+  },
+  {
+    "url": "ccount/rechargewriteoffcustomers.aspx?moduleid=4712&uniquecode=",
+    "text": "充值活动核销"
+  },
+  {
+    "url": "pecific/rechargeactivities.aspx?moduleid=4711&uniquecode=",
+    "text": "充值活动"
+  },
+  {
+    "url": "eport/index.aspx?1=1&moduleid=286&uniquecode=",
+    "text": "报表中心"
+  },
+  {
+    "url": "ModuleID=6493",
+    "text": "分期管理"
+  },
+  {
+    "url": "ccount/installmentsetting.aspx?moduleid=6494&uniquecode=",
+    "text": "分期设置"
+  },
+  {
+    "url": "ModuleID=6630",
+    "text": "开票管理"
+  },
+  {
+    "url": "ccount/salinvoicemanage.aspx?moduleid=6631&uniquecode=",
+    "text": "开票管理"
+  },
+  {
+    "url": "ccount/debitworkbench.aspx?moduleid=5211&uniquecode=",
+    "text": "对账单工作台"
+  },
+  {
+    "url": "ommon/carnoinfomanage.aspx?1=1&moduleid=1753&uniquecode=",
+    "text": "配送车辆"
+  },
+  {
+    "url": "ommon/routeinfomanage.aspx?1=1&moduleid=1754&uniquecode=",
+    "text": "线路设定"
+  },
+  {
+    "url": "ommon/plandeliverymanagement.aspx?1=1&moduleid=2790&uniquecode=",
+    "text": "发货管理（旧）"
+  },
+  {
+    "url": "ommon/planinfomanage.aspx?1=1&moduleid=1755&uniquecode=",
+    "text": "配送单"
+  },
+  {
+    "url": "ale/delivermanage.aspx?1=1&moduleid=2150&uniquecode=",
+    "text": "打包装箱"
+  },
+  {
+    "url": "ale/deliveryprint.aspx?moduleid=3010&uniquecode=",
+    "text": "物流安排"
+  },
+  {
+    "url": "ale/delivergoodsmanage.aspx?1=1&moduleid=4817&uniquecode=",
+    "text": "送货单"
+  },
+  {
+    "url": "ommon/deliveryfreightsetting.aspx?1=1&moduleid=6450&uniquecode=",
+    "text": "送货运费设置"
+  },
+  {
+    "url": "ommon/deliveryareacontrolcenter.aspx?moduleid=4610&uniquecode=",
+    "text": "发货区控制中心"
+  },
+  {
+    "url": "ommon/batchcodemanage.aspx?1=1&moduleid=2030&uniquecode=",
+    "text": "批次码管理"
+  },
+  {
+    "url": "ommon/visitinfomanage.aspx?1=1&moduleid=2751&uniquecode=",
+    "text": "拜访记录"
+  },
+  {
+    "url": "ommon/productinfomanage.aspx?1=1&moduleid=401&uniquecode=menu_bas_product_list",
+    "text": "配件资料"
+  },
+  {
+    "url": "ommon/universalset.aspx?1=1&moduleid=6270&uniquecode=menu_bas_product_list",
+    "text": "通用件"
+  },
+  {
+    "url": "ommon/chaininfomanage.aspx?1=1&moduleid=753&uniquecode=",
+    "text": "连锁管理"
+  },
+  {
+    "url": "ommon/multipledictionarytypemanage.aspx?1=1&typeid=2&moduleid=1152&uniquecode=",
+    "text": "部门管理"
+  },
+  {
+    "url": "ommon/flowlevelmanage.aspx?1=1&moduleid=381&uniquecode=",
+    "text": "流动级别"
+  },
+  {
+    "url": "ommon/storemanage.aspx?1=1&moduleid=574&uniquecode=",
+    "text": "仓库"
+  },
+  {
+    "url": "ommon/userinfomanage.aspx?1=1&moduleid=192&uniquecode=",
+    "text": "用户管理"
+  },
+  {
+    "url": "common/mainbusinessinfomanage.aspx?moduleid=3570&uniquecode=",
+    "text": "主营业务品牌"
+  },
+  {
+    "url": "common/productsynchronize.aspx?1=1&moduleid=3631&uniquecode=",
+    "text": "联盟商资料同步"
+  },
+  {
+    "url": "ommon/customersynchronize.aspx?moduleid=3670&uniquecode=",
+    "text": "联盟商客户资料同步"
+  },
+  {
+    "url": "ommon/linkmaninfomanager.aspx?1=1&moduleid=576&uniquecode=",
+    "text": "联系人档案"
+  },
+  {
+    "url": "ommon/productformulasetting.aspx?1:1&moduleid=1132&uniquecode=",
+    "text": "配件价格参数设置"
+  },
+  {
+    "url": "ommon/carsinfomanage.aspx?1=1&moduleid=1012&uniquecode=",
+    "text": "车辆档案"
+  },
+  {
+    "url": "tock/shelfmanage.aspx?1=1&flagid=&moduleid=2450&uniquecode=",
+    "text": "货架管理"
+  },
+  {
+    "url": "ommon/producttypetree.aspx?1=1&moduleid=2230&uniquecode=",
+    "text": "车型维护"
+  },
+  {
+    "url": "ommon/carnametree.aspx?1=1&moduleid=2231&uniquecode=",
+    "text": "名称维护"
+  },
+  {
+    "url": "ommon/securitycodefullbilllist.aspx?1=1&moduleid=2490&uniquecode=",
+    "text": "防伪流水码表"
+  },
+  {
+    "url": "ommon/areasalestaskmanage.aspx?moduleid=2530&uniquecode=",
+    "text": "区域销售任务"
+  },
+  {
+    "url": "ommon/multiplemonthlymanage.aspx?1=1&typeid=1&moduleid=2550&uniquecode=",
+    "text": "月度分类任务管理"
+  },
+  {
+    "url": "ommon/multiplegoodscatgorymanage.aspx?1=1&typeid=1&moduleid=2551&uniquecode=",
+    "text": "商品分类任务管理"
+  },
+  {
+    "url": "ommon/phonebox.aspx?moduleid=4230&uniquecode=",
+    "text": "电话录音记录"
+  },
+  {
+    "url": "ommon/multipledictionarytypemanage.aspx?1=1&typeid=1&moduleid=1112&uniquecode=",
+    "text": "商品类别"
+  },
+  {
+    "url": "ommon/multipledictionarytypemanage.aspx?1=1&typeid=4&moduleid=2290&uniquecode=",
+    "text": "标签管理"
+  },
+  {
+    "url": "ommon/freightmanage.aspx?moduleid=5511&uniquecode=",
+    "text": "运费管理"
+  },
+  {
+    "url": "ommon/batchcodepricesetting.aspx?moduleid=6210&uniquecode=",
+    "text": "批次定价"
+  },
+  {
+    "url": "ommon/report/reportpininfo.aspx?moduleid=5530&uniquecode=",
+    "text": "PIN查询"
+  },
+  {
+    "url": "common/brandcusttype.aspx?1=1&moduleid=6750&uniquecode=",
+    "text": "品牌号管理"
+  },
+  {
+    "url": "ail/listmanager.aspx?1=1&moduleid=972&uniquecode=",
+    "text": "邮件管理"
+  },
+  {
+    "url": "ommon/userrightset.aspx?1=1&moduleid=652&uniquecode=",
+    "text": "业务权限设置"
+  },
+  {
+    "url": "ModuleID=2730",
+    "text": "配件提成设置"
+  },
+  {
+    "url": "ommon/productbonuslist.aspx?category=0&moduleid=2731&uniquecode=",
+    "text": "维修提成"
+  },
+  {
+    "url": "ommon/productbonuslist.aspx?category=1&moduleid=2732&uniquecode=",
+    "text": "销售提成"
+  },
+  {
+    "url": "ommon/userparameterinfomanager.aspx?1=1&moduleid=201&uniquecode=",
+    "text": "系统参数"
+  },
+  {
+    "url": "ommon/systeminitial.aspx?1=1&moduleid=812&uniquecode=",
+    "text": "系统初始化"
+  },
+  {
+    "url": "ommon/recordshare.aspx?1=1&moduleid=2190&uniquecode=",
+    "text": "配件共享设置"
+  },
+  {
+    "url": "ommon/reportrightset.aspx?1=1&moduleid=632&uniquecode=",
+    "text": "报表权限管理"
+  },
+  {
+    "url": "ommon/managerightset.aspx?1=1&moduleid=2832&uniquecode=",
+    "text": "所属经营设置"
+  },
+  {
+    "url": "ommon/pricecodeset.aspx?1=1&moduleid=2833&uniquecode=",
+    "text": "价格替代码设置"
+  },
+  {
+    "url": "ommon/defaultmodule.aspx?flag=1&moduleid=1032&uniquecode=",
+    "text": "系统默认设置"
+  },
+  {
+    "url": "ommon/systemsetlist.aspx?1=1&moduleid=1092&uniquecode=",
+    "text": "系统设置"
+  },
+  {
+    "url": "ommon/chainkeyset.aspx?1=1&moduleid=831&uniquecode=",
+    "text": "密钥设置"
+  },
+  {
+    "url": "hirdapisetting/bosch.aspx?moduleid=5890&uniquecode=",
+    "text": "博世配置"
+  },
+  {
+    "url": "ommon/macinfo.aspx?moduleid=4450&uniquecode=",
+    "text": "MAC地址设置"
+  },
+  {
+    "url": "rm/listmessagemanager.aspx?1=1&moduleid=890&uniquecode=",
+    "text": "消息"
+  },
+  {
+    "url": "ommon/messageconfig.aspx?1=1&moduleid=2170&uniquecode=",
+    "text": "单据消息配置"
+  },
+  {
+    "url": "eport/counsel/main.aspx?1=1&moduleid=733&uniquecode=",
+    "text": "出谋划策"
+  },
+  {
+    "url": "ommon/productinfoframe.aspx?1=1&moduleid=2370&uniquecode=",
+    "text": "资料整理"
+  },
+  {
+    "url": "ommon/productpricemanage.aspx?1=1&moduleid=1530&uniquecode=",
+    "text": "价格调整"
+  },
+  {
+    "url": "ommon/systemloginsecuritypolicy.aspx?moduleid=2690&uniquecode=",
+    "text": "系统登录安全策略"
+  },
+  {
+    "url": "ttps://authority.qpyun.cn/common/rightlist.aspx?1=1&moduleid=931&uniquecode=",
+    "text": "系统权限分配"
+  },
+  {
+    "url": "ommon/rolemanage.aspx?1=1&moduleid=261&uniquecode=",
+    "text": "权限分配"
+  },
+  {
+    "url": "ttps://authority.qpyun.cn/common/rightlist.aspx?1=1&moduleid=713&uniquecode=",
+    "text": "系统权限分配"
+  },
+  {
+    "url": "parts/onlineusers.aspx?1=1&moduleid=2950&uniquecode=",
+    "text": "当前在线员工"
+  },
+  {
+    "url": "ommon/erplogintimecontrol.aspx?1=1&moduleid=2430&uniquecode=",
+    "text": "登录时间段控制"
+  },
+  {
+    "url": "ommon/systemoperatelog.aspx?1=1&moduleid=1790&uniquecode=",
+    "text": "操作日志"
+  },
+  {
+    "url": "mportunit/importmanage.aspx?1=1&moduleid=1590&uniquecode=",
+    "text": "导入记录"
+  },
+  {
+    "url": "ommon/productnotice.aspx?1=1&moduleid=1730&uniquecode=",
+    "text": "配件公告"
+  },
+  {
+    "url": "ommon/productunitadjust.aspx?1=1&moduleid=422&uniquecode=",
+    "text": "配件整批调整"
+  },
+  {
+    "url": "ommon/dictionarylist.aspx?1=1&moduleid=341&uniquecode=",
+    "text": "配件辅助资料"
+  },
+  {
+    "url": "ommon/binduserforwechat.aspx?1=1&moduleid=4151&uniquecode=",
+    "text": "公众号用户绑定"
+  },
+  {
+    "url": "ommon/productmerge.aspx?flag=1&moduleid=1052&uniquecode=",
+    "text": "合并配件信息"
+  },
+  {
+    "url": "ommon/recycleinfomanage.aspx?1=1&moduleid=810&uniquecode=",
+    "text": "回收站"
+  },
+  {
+    "url": "ommon/systemoperatelog.aspx?1=1&moduleid=830&uniquecode=",
+    "text": "系统日志"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/vehicleprodmanage/skidpadadapterinfo?moduleid=5911&uniquecode=",
+    "text": "译车数据纠错"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/vehicleprodmanage/vehicleadapterproductmanage?moduleid=5930&uniquecode=",
+    "text": "车型适配产品管理"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/brandepcprodextract/brandepcprodextractmanager?moduleid=5970&uniquecode=",
+    "text": "品牌件提取"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/brandepcprodextract/extractepcproductlog?moduleid=5971&uniquecode=",
+    "text": "品牌件提取日志"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/epcdatacleantask/epcdatacleantaskpage?moduleid=5990&uniquecode=",
+    "text": "数据清洗"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/datadiagnosis/datadiagnosistasklist?moduleid=5991&uniquecode=",
+    "text": "数据诊断"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/datadiagnosis/lesseestatement?moduleid=6070&uniquecode=",
+    "text": "租户适配报表"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/dataauth/benchmarksencebrand?sourceapptype=erp&moduleid=6090&uniquecode=",
+    "text": "对标品牌设置"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/vehicleprodmanage/prodvehicleoperatelog?moduleid=6170&uniquecode=",
+    "text": "配件车型操作日志"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/commercialvehicle/importinfomanage?moduleid=6310&uniquecode=",
+    "text": "商用车数据导入"
+  },
+  {
+    "url": "ttps://epcdata.qpyun.cn/summary/epcprodlistbycarnew?moduleid=6350&uniquecode=",
+    "text": "按车型和名称匹配"
+  },
+  {
+    "url": "orkflow/web/oanewbase.aspx#/launchapplication?moduleid=5690&uniquecode=",
+    "text": "审批中心"
+  },
+  {
+    "url": "orkflow/oalist.aspx?moduleid=5452&uniquecode=",
+    "text": "表单管理"
+  },
+  {
+    "url": "orkflow/approvalrecord.aspx?moduleid=5453&uniquecode=",
+    "text": "审批记录"
+  }
+]

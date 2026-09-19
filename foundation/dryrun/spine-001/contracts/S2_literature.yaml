@@ -1,0 +1,30 @@
+contract_version: "1.0"
+stage: S2
+phase: Creation
+autonomy: 可高自主
+produced_by: nature-academic-search + mcp_academic-search (CrossRef/arXiv)
+produced_at: "2026-09-19T16:25:00+08:00"
+subject: "spine-001 演练：高效视觉 Transformer 方法学图谱（公开材料，非用户研究方向）"
+upstream: []
+inputs: []
+artifacts:
+  - foundation/dryrun/spine-001/paper_rewriting_output/reference_materials/source_index.md
+  - foundation/dryrun/spine-001/paper_rewriting_output/evidence_bank.md
+  - foundation/dryrun/spine-001/paper_rewriting_output/source_inventory.md
+claims: [CL-1, CL-2, CL-3, CL-4, CL-5]
+gates:
+  inclusion_recomputable: pass
+  no_fabrication: pass
+  reference_identity: n_a
+reproducibility:
+  data_version: "n/a（materials_only，无实验数据）"
+  code_commit: "n/a"
+  seed: "n/a"
+verification:
+  checked: 24
+  unresolved: 7
+  notes: "25 行 / 24 唯一源；6 条仅存 arXiv 标识，1 条 DOI（IBAST）标题相似度 0.67"
+unresolved:
+  - "引用身份核验不由本阶段承担（reference_identity 记 n_a），改由 S4 前的引用质量审计执行；审计结果：25 条中 18 条通过、6 条 pending、1 条 mismatched"
+  - "剔除的 5 条未留档，纳入口径不可由外部复核"
+next: S4

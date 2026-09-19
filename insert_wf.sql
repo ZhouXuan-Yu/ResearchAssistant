@@ -1,0 +1,2 @@
+INSERT INTO workflows (id, tenant_id, app_id, type, version, graph, features, created_by, updated_at, environment_variables, conversation_variables) 
+SELECT '66666666-6666-6666-6666-666666666666', '50c15e0b-2bb9-4db6-9e7d-e61e75190c72', '22b49776-b615-4a49-bd26-bd5ca8454d5e', 'workflow', 'draft', pg_read_file('/tmp/g.json'), pg_read_file('/tmp/f.json'), '50c15e0b-2bb9-4db6-9e7d-e61e75190c72', NOW(), '{}', '{}';

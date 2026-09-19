@@ -1,0 +1,314 @@
+{
+  "schema_version": "1.1",
+  "paper_pdf": "final_paper\\paper.pdf",
+  "paper_pdf_sha256": "3a8dc64dba13eb992934b65b67858e3e7424fe14fcdc568d239a74db9dbddd56",
+  "main_tex_sha256": "bac079ac872f4747093aed722b8c83e2e193845d97a0fcb802d91d5a41d1d5b5",
+  "figure_requests_sha256": "9cf08d6467d3be32a18cc5711f1724684e746788a78bf3afa63c0eb25c3be5af",
+  "renderer": {
+    "status": "pass",
+    "note": "",
+    "dpi": 144,
+    "box_probe_status": "pass",
+    "box_probe_note": "Title:           高效视觉 Transformer 的方法学图谱（演练稿）\nCreator:         Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36 Edg/153.0.0.0\nProducer:        Skia/PDF m153\nCreationDate:    Sat Sep 19 16:06:47 2026 �й���׼ʱ��\nModDate:         Sat Sep 19 16:06:47 2026 �й���׼ʱ��\nCustom Metadata: no\nMetadata Stream: no\nTagged:          yes\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           6\nEncrypted:       no\nPage size:       594.96 x 841.92 pts (A4)\nPage rot:        0\nMediaBox:            0.00     0.00   594.96   841.92\nCropBox:             0.00     0.00   594.96   841.92\nBleedBox:            0.00     0.00   594.96   841.92\nTrimBox:             0.00     0.00   594.96   841.92\nArtBox:              0.00     0.00   594.96   841.92\nFile size:       1596193 bytes\nOptimized:       no\nPDF version:     1.4"
+  },
+  "review": {
+    "reviewer": "科研助手 (agent-mu42qzfz)",
+    "reviewer_type": "multimodal_agent",
+    "reviewed_at": "2026-09-19",
+    "status": "pass"
+  },
+  "pages": [
+    {
+      "page": 1,
+      "render_path": "visual_audit\\pages\\page-1.png",
+      "render_sha256": "546c86e34a07562716088ed570057e3afafac93f9544ee5e6d32a5a8e2ef931c",
+      "checks": {
+        "title_author_header_bounds": {
+          "status": "pass",
+          "note": "标题与页眉均在版心内，未见越界或压边；页 1 标题占两行完整显示。"
+        },
+        "media_crop_box": {
+          "status": "pass",
+          "note": "A4 594.96x841.92pt，MediaBox 与 CropBox 一致，无媒体框/裁切框异常。"
+        },
+        "clipping": {
+          "status": "pass",
+          "note": "逐页目视未发现文字或图形被裁切；跨页段落衔接正常。"
+        },
+        "blank_or_float_only": {
+          "status": "pass",
+          "note": "无空白页或仅含浮动对象的页面；页尾空白在正常页边距内。"
+        },
+        "readability": {
+          "status": "pass",
+          "note": "中文正文、数字与图内标签清晰可读，无重叠、无明显缺字方框。"
+        }
+      },
+      "status": "pass",
+      "issues": [],
+      "note": "标题、演练横幅、摘要、关键词、§1 与 §2 起；版式正常。"
+    },
+    {
+      "page": 2,
+      "render_path": "visual_audit\\pages\\page-2.png",
+      "render_sha256": "f3bb22ee4ff31da319e2c040575076e70b5c0980855e0c5fe22396f19b49ad7f",
+      "checks": {
+        "title_author_header_bounds": {
+          "status": "pass",
+          "note": "标题与页眉均在版心内，未见越界或压边；页 1 标题占两行完整显示。"
+        },
+        "media_crop_box": {
+          "status": "pass",
+          "note": "A4 594.96x841.92pt，MediaBox 与 CropBox 一致，无媒体框/裁切框异常。"
+        },
+        "clipping": {
+          "status": "pass",
+          "note": "逐页目视未发现文字或图形被裁切；跨页段落衔接正常。"
+        },
+        "blank_or_float_only": {
+          "status": "pass",
+          "note": "无空白页或仅含浮动对象的页面；页尾空白在正常页边距内。"
+        },
+        "readability": {
+          "status": "pass",
+          "note": "中文正文、数字与图内标签清晰可读，无重叠、无明显缺字方框。"
+        }
+      },
+      "status": "pass",
+      "issues": [],
+      "note": "纳入口径、载体分级标准、范围边界、研究模式与 §3；版式正常。"
+    },
+    {
+      "page": 3,
+      "render_path": "visual_audit\\pages\\page-3.png",
+      "render_sha256": "eab90c7a4c6692ecc9fd49ef898931b1feb60b639a4e54cea3eddcab1777dd7a",
+      "checks": {
+        "title_author_header_bounds": {
+          "status": "pass",
+          "note": "标题与页眉均在版心内，未见越界或压边；页 1 标题占两行完整显示。"
+        },
+        "media_crop_box": {
+          "status": "pass",
+          "note": "A4 594.96x841.92pt，MediaBox 与 CropBox 一致，无媒体框/裁切框异常。"
+        },
+        "clipping": {
+          "status": "pass",
+          "note": "逐页目视未发现文字或图形被裁切；跨页段落衔接正常。"
+        },
+        "blank_or_float_only": {
+          "status": "pass",
+          "note": "无空白页或仅含浮动对象的页面；页尾空白在正常页边距内。"
+        },
+        "readability": {
+          "status": "pass",
+          "note": "中文正文、数字与图内标签清晰可读，无重叠、无明显缺字方框。"
+        }
+      },
+      "status": "pass",
+      "issues": [],
+      "note": "§4：图 1 三面板、图注、三点观察与证据强度分级表；表与图对齐正常。"
+    },
+    {
+      "page": 4,
+      "render_path": "visual_audit\\pages\\page-4.png",
+      "render_sha256": "94f177847f6c5ed9a64e5f9b6aea74109f2a14b2443b06ca6e76482e8e7a6361",
+      "checks": {
+        "title_author_header_bounds": {
+          "status": "pass",
+          "note": "标题与页眉均在版心内，未见越界或压边；页 1 标题占两行完整显示。"
+        },
+        "media_crop_box": {
+          "status": "pass",
+          "note": "A4 594.96x841.92pt，MediaBox 与 CropBox 一致，无媒体框/裁切框异常。"
+        },
+        "clipping": {
+          "status": "pass",
+          "note": "逐页目视未发现文字或图形被裁切；跨页段落衔接正常。"
+        },
+        "blank_or_float_only": {
+          "status": "pass",
+          "note": "无空白页或仅含浮动对象的页面；页尾空白在正常页边距内。"
+        },
+        "readability": {
+          "status": "pass",
+          "note": "中文正文、数字与图内标签清晰可读，无重叠、无明显缺字方框。"
+        }
+      },
+      "status": "pass",
+      "issues": [],
+      "note": "§5 GAP-1..GAP-4、GAP-5 与五项局限、§6 结论、参考文献起与表首说明。"
+    },
+    {
+      "page": 5,
+      "render_path": "visual_audit\\pages\\page-5.png",
+      "render_sha256": "b9eed9e1b8d8e686b1f5c3c91affd5d54012c36edd487586b61ac6bf840f9cd8",
+      "checks": {
+        "title_author_header_bounds": {
+          "status": "pass",
+          "note": "标题与页眉均在版心内，未见越界或压边；页 1 标题占两行完整显示。"
+        },
+        "media_crop_box": {
+          "status": "pass",
+          "note": "A4 594.96x841.92pt，MediaBox 与 CropBox 一致，无媒体框/裁切框异常。"
+        },
+        "clipping": {
+          "status": "pass",
+          "note": "逐页目视未发现文字或图形被裁切；跨页段落衔接正常。"
+        },
+        "blank_or_float_only": {
+          "status": "pass",
+          "note": "无空白页或仅含浮动对象的页面；页尾空白在正常页边距内。"
+        },
+        "readability": {
+          "status": "pass",
+          "note": "中文正文、数字与图内标签清晰可读，无重叠、无明显缺字方框。"
+        }
+      },
+      "status": "pass",
+      "issues": [],
+      "note": "参考文献 R01-R11。"
+    },
+    {
+      "page": 6,
+      "render_path": "visual_audit\\pages\\page-6.png",
+      "render_sha256": "f8bbe0cc0c461d2de2afcdf1b9e592470c6f3384b61406ea3c2945b116a052ac",
+      "checks": {
+        "title_author_header_bounds": {
+          "status": "pass",
+          "note": "标题与页眉均在版心内，未见越界或压边；页 1 标题占两行完整显示。"
+        },
+        "media_crop_box": {
+          "status": "pass",
+          "note": "A4 594.96x841.92pt，MediaBox 与 CropBox 一致，无媒体框/裁切框异常。"
+        },
+        "clipping": {
+          "status": "pass",
+          "note": "逐页目视未发现文字或图形被裁切；跨页段落衔接正常。"
+        },
+        "blank_or_float_only": {
+          "status": "pass",
+          "note": "无空白页或仅含浮动对象的页面；页尾空白在正常页边距内。"
+        },
+        "readability": {
+          "status": "pass",
+          "note": "中文正文、数字与图内标签清晰可读，无重叠、无明显缺字方框。"
+        }
+      },
+      "status": "pass",
+      "issues": [],
+      "note": "参考文献 R12-R24；末页正常收束。"
+    }
+  ],
+  "figures": [
+    {
+      "figure_id": "fig:evidence-landscape",
+      "asset_path": "final_paper\\figures\\fig1_evidence_landscape.png",
+      "asset_sha256": "c5347a56b30a123c0cdbca7cf52e4458d3fbf7eea5ce834557b3a07318049f4a",
+      "render_path": "final_paper\\figures\\fig1_evidence_landscape.png",
+      "render_sha256": "c5347a56b30a123c0cdbca7cf52e4458d3fbf7eea5ce834557b3a07318049f4a",
+      "caption": "图 1 纳入文献的证据景观。",
+      "story_contract": {
+        "claim": "纳入的 24 条记录在年份、载体与指标披露三个维度上呈现可用证据的不均衡分布。",
+        "scientific_question": "在当前可获得的记录上，证据基础能支持到什么程度的横向比较？",
+        "intended_conclusion": "证据基础仅支持按效率来源分类与披露完备度统计，不支持任何跨论文性能排序。",
+        "claim_boundary": "仅描述 24 条记录自身的构成，不推断领域总体分布，不涉及任何方法优劣判断。",
+        "results_units": [
+          "Results 第 4 节 三点观察"
+        ],
+        "hero_panel": "p-disclosure",
+        "panels": [
+          {
+            "panel_id": "p-year",
+            "question": "该方向在时间上的活跃度如何？",
+            "role": "context",
+            "evidence_anchor": "source_index 年份字段",
+            "intended_reading": "产出自 2021 年起持续，2024 年达到 6 条。"
+          },
+          {
+            "panel_id": "p-venue",
+            "question": "这些产出发表在什么类型的载体上？",
+            "role": "comparison",
+            "evidence_anchor": "source_index 载体标签",
+            "intended_reading": "顶会正刊仅 2 条；Workshop 2、期刊 5、一般会议 6、arXiv 预印本 6、高风险载体 3。"
+          },
+          {
+            "panel_id": "p-disclosure",
+            "question": "6 条带摘要记录中，三类数值各自的披露覆盖面如何？",
+            "role": "primary_finding",
+            "evidence_anchor": "evidence_bank.md 的 E-A 逐条台账",
+            "intended_reading": "给出参数量数值 3 条、算力 1 条、精度 3 条，同时给出三项者 0 条，仅定性 2 条；另 18 条披露状态不可知。"
+          }
+        ]
+      },
+      "render_status": "pass",
+      "render_note": "",
+      "background_probe": {
+        "probe_version": "paperspine-neutral-background/1.0",
+        "render_sha256": "c5347a56b30a123c0cdbca7cf52e4458d3fbf7eea5ce834557b3a07318049f4a",
+        "pixel_buffer_sha256": "",
+        "status": "BLOCKED",
+        "acceptance_basis": "neutral_default",
+        "regions": [],
+        "finding": "final figure mapping has no bound background specification"
+      },
+      "checks": {
+        "method_names": {
+          "status": "pass",
+          "note": "图内未出现任何方法名声明，只有条目计数与字段覆盖，故不存在方法名误述。"
+        },
+        "panel_labels": {
+          "status": "pass",
+          "note": "(a)(b)(c) 标签齐全，且与图注逐项对应。"
+        },
+        "baselines": {
+          "status": "pass",
+          "note": "不适用：本图为队列构成图，未声称任何基线比较，故不存在基线误述。"
+        },
+        "metrics": {
+          "status": "pass",
+          "note": "不适用：图内数值为条目计数，未声称任何性能指标，故不存在指标误述。"
+        },
+        "datasets": {
+          "status": "pass",
+          "note": "不适用：本图未使用任何数据集。"
+        },
+        "caption_text_alignment": {
+          "status": "pass",
+          "note": "图注与图内读数逐一核对一致：年份 1/3/4/6/5/5，载体 2/2/5/6/6/3，披露 3/1/3/0/2。"
+        },
+        "story_claim_alignment": {
+          "status": "pass",
+          "note": "图与 claim（证据分布不均衡）及第 4 节三点观察一致。"
+        },
+        "panel_role_alignment": {
+          "status": "pass",
+          "note": "三面板分别承担 context / comparison / primary_finding，与 story contract 一致。"
+        },
+        "claim_boundary_respected": {
+          "status": "pass",
+          "note": "未作跨论文比较，未推断领域总体分布，边界与 claim_boundary 一致。"
+        }
+      },
+      "panels": [
+        {
+          "panel_id": "p-year",
+          "status": "pass",
+          "note": "读数 2021=1、2022=3、2023=4、2024=6、2025=5、2026=5，与 source_index.md 实点一致。"
+        },
+        {
+          "panel_id": "p-venue",
+          "status": "pass",
+          "note": "读数 顶会正刊 2、Workshop 2、期刊 5、一般会议 6、arXiv 6、高风险 3，与 source_index.md 实点一致。"
+        },
+        {
+          "panel_id": "p-disclosure",
+          "status": "pass",
+          "note": "读数 参数量 3、算力 1、精度 3、三项俱全 0、仅定性 2，与 evidence_bank.md 的 E-A 台账一致。"
+        }
+      ],
+      "status": "pass",
+      "issues": []
+    }
+  ],
+  "unresolved_conflicts": []
+}

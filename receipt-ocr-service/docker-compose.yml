@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  receipt-ocr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: receipt-ocr-service
+    ports:
+      - "8001:8001"
+    environment:
+      - TZ=Asia/Shanghai
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # 持久化 PaddleOCR 模型缓存（避免每次重启重新下载模型）
+      - paddleocr_cache:/root/.paddleocr
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+    # GPU 模式（需要 nvidia-container-toolkit）：
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+volumes:
+  paddleocr_cache:
+    driver: local

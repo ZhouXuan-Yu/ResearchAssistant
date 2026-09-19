@@ -1,0 +1,152 @@
+# 技能分类总表（Skill Taxonomy）—— 权威分类依据
+# 任何新技能的准入都必须在 classifications 里登记；check_taxonomy.py 负责校验。
+# 人读版见 RESEARCH-SKILL-MAP.md。
+
+version: 1
+updated: "2026-09-18"
+owner: agent-mu42qzfz
+
+# ── 维度一：功能组（一个技能必须且只能属于一个功能组） ──────────────
+functional_groups:
+  A_topic_proposal:   "选题与立项：计划书、开题、问题定义"
+  B_literature_search: "文献检索与获取：检索、系统综述、全文获取"
+  C_reading:          "文献精读与解析：对照阅读、精读卡、快速理解"
+  D_citation_verify:  "引用核验：真伪、元数据、论断支撑"
+  E_stats_figures:    "统计与绘图：统计审查、数据图、图形摘要"
+  F_experiment:       "实验与复现：实验日志、复现规范"
+  G_writing:          "写作与润色：结构论证、语言润色"
+  H_review_rebuttal:  "审稿与返修：预审、二次审查、回复"
+  I_submission_data:  "投稿与数据共享：数据可用性、成果转化"
+  J_knowledge_memory: "知识组织与记忆：知识图谱、长期记忆、笔记"
+  K_presentation:     "演示与汇报：PPT、图像重建"
+  L_orchestration:    "编排与治理：路由、运维、技能创作、token"
+  M_document_base:    "通用底座：文档解析、生图等基础能力"
+  Z_collab:           "非科研·协作通信：飞书 / 企业微信 / 邮件 / 会议"
+  Z_dev:              "非科研·研发工程：代码、测试、架构、插件开发"
+  Z_design_media:     "非科研·设计媒体：前端设计、视频、动效、图片生成"
+  Z_product:          "非科研·产品管理：PRD、增长、市场、定价等 pm-skills"
+  Z_meta:             "非科研·元能力：技能发现/测评/帮助/记忆同步等"
+
+# ── 维度二：用途类型（可多选） ─────────────────────────────────────
+usage_types:
+  生产: "产出交付物（图、PPT、稿件、数据）"
+  分析: "理解与判断（精读、统计、推理）"
+  校验: "检查与把关（引用核验、审稿、统计审查）"
+  检索: "查找与获取（文献、资料）"
+  编排: "调度、路由、流程控制"
+  支撑: "底层能力（解析、存储、同步、生成）"
+  治理: "环境、技能、配置的维护与质量保障"
+
+# ── 维度三：角色（同组内） ─────────────────────────────────────────
+roles:
+  primary:     "组内主选，默认走它"
+  secondary:   "备选，主选不适用时启用"
+  base:        "底座，不直接产出，被其他技能调用"
+  governance:  "治理类，按需触发，不参与科研产出竞争"
+
+# ── 已启用的科研相关技能分类（必须登记） ────────────────────────────
+classifications:
+
+  # A 选题与立项
+  researchwrite:          {group: A_topic_proposal, usage: [生产], role: primary}
+  quiet-musing:           {group: A_topic_proposal, usage: [分析], role: secondary}
+
+  # B 文献检索与获取
+  nature-academic-search: {group: B_literature_search, usage: [检索], role: primary}
+  nature-literature-pipeline: {group: B_literature_search, usage: [检索, 分析], role: secondary}
+  nature-downloader:      {group: B_literature_search, usage: [检索], role: secondary}
+  deep-research:          {group: B_literature_search, usage: [检索, 分析], role: secondary}
+  navi-deep-research:     {group: B_literature_search, usage: [检索], role: secondary}
+
+  # C 文献精读与解析
+  nature-paper-card:      {group: C_reading, usage: [分析], role: primary}
+  nature-reader:          {group: C_reading, usage: [生产], role: secondary}
+  paper-deep-reading:     {group: C_reading, usage: [分析], role: secondary}
+  zotero-pdf-translate:   {group: C_reading, usage: [支撑], role: secondary}
+
+  # D 引用核验
+  nature-ref-verifier:    {group: D_citation_verify, usage: [校验], role: primary}
+  nature-citation:        {group: D_citation_verify, usage: [校验, 检索], role: secondary}
+
+  # E 统计与绘图
+  nature-statistics:      {group: E_stats_figures, usage: [校验], role: primary}
+  scipilot-figure-skill:  {group: E_stats_figures, usage: [生产], role: primary}
+  nature-figure:          {group: E_stats_figures, usage: [生产], role: secondary}
+
+  # F 实验与复现
+  nature-experiment-log:  {group: F_experiment, usage: [生产], role: primary}
+
+  # G 写作与润色
+  nature-writing:         {group: G_writing, usage: [生产], role: primary}
+  nature-polishing:       {group: G_writing, usage: [生产], role: secondary}
+
+  # H 审稿与返修
+  academic-paper-reviewer: {group: H_review_rebuttal, usage: [校验], role: primary}
+  nature-reviewer:        {group: H_review_rebuttal, usage: [校验], role: secondary}
+  nature-response:        {group: H_review_rebuttal, usage: [生产], role: secondary}
+
+  # I 投稿与数据共享
+  nature-data:            {group: I_submission_data, usage: [生产], role: primary}
+  nature-paper-to-patent: {group: I_submission_data, usage: [生产], role: secondary}
+
+  # J 知识组织与记忆
+  understand-knowledge:   {group: J_knowledge_memory, usage: [分析], role: primary}
+  navi-memory:            {group: J_knowledge_memory, usage: [支撑], role: secondary}
+  navi-notes:             {group: J_knowledge_memory, usage: [支撑], role: secondary}
+  navi-context:           {group: J_knowledge_memory, usage: [支撑], role: secondary}
+  navi-pull-meeting:      {group: Z_collab, usage: [支撑], role: base}
+  navi-transcribe:        {group: Z_collab, usage: [支撑], role: base}
+  obsidian-cli:           {group: J_knowledge_memory, usage: [支撑], role: base}
+
+  # K 演示与汇报
+  nature-paper2ppt:       {group: K_presentation, usage: [生产], role: primary}
+  nature-image2ppt:       {group: K_presentation, usage: [生产], role: secondary}
+
+  # L 编排与治理
+  hana-agent-ops:         {group: L_orchestration, usage: [治理], role: governance}
+  research-os-router:     {group: L_orchestration, usage: [编排, 治理], role: governance}
+  academic-research-suite: {group: L_orchestration, usage: [编排], role: governance, note: 空壳，不主动触发}
+  skill-creator:          {group: L_orchestration, usage: [治理], role: governance}
+  luban:                  {group: L_orchestration, usage: [治理], role: governance}
+  token-guard:            {group: L_orchestration, usage: [治理], role: governance}
+  teach:                  {group: L_orchestration, usage: [支撑], role: base}
+  user-guide:             {group: L_orchestration, usage: [支撑], role: base}
+
+  # M 通用底座
+  office-documents:       {group: M_document_base, usage: [支撑], role: primary}
+  pdf:                    {group: M_document_base, usage: [支撑], role: base}
+  docx:                   {group: M_document_base, usage: [支撑], role: base}
+  doc:                    {group: M_document_base, usage: [支撑], role: base}
+  xlsx:                   {group: M_document_base, usage: [支撑], role: base}
+  image-generation:       {group: M_document_base, usage: [生产], role: base}
+  images-media:           {group: M_document_base, usage: [生产], role: base}
+  nature-shared:          {group: M_document_base, usage: [支撑], role: base, note: nature-skills 共享支持包，默认不独立触发}
+
+  # 补充归类（非科研 / 支持）
+  intended-vs-implemented:   {group: Z_dev, usage: [校验], role: base}
+  shipping-artifacts:        {group: Z_dev, usage: [支撑], role: base}
+  prioritization-frameworks: {group: Z_product, usage: [分析], role: base}
+  tmeet-skill:               {group: Z_collab, usage: [支撑], role: base}
+
+# ── 非科研家族的归类规则（按名字模式匹配） ─────────────────────────
+patterns:
+  - {regex: "^lark-",        group: Z_collab, usage: [支撑], role: base}
+  - {regex: "^wecomcli-",    group: Z_collab, usage: [支撑], role: base}
+  - {regex: "^(hyperframes|animejs|lottie|tailwind|three|typegpu|waapi|gsap|css-animations|remotion-to-hyperframes|website-to-hyperframes|contribute-catalog)", group: Z_design_media, usage: [生产], role: base}
+  - {regex: "^(ui-|ux-|frontend|responsive|web-|landing|branding|color-|design|visual-|navigation|component|accessibility|usability|ai-design|web-typography|customer-journey|design-)", group: Z_design_media, usage: [生产], role: base}
+  - {regex: "^(code-|tdd-|e2e-|test-|error-handling|eval-harness|plankton|production-audit|requirements-architect|verification-loop|windows-desktop-e2e|webapp-testing|agent-introspection|agent-ui|hookify|hookprompt|code-tour|code-simplifier|configure-ecc|hana-plugin)", group: Z_dev, usage: [支撑], role: base}
+  - {regex: "^(create-prd|brainstorm-|identify-assumptions|prioritize-|user-stories|job-stories|wwas|outcome-roadmap|pre-mortem|release-notes|retro|sprint-plan|stakeholder|strategy-red-team|summarize-meeting|test-scenarios|market-|competitor|competit|pricing|product-|startup-|lean-|business-model|swot|pestle|porters|ansoff|monetization|positioning|north-star|gtm-|growth-|beachhead|ideal-customer|sentiment|user-persona|user-segment|value-|marketing|dummy-dataset|sql-queries|ab-test|cohort|analyze-feature|interview-|metrics-|opportunity-|summarize-interview|north-star|review-resume|draft-nda|privacy-policy|grammar-check|agent-teams|agent-sort|council|superpower|planning-with-files|iterative-retrieval|obsidian)", group: Z_product, usage: [支撑], role: base}
+  - {regex: "^(find-skill|find-skills|skill-scout|skill-stocktake|continuous-learning|strategic-compact|understand|meta-theory|ralph|grill-me|humanizer|caveman|andrej-karpathy|karpathy|codex-ralph|docx|xlsx|doc|pdf)", group: Z_meta, usage: [支撑], role: base}
+
+# ── 准入规则 ─────────────────────────────────────────────────────
+intake:
+  必须:
+    - 归入 functional_groups 中恰好一个组
+    - 至少一个 usage_types
+    - 一个 roles
+    - 登记来源/版本/许可证/回滚（见 SKILLS-GOVERNANCE.md）
+    - 通过冒烟测试
+  禁止:
+    - 与同组 role=primary 的技能能力重叠而不做裁决
+    - 未登记就启用
+  流程: 审核 → 分类 → 登记 → 冲突裁决 → 更新 routing-rules.yaml

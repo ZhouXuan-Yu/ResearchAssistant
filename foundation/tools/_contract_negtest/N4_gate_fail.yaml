@@ -1,0 +1,17 @@
+contract_version: "1.0"
+stage: S2
+phase: Creation
+autonomy: 可高自主
+produced_by: negtest
+produced_at: "2026-09-19T16:30:00+08:00"
+upstream: []
+inputs: []
+artifacts:
+  - research/00-governance/contracts.md
+gates:
+  g: fail
+reproducibility:
+  data_version: "n/a"
+  code_commit: "n/a"
+  seed: "n/a"
+unresolved: []

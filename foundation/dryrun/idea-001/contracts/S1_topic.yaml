@@ -1,0 +1,33 @@
+contract_version: "1.0"
+stage: S1
+phase: Creation
+autonomy: 人主导
+produced_by: idea-forge
+produced_at: "2026-09-19T17:05:00+08:00"
+subject: "idea-001 冒烟测试：小样本声学场景分类的域偏移评估（公开主题，非用户研究方向）"
+upstream: []
+inputs: []
+artifacts:
+  - foundation/dryrun/idea-001/idea_options.md
+  - foundation/dryrun/idea-001/novelty_check.md
+claims: []
+gates:
+  nearest_work_present: pass
+  falsifier_present: pass
+  feasibility_stated: pass
+  no_hype_words: pass
+reproducibility:
+  data_version: "n/a（S1 不产数据；候选的数据集许可尚未核实）"
+  code_commit: "n/a"
+  seed: "n/a"
+verification:
+  checked: 3
+  unresolved: 5
+  notes: "3 个候选中 2 个通过三筛、1 个因与最近邻重叠被排除；最近邻仅核到摘要/项目页层"
+unresolved:
+  - "C1/C2 的最近邻均未读全文，不排除已有同题工作；不得对外声称此前无人研究"
+  - "C3 的最近邻来自二手页面，未核原文与 DOI，该条排除结论为待核级"
+  - "仅一次定向检索，未做系统检索（检索未覆盖 ≠ 不存在）"
+  - "候选所用数据集（CAS 2023 / DCASE 系列）的使用许可未核实"
+  - "C2 的难度估计量可能相关但不具外推性，需先做小规模预实验"
+next: S2

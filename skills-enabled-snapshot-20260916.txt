@@ -1,0 +1,195 @@
+# HanaAgent 系统配置
+# 由设置页面管理，手动编辑也可以
+
+agent:
+  name: 科研助手
+  yuan: ming
+user:
+  name: ZhouXuan
+api:
+  provider: ""
+embedding_api:
+  provider: ""
+models:
+  chat:
+    id: deepseek-v4-flash
+    provider: deepseek
+  utility: ""
+  utility_large: ""
+  embedding: ""
+  embedding_dimensions: 1024
+memory:
+  enabled: true
+  token_budget: 2500
+  decay_per_day: 0.02
+  hit_bonus: 5
+  base_importance: 10
+  compile_threshold: 4.5
+  forget_speed: 1
+  disabledSince: "2026-09-16T13:25:55.398Z"
+  reenableAt: "2026-09-16T13:25:55.959Z"
+experience:
+  enabled: true
+search:
+  provider: auto
+  api_keys:
+    anysearch: ""
+    tavily: ""
+    brave: ""
+    serper: ""
+  api_key: ""
+skills:
+  enabled:
+    - academic-research-suite
+    - accessibility
+    - agent-introspection-debugging
+    - agent-teams-playbook
+    - agent-ui-design
+    - ai-design-workflow
+    - karpathy-guidelines
+    - caveman
+    - code-review-excellence
+    - codex-ralph-loop-skill
+    - css-animations
+    - doc
+    - docx
+    - e2e-testing
+    - find-skills
+    - grill-me
+    - gsap
+    - hyperframes
+    - hyperframes-media
+    - image-generation
+    - images-media
+    - luban
+    - navi-context
+    - navi-deep-research
+    - navi-memory
+    - navi-notes
+    - navi-pull-meeting
+    - navi-transcribe
+    - navigation-design
+    - obsidian-cli
+    - office-documents
+    - paper-deep-reading
+    - pdf
+    - intended-vs-implemented
+    - shipping-artifacts
+    - ab-test-analysis
+    - cohort-analysis
+    - sql-queries
+    - brainstorm-okrs
+    - create-prd
+    - dummy-dataset
+    - job-stories
+    - outcome-roadmap
+    - pre-mortem
+    - prioritization-frameworks
+    - release-notes
+    - retro
+    - sprint-plan
+    - stakeholder-map
+    - strategy-red-team
+    - summarize-meeting
+    - test-scenarios
+    - user-stories
+    - wwas
+    - beachhead-segment
+    - competitive-battlecard
+    - growth-loops
+    - gtm-motions
+    - gtm-strategy
+    - ideal-customer-profile
+    - competitor-analysis
+    - customer-journey-map
+    - market-segments
+    - market-sizing
+    - sentiment-analysis
+    - user-personas
+    - user-segmentation
+    - marketing-ideas
+    - north-star-metric
+    - positioning-ideas
+    - product-name
+    - value-prop-statements
+    - analyze-feature-requests
+    - brainstorm-experiments-existing
+    - brainstorm-experiments-new
+    - brainstorm-ideas-existing
+    - brainstorm-ideas-new
+    - identify-assumptions-existing
+    - identify-assumptions-new
+    - interview-script
+    - metrics-dashboard
+    - opportunity-solution-tree
+    - prioritize-assumptions
+    - prioritize-features
+    - summarize-interview
+    - ansoff-matrix
+    - business-model
+    - lean-canvas
+    - monetization-strategy
+    - pestle-analysis
+    - porters-five-forces
+    - pricing-strategy
+    - product-strategy
+    - product-vision
+    - startup-canvas
+    - swot-analysis
+    - value-proposition
+    - draft-nda
+    - grammar-check
+    - privacy-policy
+    - review-resume
+    - quiet-musing
+    - skill-creator
+    - teach
+    - three
+    - tmeet-skill
+    - token-guard
+    - typegpu
+    - understand-knowledge
+    - user-guide
+    - waapi
+    - wecomcli-contact
+    - wecomcli-doc
+    - wecomcli-meeting
+    - wecomcli-msg
+    - wecomcli-schedule
+    - wecomcli-smartsheet
+    - wecomcli-todo
+    - nature-reader
+    - nature-shared
+    - nature-figure
+    - nature-literature-pipeline
+    - nature-academic-search
+    - nature-paper-card
+    - nature-experiment-log
+    - nature-citation
+    - nature-data
+    - nature-polishing
+    - nature-response
+    - nature-downloader
+    - nature-paper2ppt
+    - nature-image2ppt
+    - researchwrite
+    - nature-ref-verifier
+    - nature-statistics
+    - nature-paper-to-patent
+    - deep-research
+    - nature-writing
+    - nature-reviewer
+    - academic-paper-reviewer
+desk:
+  heartbeat_enabled: false
+  heartbeat_interval: 31
+workspace_context:
+  discover_project_skills: true
+  discover_compatible_project_skills: false
+channels:
+  enabled: false
+tools:
+  disabled: []
+last_cwd: C:\Users\ZhouXuan\Desktop\OH-WorkSpace
+cwd_history:
+  - C:/Users/ZhouXuan/Desktop/OH-WorkSpace

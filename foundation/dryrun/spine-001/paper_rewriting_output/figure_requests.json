@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "figures": [
+    {
+      "figure_id": "fig1-evidence-landscape",
+      "label": "fig:evidence-landscape",
+      "figure_kind": "data",
+      "figure_role": "cohort_profile",
+      "decision": "create",
+      "claim": "纳入的 24 条记录在年份、载体与指标披露三个维度上呈现可用证据的不均衡分布。",
+      "caption": "图 1 纳入文献的证据景观（n = 24）。(a) 年份分布；(b) 载体类型构成；(c) 6 条带摘要记录中三类数值的披露覆盖（可重叠）。",
+      "scientific_question": "在当前可获得的记录上，证据基础能支持到什么程度的横向比较？",
+      "intended_conclusion": "证据基础仅支持按效率来源分类与披露完备度统计，不支持任何跨论文性能排序。",
+      "claim_boundary": "仅描述 24 条记录自身的构成，不推断领域总体分布，不涉及任何方法优劣判断。",
+      "results_units": [
+        "Results 第 4 节 三点观察"
+      ],
+      "hero_panel": "p-disclosure",
+      "source_data": [
+        "reference_materials/source_index.md",
+        "evidence_bank.md 的 E-B1 / E-B2"
+      ],
+      "panels": [
+        {
+          "panel_id": "p-year",
+          "question": "该方向在时间上的活跃度如何？",
+          "role": "context",
+          "evidence_anchor": "source_index 年份字段",
+          "intended_reading": "产出自 2021 年起持续，2024 年达到 6 条。"
+        },
+        {
+          "panel_id": "p-venue",
+          "question": "这些产出发表在什么类型的载体上？",
+          "role": "comparison",
+          "evidence_anchor": "source_index 载体标签",
+          "intended_reading": "顶会正刊仅 2 条；Workshop 2、期刊 5、一般会议 6、arXiv 预印本 6、高风险载体 3。"
+        },
+        {
+          "panel_id": "p-disclosure",
+          "question": "6 条带摘要记录中，三类数值各自的披露覆盖面如何？",
+          "role": "primary_finding",
+          "evidence_anchor": "evidence_bank.md 的 E-A 逐条台账",
+          "intended_reading": "给出参数量数值 3 条、算力 1 条、精度 3 条，同时给出三项者 0 条，仅定性 2 条；另 18 条披露状态不可知。"
+        }
+      ],
+      "background": {
+        "canvas": {
+          "region_id": "canvas",
+          "bbox_normalized": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        "axes": [],
+        "panels": [],
+        "asset_sha256": "c5347a56b30a123c0cdbca7cf52e4458d3fbf7eea5ce834557b3a07318049f4a",
+        "probe_render_sha256": "77caff445afd72ee58ac8ac29f96bb2c8e9096e0e385e53663dc99e77f215015"
+      }
+    }
+  ]
+}

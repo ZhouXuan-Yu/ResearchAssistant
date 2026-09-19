@@ -1,0 +1,1 @@
+UPDATE workflows SET features = '{"opening_statement": "你好！我是HR简历筛选助手。支持：对比分析 | 岗位匹配 | 简报汇总 | 深度评估", "suggested_questions": ["评估所有候选人", "对比李潇潇和刘娅迪", "谁适合嵌入式开发岗位", "生成候选人简报"], "suggested_questions_after_answer": {"enabled": true}}' WHERE app_id='22b49776-b615-4a49-bd26-bd5ca8454d5e';

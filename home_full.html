@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>汽配云-帮您做管理、玩营销、拼金融的saas系统服务商，使命，让汽配经营更轻松!</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style type="text/css">
+        input#txtName::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        input#txtName::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #fff;
+        }
+
+        input#txtName:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: #fff;
+        }
+
+        input#txtName:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #fff;
+        }
+
+        .new-btn {
+            padding: 0 5px;
+            box-sizing: border-box;
+            height: 18px;
+            background: #f0ad4e;
+            border-radius: 2px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 16px;
+            font-size: 10px;
+        }
+
+            .new-btn img {
+                width: 18px;
+                height: 18px;
+                margin-right: 2px;
+            }
+
+        .qpy-framehead-list-info {
+            padding-right: 17px !important;
+        }
+
+        .enterprise-icon {
+            width: 16px;
+            height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .message-btn {
+            margin-right: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .message-badge {
+            position: absolute;
+            background-color: #f56c6c;
+            border-radius: 10px;
+            top: 0;
+            left: 72px;
+            padding: 0 6px;
+            height: 14px;
+            line-height: 14px;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 111;
+        }
+
+        #finance {
+            position: relative;
+        }
+
+            #finance::after {
+                position: absolute;
+                content: '';
+                background-image: url('/Resourse/Images/hotTag.gif');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                font-size: 14px;
+                width: 30px;
+                height: 30px;
+                top: 3px;
+                left: 3px;
+            }
+
+        .aside-box {
+            background-color: #3b3e42;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .aside-item-box {
+            width: 100%;
+            position: relative;
+        }
+
+        .aside-item {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+            .aside-item:hover {
+                background-color: #3172d0;
+            }
+
+            .aside-item .frame-content-sidebarlistindex {
+                padding-left: 14px;
+            }
+
+        .aside-item-box.active .aside-item {
+            border-left: 4px solid #ffaa3d;
+            background-color: #4d92df;
+        }
+
+            .aside-item-box.active .aside-item .frame-content-sidebarlistindex {
+                padding-left: 10px;
+            }
+
+        .aside-item-text {
+            width: 0;
+            flex-grow: 1;
+        }
+
+        .aside-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            margin-right: 10px;
+        }
+
+        .aside-arrow {
+            width: 10px;
+            height: 20px;
+            margin-left: 10px;
+        }
+
+        .aside-box * {
+            box-sizing: border-box;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #4d92df;
+            width: max-content;
+            position: absolute;
+            left: 100%;
+            visibility: hidden;
+        }
+
+        .aside-item-box:hover .menu-container {
+            visibility: visible;
+        }
+
+        .menu-head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #fff;
+            padding: 10px 0;
+        }
+
+            .menu-head a {
+                cursor: pointer;
+            }
+
+        .menu-main {
+            display: flex;
+            flex-wrap: wrap;
+            display: flex;
+            flex-wrap: wrap;
+             overflow: hidden;
+        }
+
+        .menu-list {
+            width: 200px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-list-head {
+            width: 100%;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            background-color: #3172d0;
+            border-radius: 2px;
+        }
+
+            .menu-list-head > img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+        .menu-text {
+            width: 0;
+            flex-grow: 1;
+            color: #f9cb96;
+        }
+
+        .limit-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .menu-list-item {
+            width: 100%;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .menu-list-item-text {
+            width: 0;
+            flex-grow: 1;
+        }
+
+        .play-btn-a {
+            visibility: hidden;
+        }
+
+        .play-btn {
+            width: 18px;
+            height: 18px;
+            margin-left: 10px;
+            display: flex;
+        }
+
+        .play-btn2 {
+            width: 16px;
+            height: 16px;
+        }
+
+        .menu-list-item:hover {
+            background-color: #3172d0;
+        }
+
+            .menu-list-item:hover > .play-btn-a {
+                visibility: visible;
+            }
+
+        .aside-item-box:hover > .aside-item > .play-btn-a {
+            visibility: visible;
+        }
+
+        .aside-item [class*=icon-], .menu-list-head [class*=icon-] {
+            position: inherit !important;
+            margin: 0 .5em 0 0 !important;
+        }
+
+        .menu-list-item-text a {
+            text-decoration: none !important;
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+
+        .layui-layer-setwin .material-like a {
+            right: 50px;
+            width: 5em;
+        }
+
+            .layui-layer-setwin .material-like a.active {
+                color: Red;
+            }
+
+        body .layeropen .layui-layer-title {
+            background-color: #4D92DF;
+            color: White;
+        }
+
+        .frame-content-sidebarsublist-div {
+            display: inline-block;
+        }
+
+        .frame-content-sidebarsublist-menu-video1 {
+            margin-left: 8px;
+            display: none;
+        }
+
+        .frame-content-sidebarsublist-menu-video2 {
+            display: none;
+            position: absolute;
+            margin-left: -20px;
+            margin-top: 7px;
+        }
+
+        .frame-content-sidebarsublist-menu-video3 {
+            display: none !important;
+            margin-left: 2px;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        .frame-content-sidebarsublist-div:hover .frame-content-sidebarsublist-menu-video1,
+        .frame-content-sidebarsublist-div:hover > .frame-content-sidebarsublist-menu-video2,
+        .frame-content-sidebarsublist-div:hover > .frame-content-sidebarsublist-menu-video3 {
+            display: inline-block !important;
+        }
+
+        .frame-content-sidebarsublist .frame-content-sidebarsublist-index {
+            margin-right: 26px !important;
+        }
+
+        .frame-content-sidebarsublist.tricol {
+            width: 850px !important;
+        }
+
+        body .layui-layer-noticebar-sys {
+            background-color: #fffbe8;
+            color: #ff6a00;
+        }
+
+            body .layui-layer-noticebar-sys .layui-layer-setwin .layui-layer-close2 {
+                background: url('data:image/svg+xml;%20charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20standalone%3D%22no%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20t%3D%221678343484579%22%20class%3D%22icon%22%20viewBox%3D%220%200%201024%201024%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20p-id%3D%222869%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cpath%20d%3D%22M808.680727%20212.650667a31.030303%2031.030303%200%200%201%200%2043.876848l-558.545454%20558.545455a31.030303%2031.030303%200%200%201-43.876849-43.876849l558.545455-558.545454a31.030303%2031.030303%200%200%201%2043.876848%200z%22%20fill%3D%22%23ff6a00%22%20p-id%3D%222870%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M206.258424%20212.650667a31.030303%2031.030303%200%200%201%2043.876849%200l558.545454%20558.545454a31.030303%2031.030303%200%200%201-43.876848%2043.876849l-558.545455-558.545455a31.030303%2031.030303%200%200%201%200-43.876848z%22%20fill%3D%22%23ff6a00%22%20p-id%3D%222871%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E') no-repeat;
+                top: 3px;
+            }
+
+            body .layui-layer-noticebar-sys .layui-layer-content {
+                padding: 4px 25px;
+                overflow: hidden;
+            }
+
+        body layui-layer-noticebar-sys .layui-layer-content a {
+            text-decoration: none;
+            color: #4359aa;
+        }
+
+        body .solution-btn .layui-layer-btn .layui-layer-btn0 {
+            background: #FFF;
+            border: none;
+            text-decoration: underline;
+            color: black
+        }
+
+        body .solution-btn .layui-layer-btn .layui-layer-btn1 {
+            background: #2e8ded;
+            border-color: #4898d5;
+            color: #FFF
+        }
+
+        body .show-notify-msg-dialog .layui-layer-title {
+            height: 30px;
+            line-height: 30px;
+            background: #6daae7;
+            color: #fff;
+            border: none;
+        }
+
+        body .show-notify-msg-dialog .layui-layer-content {
+            background: #e4e3e3;
+            font-weight: 600;
+            border: none;
+        }
+
+        .work-order-dropdown {
+            width: 400px !important;
+            height: 160px !important;
+            left: -145% !important;
+            border-radius: 8px;
+            padding: 14px 14px 0 14px;
+        }
+
+        .work-order-dropdown-title {
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            text-align: left;
+        }
+
+        .work-order-dropdown-item-box {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .work-order-dropdown-item {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .work-order-dropdown-inner-item {
+            color: #86888B;
+        }
+
+        .work-order-dropdown-value {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .work-order-dropdown-line {
+            height: 8px;
+            display: flex;
+            align-items: center;
+            margin: 0 14px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+        }
+
+        .work-order-dropdown-line-item {
+            height: 100%;
+        }
+
+        .inner-bg {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(#F2F8FF, #FFFFFF);
+        }
+
+        .work-order-dropdown-line-item:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .work-order-dropdown-line-item:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .return-money-dialog .layui-layer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            flex-wrap: wrap;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .new-btn img.service{
+            width: 16px;
+            height: 16px;
+        }
+        .frame-content-sidebarlist>li{
+            padding-right: 25px !important;
+        }
+        .frame-content-sidebarlist>li .frame-content-sidebarsublist-div:first-child{
+            width: 100%;
+        }
+        .customer-sidebarsublist-box-relative{
+            padding-right: 25px !important;
+        }
+        .customer-sidebarsublist-box-absolute{
+            position: absolute;
+            top: 13px;
+            right: 30px;
+        }
+        .qpy-frame-content-sidebar.fold{
+            width: 40px !important;
+            min-width: 40px !important;
+        }
+        .frame-content-sidebarlist>li.active {
+            border: 0px !important;
+            padding-left: 50px !important;
+        }
+        .qpy-frame-content-sidebar.fold .frame-content-sidebarlist>li, .qpy-frame-content-sidebar.fold .frame-content-sidebarlist>li.active{
+            padding-left: 0px !important;
+        }
+        .frame-content-sidebarlist>li.active:before {
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            height: 100% !important;
+            width: 4px !important;
+            background-color: #ffaa3d;
+        }
+        .frame-content-sidebarlist>li.active:hover .frame-content-sidebarsublist.hidethis, .frame-content-sidebarsublist, .frame-content-sidebarsublist.hidethis{
+            left: -1000px !important;
+        }
+        .framehead-dropdown-menu-new{
+            width: max-content !important;
+            left: inherit !important;
+            right: 0 !important;
+            min-width: 80px !important;
+        }
+    </style>
+<link type="text/css" rel="stylesheet" href="https://qpyun-icon.oss-cn-hangzhou.aliyuncs.com/erpframe/css/erpframe.css"><link type="text/css" rel="stylesheet" href="https://qpyun-icon.oss-cn-hangzhou.aliyuncs.com/qpyun/style/qpyicon.css"><link type="text/css" rel="stylesheet" href="https://erp.qpyun.cn/Resourse/JavaScript/layer/ver3/layui.css?v=26.07.24"><link type="text/css" rel="stylesheet" href="https://erp.qpyun.cn/Resourse/CSS/tree.css?v=26.07.24"><script charset="utf-8" src="https://hmcdn.baidu.com/static/tongji/plugins/UrlChangeTracker.js"></script><script src="//hm.baidu.com/hm.js?f7d9a0497535edf1389c0d086e9e0b90"></script><script charset="utf-8" src="https://hmcdn.baidu.com/static/tongji/plugins/UrlChangeTracker.js"></script><script src="//hm.baidu.com/hm.js?f7d9a0497535edf1389c0d086e9e0b90"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/jquery-1.11.2.min.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/layer/ver3/layer.js?v=26.07.24" type="text/javascript"></script><link rel="stylesheet" href="https://erp.qpyun.cn/Resourse/JavaScript/layer/ver3/skin/default/layer.css?v=3.0.3304" id="layuicss-skinlayercss"><script src="https://erp.qpyun.cn/Resourse/JavaScript/app.qpyun.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/../config/language/app.language.zh-cn.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/../config/learningmaterials.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/jquery-1.11.2.min.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/layer/ver3/layer.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/jquery.cookie.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/xmlhttp.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/wsocket.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/home.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/mqttws31.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/EpcDataCom.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/erpframe.tt.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/reconnecting-websocket.min.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/modules/require.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/modules/require_config.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/listenImChat.js?v=26.07.24" type="text/javascript"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="axios" src="../../Resourse/JavaScript/modules/axiosmin.js?v=26.07.24"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="_c" src="../../Resourse/JavaScript/modules/_c.js?v=26.07.24"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="TIM" src="../../Resourse/JavaScript/modules/chat/index.js?v=26.07.24"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="TIMUploadPlugin" src="../../Resourse/JavaScript/modules/tim-upload-plugin.js?v=26.07.24"></script></head>
+<body>
+    <input type="hidden" value="90728055" id="txtXpartsId">
+    <input type="hidden" value="https://ssl.qpyun.cn" id="txtShopUrl">
+    <input type="hidden" value="898613" id="txtUserId" data-isclient="0">
+    <input type="hidden" value="" id="txtUrl">
+    <input type="hidden" value="http://cloudpurchase.qpyun.cn/" id="txtCloudPurchaseUrl">
+    <form name="form1" method="post" action="./home.aspx" id="form1" data-up-warehousingrejecttips="0" qpyun-pwdiseasy="0" systemuserid="12360" xid="90728055" rid="FXX7YKgOHEE5Z+MMIYQ31=CK" dcsuid="898613" data-up-isunsendsalquotenotice="0" data-up-purchasevoicepromptinterval="5" tt="40806063f44549d59661fc7db52ac2b1z56g3" frmzxb="0" data-up-isotherinvoice="0" cid="FxC7YigOHDi5ZPwMIkl31=WK" data-up-isplayquoteenquiryvoice="0" data-up-isplayorderchainvoice="0" uid="12360" data-up-isnewchainrepairnotice="0" data-up-purchasenoticevoiceprompt="0" data-up-isuserlongtimeautooff="0,0">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="o9h3NN4f+t+kU71OfJ5nNxj2Ldv1+srwrKYo6pXdg7osOG9sckZAuH20H0T7uzK2DtpoUXZ4c3YnTprbaHk1oWBt0qgTK7VEX884Sii8EAlPn4l1R+V0UvrFcJgSd0O+jgnx2FAN2Cr55tVx8FL9PnoilK9AHFFGVMM/NqSl/AksrPkgR52OsijAsFu4BmFWKXyACtkL5jtVOEQLd7mAsd4QSG9xEoxk1P9TCRoJbru8FX7D3kYz0qBsXxD4/EUS4V6h9We8S2DQpsMkJI7Ns8EYkxUq+xRu004hkAP2SuCZHFgtsnLxMDHpkLDh/HNtiI94iYPGZfe2WHJR4HzSt/iHNjuxbbrkbwHLM8ekxD7zDo4MmvlB86fiaxGS7cPSZNyzaBayXZxZmUuS7jJ6e8+LaXZl1/8c+F5yrzZrkKdIK1hWNzmRaslgnQkrXTFl+L0WXUBmCKtukb0g1Gvxk9gXwMaH/kykcOe4VlvQsS2k3gXCt4pa5sXQHM2KAKHTpbfYTiHw5hwLAoHeaKh9jc6ZwxnQ6AgZlladkJNMGx7vnlLzPDyXTNmSYIgmXm5Q3PMV+K/gi5dif4dlDp/miPSwFPuZIYrOAOtAq3ogesD85rpHTc+tz0EuepxWQ6sRNKAnL5ooqWP4qnNg0hDKAOtUfs7wf3ZV3UQHUbdCd6AXRHD/Qp25UJQxJaQachCQy1vJRLHvDOmkSoqA6aMj5oJDtzjjP010WgWFZHGVOcXzmnRPDljulBjCKp/HYspHN6yJX/GNA0Mmg05no7KVRGsut9hvd04zLqE1Rib2KI2DuTwZgB3200808DsRMXQqF0IE9zl/pvWaHDPyCkvgTaBFauHfoKLCUoHoYQIUOG+U2zWlFjt6F0GfWFOF37ITTmze/H1DxwGfwgdLMJJ0ZuoQEGERVneiRGr7UXPZmqPaf2WviSDWSuLQlUbcEvy6K+CkRm7Wt2VHUCGVjoqUdYJHVMHSsWvKk3jUy6d/vXRJ/bsLZX8pawCG/SQN1s/9YMU5yGo4X8Ax59e5uhWl9GC5chlF3u1HrzWABs7lXu25Po4oAvBwFUYtg88twbsVhVeEd4s924BQzGkmPVwEVq/pPlE6s6XyFYLZqcCHuC1a7bvPszXidSXh4Ut6mpij2mWJ06ApfhYtP2wQoDNot2Bx+8tOLMPuvAUujGiZeFhGNWzdXankPNyti3D61h+jlfHOLoneyclNaLfKDNnOAalY6L5nx0uGvA6jtMiHpJZLj5HmTYZCWmwnS3ZN3uhwYhb0oIaITLodkHvQRy7Oq39g/eFcVWPFIP93I/reygKjaGkkzLqqmZRF4lvy+h0dh9YwT+zGJkq5w03EnGze1l1Bv5LthspuWspBmabZepV+/C7EcHIJy/saWeOdDFG55vlroHkdfcq9Z+fLcT+EhNAWlsY=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8D0E13E6">
+</div>
+    
+    <div>
+            <audio id="voicePlay" src="" type="audio/wav" autoplay="autoplay">Your browser does not support the audio element.</audio>
+            <audio id="voicePlayPur" src="" type="audio/wav" autoplay="autoplay">Your browser does not support the audio element.</audio>
+        <audio id="voicePlay" src="" type="audio/wav" autoplay="autoplay">Your browser does not support the audio element.</audio>
+        <input name="txtImportUrl" type="hidden" id="txtImportUrl" value="http://imp.qpyun.cn">
+        <input name="txtPrintUrl" type="hidden" id="txtPrintUrl" value="http://erp.qpyun.cn/RDLC/">
+        <input name="txtReportPrintUrl" type="hidden" id="txtReportPrintUrl" value="https://1rprint.qpyun.cn/rdlc/">
+        <input name="txtMshPushUrl" type="hidden" id="txtMshPushUrl" value="/">
+        <input name="txtAppToken" type="hidden" id="txtAppToken">
+        <input name="hidSpeechDomain" type="hidden" id="hidSpeechDomain" value="http://erp.qpyun.cn">
+        <input name="txtWsHost" type="hidden" id="txtWsHost" value="mq.qpyun.cn">
+        <input name="txtWsPort" type="hidden" id="txtWsPort" value="61615">
+        <input name="txtMqHost" type="hidden" id="txtMqHost" value="tcp://172.16.167.201:60616?connectionTimeout=500">
+        <input name="txtXid" type="hidden" id="txtXid" value="83257"><!--询配码 -->
+        <input name="txtQueueName" type="hidden" id="txtQueueName" value="g83257_12040_12360">
+        <input name="txtWsClientId" type="hidden" id="txtWsClientId" value="g90728055_12360">
+        <input name="txtQueueNamePrinted" type="hidden" id="txtQueueNamePrinted"><!--已打印 -->
+        <input name="txtWsClientIdPrinted" type="hidden" id="txtWsClientIdPrinted">
+        <input name="TxtEpcArgs" type="hidden" id="TxtEpcArgs" value="https://login.qpyun.cn/Common/EpcDatasIndex?rid=FXX7YKgOHEE5Z%2bMMIYQ31%3dCK&amp;qpyid=FxUxY4MIHV8JZtlgI3K%3d1Jl%3dKfF73MCOMLF5&amp;uid=12360&amp;company=%e9%99%95%e8%a5%bf%e4%bd%a9%e7%89%b9%e6%9d%a5%e5%b7%a5%e8%b4%b8%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8"><!--epc数据插件访问-->
+        <input name="hidIsWs" type="hidden" id="hidIsWs" value="0" data-hasright="0" data-hasprinter="0">
+    </div>
+    <div class="qpy-framehead" id="divHomeHead">
+        <div class="qpy-framehead-logoarea">
+            <img src="Resourse/Images/qpyun_logo.png?t=20260725204211906" id="homeLogo">
+        </div>
+        <ul class="qpy-framehead-list" id="headnav"><li id="index" onclick="SelectMenuInFo('index','首页','1','https://ssl.qpyun.cn/usercenter/main','','https://ssl.qpyun.cn/Supplier/Index','');" class="list-item-sm"><div class="frame-content-sidebarsublist-div">首页<a href="#" onclick="openVideoPage('','首页','首页','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><span class="icon-home"></span></a></div></li><li id="qipeiyun" onclick="SelectMenuInFo('qipeiyun','云ERP','1','https://erp.qpyun.cn/Reception.aspx','https://ssl.qpyun.cn/UserCenter/AppDetail?code=qipeiyun','https://erp.qpyun.cn/companyindex.html','2026-12-28');" class="active"><div class="frame-content-sidebarsublist-div">云ERP<a href="#" onclick="openVideoPage('','云ERP','云ERP','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li id="unsalable" onclick="SelectMenuInFo('unsalable','滞品汇','1','https://erp.qpyun.cn/home.aspx?app_code=unsalable','','https://erp.qpyun.cn/Unsalable/NavIndex.aspx','');"><div class="frame-content-sidebarsublist-div">滞品汇<a href="#" onclick="openVideoPage('','滞品汇','滞品汇','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li id="marketprods" onclick="SelectMenuInFo('marketprods','营销工具','1','https://integralmall.qpyun.cn','https://ssl.qpyun.cn/UserCenter/AppDetail?code=marketprods','https://ssl.qpyun.cn/ThirdMiniPlatform/MarketProdsIndex','2026-12-28');"><div class="frame-content-sidebarsublist-div">营销工具<a href="#" onclick="openVideoPage('','营销工具','营销工具','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li id="finance" onclick="SelectMenuInFo('finance','小鹅易结','0','https://ssl.qpyun.cn/UserCenter/main?code=finance&amp;iframeContentCode=51','https://ssl.qpyun.cn/Account/Index','','');"><div class="frame-content-sidebarsublist-div">小鹅易结<a href="#" onclick="openVideoPage('','小鹅易结','小鹅易结','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li id="purchase" onclick="SelectMenuInFo('purchase','云联盟','0','https://erp.qpyun.cn/home.aspx?app_code=purchase','https://ssl.qpyun.cn/UserCenter/AppDetail?code=purchase','https://miniprog.qpyun.cn/CloudPurchase/AllianceParts/Index','');"><div class="frame-content-sidebarsublist-div">云联盟<a href="#" onclick="openVideoPage('','云联盟','云联盟','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li id="shop" onclick="SelectMenuInFo('shop','云店铺','0','https://erp.qpyun.cn/home.aspx?app_code=shop','https://ssl.qpyun.cn/UserCenter/AppDetail?code=shop','https://ssl.qpyun.cn/EShop/Main','');"><div class="frame-content-sidebarsublist-div">云店铺<a href="#" onclick="openVideoPage('','云店铺','云店铺','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li id="zhixiubao" onclick="SelectMenuInFo('zhixiubao','智修宝','0','http://www.zhixiubao.cn/Login/LoginAuth?state=1&amp;exid=90728055','','','');"><div class="frame-content-sidebarsublist-div">智修宝<a href="#" onclick="openVideoPage('','智修宝','智修宝','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li id="xiupeironghe" onclick="SelectMenuInFo('xiupeironghe','修配融合','0','https://erp.qpyun.cn/home.aspx?app_code=xiupeironghe','https://miniprog.qpyun.cn/repair/repair/IntroducePage','https://erp.qpyun.cn/companyindex.html','');"><div class="frame-content-sidebarsublist-div">修配融合<a href="#" onclick="openVideoPage('','修配融合','修配融合','');" class="frame-content-sidebarsublist-menu-video3" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li></ul>
+        <div class="qpy-framehead-more" style="display: none;">
+            <a href="">
+                更多<span class="triangle-bottom"></span></a>
+            <ul class="qpy-framehead-more-list"></ul>
+        </div>
+        <div class="qpy-framehead-list-info">
+            <div class="framehead-list-info-line" style="display: flex; align-items: center;">
+                <div class="new-btn message-btn" onclick="handleChat();" style="display: none;">
+                    <img src="../Resourse/Images/wdxxIcon.png">
+                    我的消息
+                    <div class="message-badge" style="display: none">
+                    </div>
+                </div>
+                <span class="qpy-framehead-list-companyinfo hoveropen">
+                    消息  <span class="badge badge-emphasize" id="spmsgtotal">0</span>
+                    <ul class="dropdown-menu clear-inside">
+                        <li><a onclick="gotoMsg(54)">
+                            业务消息<span class="badge badge-emphasize pull-right" id="spordermsg">0</span></a></li>
+                        <li><a onclick="gotoMsg(52)">
+                            商家消息<span class="badge badge-emphasize pull-right" id="spshopmsg">0</span></a></li>
+                        <li><a onclick="gotoMsg(53)">
+                            内部消息<span class="badge badge-emphasize pull-right" id="spstaffmsg">0</span></a></li>
+                        <li><a onclick="gotoMsg(55)">
+                            平台消息<span class="badge badge-emphasize pull-right" id="spplatformmsg">0</span></a></li>
+                        <li><a onclick="gotoMsgs()">
+                            投诉消息<span class="badge badge-emphasize pull-right" id="spsalifbmsg">0</span></a></li>
+                    </ul>
+                </span> <span class="qpy-framehead-list-companyinfo">
+                        <span id="lblUserName">管理员</span>&nbsp;<span>
+                            欢迎您！</span> </span>
+                
+                <img src="../Resourse/Images/enterprise-un.png" class="enterprise-icon" onclick="goEnterpriseAuthen(0);">
+                
+                <span class="qpy-framehead-list-companyinfo hoveropen">
+                    <span id="lblChainTitle">连锁</span>：
+                    <span id="LblRentName">陕西佩特来工贸有限公司</span>
+                    <span id="lblChangeChainTip">切换</span>
+                    <ul id="ulChain" class="dropdown-menu clear-inside qpyframe-dropdownmenu" style="float: right; margin-top: 30px; min-width: 300px;">
+                        <div>
+                            <input placeholder="请输入关键字" name="txtName" type="text" id="txtName" autocomplete="off" style="color: #000; width: 98%; height: 30px; background: #a0c4ed; border: none;
+                                padding-left: 20px; color: #fff;" search-key="txtName" onkeyup="BindChainList(); return false;">
+                        </div>
+                        <div class="tree" id="tree"><div class="tree-set tree-setHide" data-id="12040"><div class="tree-entry"><div class="tree-main"><span class="tree-iconClick"></span><span class="tree-txt">陕西佩特来工贸有限公司(直营)</span></div></div></div></div>
+                        <ul id="ulChain2" style="float: left; padding-left: 10px;"> <li><a onclick="showCompanys();">点击此处切换公司&gt;&gt;</a></li></ul>
+                    </ul>
+                </span><span class="qpy-framehead-list-oper" onclick="closes();"><a rel="nofollow" style="cursor: pointer">
+                    退出</a></span>
+                <div style="display: none">
+                    <input type="submit" name="BtnLoadMenu" value="Button" id="BtnLoadMenu" style="height:0px;width:0px;"><input type="image" name="BtnClose" id="BtnClose" class="hidden" src="" style="height:0px;width:0px;border-width:0px;">
+                    <input name="hidBugSubmitUrl" type="hidden" id="hidBugSubmitUrl">
+                    <input name="hidServerTypeID" type="hidden" id="hidServerTypeID">
+                    <input name="hidRentID" type="hidden" id="hidRentID">
+                    <input name="hidRentName" type="hidden" id="hidRentName">
+                    <input name="hidChainID" type="hidden" id="hidChainID" value="12040">
+                    <input name="hidChainName" type="hidden" id="hidChainName" value="%e9%99%95%e8%a5%bf%e4%bd%a9%e7%89%b9%e6%9d%a5%e5%b7%a5%e8%b4%b8%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8">
+                    <input name="hidChainEmail" type="hidden" id="hidChainEmail" value="18609188315@139.com">
+                    <input name="hidUserID" type="hidden" id="hidUserID">
+                    <input name="hidUserName" type="hidden" id="hidUserName">
+                    <input name="hidUserEmail" type="hidden" id="hidUserEmail">
+                    <input name="hidUserMobile" type="hidden" id="hidUserMobile">
+                    <input name="hidXPartsCompanyid" type="hidden" id="hidXPartsCompanyid" value="90728055">
+                    <input name="hidCode" type="hidden" id="hidCode">
+                    <input name="hidIsOpenyangchebang" type="hidden" id="hidIsOpenyangchebang">
+                    <input name="hidDefaultApp" type="hidden" id="hidDefaultApp">
+                    <input name="hidRentIsOutOfDate" type="hidden" id="hidRentIsOutOfDate">
+                    <input name="hidflag" type="hidden" id="hidflag" value="0">
+                    <input name="isOpenAnti" type="hidden" id="isOpenAnti" value="0">
+                    <input name="chainMysqlCon" type="hidden" id="chainMysqlCon">
+                    <input name="originalUrl" type="hidden" id="originalUrl">
+                    <input name="isForceLogoff" type="hidden" id="isForceLogoff" value="0">
+                    <input name="hidMJToken" type="hidden" id="hidMJToken">
+                    <input name="txtCustComplainUrl" type="hidden" id="txtCustComplainUrl" value="https://ssl.qpyun.cn/CustomerComplain/Index?xid=90728055%26uid=12360">
+                    <input name="txtRemindType" type="hidden" id="txtRemindType" value="0">
+                    <input name="txtRemindTypeValue" type="hidden" id="txtRemindTypeValue">
+                    <input name="txtIsShowAmtCollectionSucceedMsg" type="hidden" id="txtIsShowAmtCollectionSucceedMsg" value="0">
+                    <input name="txtVoiceAccountRemind" type="hidden" id="txtVoiceAccountRemind" value="0">
+                    <input name="hidIsNewNotifice" type="hidden" id="hidIsNewNotifice">
+                </div>
+            </div>
+            <div class="framehead-list-info-line">
+                <span class="qpy-framehead-list-oper"><a href="javascript:void(0);" rel="nofollow" onclick="newWin();">
+                    新窗口</a></span> <span class="qpy-framehead-list-oper"><a onclick="bugSubmitGoto(1);" style="cursor: pointer" rel="nofollow" id="workOrderDropdown">
+                        工单</a>
+                        <div class="qpy-framehead-QRcode-dropdown work-order-dropdown">
+                            <div class="triangle">
+                                <div class="triangle-inside">
+                                </div>
+                            </div>
+                            <div class="flex-column inner-bg">
+                                <div class="work-order-dropdown-title">
+                                    汽配云总工单进度概览</div>
+                                <div class="work-order-dropdown-line">
+                                    <div id="pendingLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                    <div id="schedulingLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                    <div id="devingLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                    <div id="resolvedLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                </div>
+                                <div class="work-order-dropdown-item-box">
+                                    <div class="work-order-dropdown-item">
+                                        <div id="pendingValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            待处理</div>
+                                    </div>
+                                    <div class="work-order-dropdown-item">
+                                        <div id="schedulingValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            排期中</div>
+                                    </div>
+                                    <div class="work-order-dropdown-item">
+                                        <div id="devingValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            开发中</div>
+                                    </div>
+                                    <div class="work-order-dropdown-item">
+                                        <div id="resolvedValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            已上线</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span><span class="qpy-framehead-list-oper">
+                        关注我们
+                        <div class="qpy-framehead-QRcode-dropdown">
+                            <div class="triangle">
+                                <div class="triangle-inside">
+                                </div>
+                            </div>
+                            <div class="qpy-framehead-QRcode-dropdown-imgcontent">
+                                <img src="https://pic.yangchebang.com.cn/ALY/4353/6569/2020/5/11/ID_202005110935470810452_337.jpg" id="imgPublicNumber" alt="公众号">
+                                <p>
+                                    公众号</p>
+                            </div>
+                            <div class="qpy-framehead-QRcode-dropdown-imgcontent">
+                                <img src="https://qpyun-icon.oss-cn-hangzhou.aliyuncs.com/erpframe/image/SubscriptionQR.jpg" id="imgSubscriptionNumber" alt="订阅号">
+                                <p>
+                                    订阅号</p>
+                            </div>
+                        </div>
+                    </span><span class="qpy-framehead-list-oper">
+                        投诉通道
+                        <div class="qpy-framehead-QRcode-dropdown" style="width: 160px; margin: 0; left: -96%;">
+                            <div class="triangle">
+                                <div class="triangle-inside">
+                                </div>
+                            </div>
+                            <div class="qpy-framehead-QRcode-dropdown-imgcontent" style="margin-top:5px;">
+                                <img id="imgCustomerComplain" alt="请扫二维码" src="GetQRCode.aspx?type=creatqrcodebyurl&amp;url=https://ssl.qpyun.cn/CustomerComplain/Index?xid=90728055%26uid=12360">
+                                <p>
+                                    请扫二维码</p>
+                            </div>
+                        </div>
+                    </span>
+                 
+                    <div class="qpy-framehead-list-oper dropdown">
+                        更多<span class="triangle-bottom"></span>
+                        <ul class="framehead-dropdown-menu framehead-dropdown-menu-new">
+                            <li><a onclick="opentHelpForm();" href="#" rel="nofollow">
+                                帮助</a></li>
+                            <li><a onclick="OpenQuestion();" href="#" rel="nofollow">
+                                问卷调查</a></li>
+                            <li><a onclick="return EditPwd();" href="#" rel="nofollow">
+                                修改密码</a></li>
+                            
+                        <li id="liInitializeData"><a onclick="return BaseData();" href="#" rel="nofollow">
+                            数据初始化</a></li>
+                        <li id="liOldVersion"><a href="index.aspx" target="_self" rel="nofollow">
+                            旧版本</a></li>
+                    </ul>
+                </div>
+                <div class="hoveropen" style="float: left; margin-right: 10px;">
+                    <div onclick="bugSubmitGoto(-1,'assistant');" class="new-btn">
+                        <img src="../Resourse/Images/znkfIcon1.png" class="service">专属客服经理
+                    </div>
+                    <div id="divCompanyService" class="dropdown-menu clear-inside qpyframe-dropdownmenu qpyframe-dropdownmenu-padding qpyframe-dropdownmenu-width-1g" style="left: 0; right: auto; box-sizing: border-box;"><div style="font-size: 16px;margin: 10px 0;font-weight:bold;">汤明旺</div><div style="display:flex;justify-content: flex-end;"><div style="margin:0 20px 0 80px;line-height:1.5;"><div>姓名：汤明旺</div><div>电话：18574783689</div><div>QQ：3330873425</div></div><img src="https://wework.qpic.cn/wwpic/920695_u01nSUclTBWYAJQ_1624982411/0" style="width: 100px;height: 100px;"></div><div style="font-size: 16px;margin: 10px 0;font-weight:bold;display:flex;align-items:center;">值班客服<div style="background-color:#039d12;padding: 2px 10px;border-radius:10px;color:#fff;font-size: 12px;font-weight: normal;margin-left: 10px;">在线</div></div><div style="display:flex;justify-content: flex-end;"><div style="margin:0 20px 0 80px;line-height:1.5;"><div>值班电话：18150109480</div><div>扫码联系：</div></div><img src="https://pic.yangchebang.com.cn/ALY/4353/6569/2022/3/2/ID_202203021332384010829_118.png" style="width: 100px;height: 100px;"></div></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="qpy-frame-content" id="divHomeBody">
+            <div class="qpy-frame-content-sidebar" id="divHomeBodySidebar" style="width: auto; min-width: 165px; height: 1028px;">
+                <div class="frame-content-sidebarhead">
+                    <h4 id="menuTopTitle">云ERP</h4>
+                    <span class="icon-circleback"></span><span class="icon-circleExtend"></span>
+                </div>
+                <div id="nav"><ul class="frame-content-sidebarlist"><li app-code="" app-end-date=""><div class="frame-content-sidebarsublist-div"><span onclick="return false;OpenChildPage('Sale/Index.aspx?1=1&amp;ModuleID=1845');" ;="" class="frame-content-sidebarlistindex customer-sidebarsublist-box-relative" o-style="cursor:pointer">销售管理<a href="#" onclick="openVideoPage('0','销售管理','销售管理','');" class="frame-content-sidebarsublist-menu-video1 customer-sidebarsublist-box-absolute" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a><span class="icon-rightarrow"></span></span></div> <span class="icon-signal"></span> <ul class="frame-content-sidebarsublist customer-sidebarsublist-left-position"> <li class="full">	<h4 class="frame-content-sidebarsublist-dashboard"><a onclick="OpenChildPage('Sale/Index.aspx?1=1&amp;ModuleID=1845', this);" ;="" style="cursor:pointer">销售看板</a></h4> </li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">客户管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/customerinfomanager.aspx?flag=1&amp;moduleid=361&amp;uniquecode=menu_bas_customer_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">客户档案</a><a href="#" onclick="openVideoPage('0','客户档案','common%2fcustomerinfomanager.aspx%3fflag%3d1%26moduleid%3d361%26uniquecode%3dmenu_bas_customer_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/usersalestaskmanage.aspx?moduleid=2851&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">业务员销售任务管理</a><a href="#" onclick="openVideoPage('0','业务员销售任务管理','common%2fusersalestaskmanage.aspx%3fmoduleid%3d2851%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/limitprice.aspx?1=1&amp;moduleid=2770&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">个性限价</a><a href="#" onclick="openVideoPage('0','个性限价','purchase%2flimitprice.aspx%3f1%3d1%26moduleid%3d2770%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/reportstockquery.aspx?1=1&amp;flag=2&amp;moduleid=4270&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">缺件满足情况</a><a href="#" onclick="openVideoPage('0','缺件满足情况','report%2freportstockquery.aspx%3f1%3d1%26flag%3d2%26moduleid%3d4270%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://report.qpyun.cn/reportcustomercontract/index?1=1&amp;moduleid=4210&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">客户合同</a><a href="#" onclick="openVideoPage('0','客户合同','https%3a%2f%2freport.qpyun.cn%2freportcustomercontract%2findex%3f1%3d1%26moduleid%3d4210%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/logisticsinfomanage.aspx?1=1&amp;flag=3&amp;moduleid=2&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">物流公司资料</a><a href="#" onclick="openVideoPage('0','物流公司资料','common%2flogisticsinfomanage.aspx%3f1%3d1%26flag%3d3%26moduleid%3d2%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/otherinoutinfomanage.aspx?1=1&amp;flagid=-1&amp;typeid=1&amp;moduleid=2330&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">客户赠品</a><a href="#" onclick="openVideoPage('0','客户赠品','stock%2fotherinoutinfomanage.aspx%3f1%3d1%26flagid%3d-1%26typeid%3d1%26moduleid%3d2330%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('/ecommerce/customersalestracking.aspx?flag=1&amp;moduleid=6710&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">线索推销过程追踪</a><a href="#" onclick="openVideoPage('0','线索推销过程追踪','%2fecommerce%2fcustomersalestracking.aspx%3fflag%3d1%26moduleid%3d6710%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/salqacardmanage.aspx?1=1&amp;moduleid=6430&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">质保管理</a><a href="#" onclick="openVideoPage('0','质保管理','sale%2fsalqacardmanage.aspx%3f1%3d1%26moduleid%3d6430%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/logisticsinfomanage.aspx?1=1&amp;flag=3&amp;isplatform=1&amp;moduleid=5090&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">平台档案</a><a href="#" onclick="openVideoPage('0','平台档案','common%2flogisticsinfomanage.aspx%3f1%3d1%26flag%3d3%26isplatform%3d1%26moduleid%3d5090%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">价格管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/saladpricemanage.aspx?1=1&amp;moduleid=1230&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">销售调价</a><a href="#" onclick="openVideoPage('0','销售调价','sale%2fsaladpricemanage.aspx%3f1%3d1%26moduleid%3d1230%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">销售业务</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/orderinfomanage.aspx?1=1&amp;moduleid=179&amp;uniquecode=menu_sal_order_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">销售手推车</a><a href="#" onclick="openVideoPage('0','销售手推车','sale%2forderinfomanage.aspx%3f1%3d1%26moduleid%3d179%26uniquecode%3dmenu_sal_order_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/saleinfomanage.aspx?1=1&amp;moduleid=173&amp;uniquecode=menu_sal_sale_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">销售单</a><a href="#" onclick="openVideoPage('0','销售单','sale%2fsaleinfomanage.aspx%3f1%3d1%26moduleid%3d173%26uniquecode%3dmenu_sal_sale_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/requireinfomanage.aspx?1=1&amp;moduleid=172&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">销售缺件</a><a href="#" onclick="openVideoPage('0','销售缺件','sale%2frequireinfomanage.aspx%3f1%3d1%26moduleid%3d172%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/quoteinfomanage.aspx?1=1&amp;moduleid=832&amp;uniquecode=menu_sal_quote_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">报价订单</a><a href="#" onclick="openVideoPage('0','报价订单','sale%2fquoteinfomanage.aspx%3f1%3d1%26moduleid%3d832%26uniquecode%3dmenu_sal_quote_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/reportcreatercommissionlink.aspx?1=1&amp;ispeportpopdeoms=3&amp;moduleid=3990&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">我的业绩</a><a href="#" onclick="openVideoPage('0','我的业绩','report%2freportcreatercommissionlink.aspx%3f1%3d1%26ispeportpopdeoms%3d3%26moduleid%3d3990%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/returninfomanage.aspx?1=1&amp;moduleid=169&amp;uniquecode=menu_sal_return_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">销售退货</a><a href="#" onclick="openVideoPage('0','销售退货','sale%2freturninfomanage.aspx%3f1%3d1%26moduleid%3d169%26uniquecode%3dmenu_sal_return_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/shoppingbillinfomanage.aspx?1=1&amp;moduleid=772&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">报销单</a><a href="#" onclick="openVideoPage('0','报销单','sale%2fshoppingbillinfomanage.aspx%3f1%3d1%26moduleid%3d772%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/orderinfomanage.aspx?isquick=1&amp;moduleid=5050&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">简易开单</a><a href="#" onclick="openVideoPage('0','简易开单','sale%2forderinfomanage.aspx%3fisquick%3d1%26moduleid%3d5050%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/quickquotationmanage.aspx?1=1&amp;moduleid=3370&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">快速报价</a><a href="#" onclick="openVideoPage('0','快速报价','sale%2fquickquotationmanage.aspx%3f1%3d1%26moduleid%3d3370%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/presellplan.aspx?moduleid=5250&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">预售订单</a><a href="#" onclick="openVideoPage('0','预售订单','sale%2fpresellplan.aspx%3fmoduleid%3d5250%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/insuranceinfomanage.aspx?moduleid=5230&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">保单处理</a><a href="#" onclick="openVideoPage('0','保单处理','sale%2finsuranceinfomanage.aspx%3fmoduleid%3d5230%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">报表中心</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/index.aspx?1=1&amp;moduleid=284&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">报表中心</a><a href="#" onclick="openVideoPage('0','报表中心','report%2findex.aspx%3f1%3d1%26moduleid%3d284%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li>     </ul> </li><li app-code="" app-end-date=""><div class="frame-content-sidebarsublist-div"><span onclick="return false;OpenChildPage('Stock/Index.aspx?1=1&amp;ModuleID=1843');" ;="" class="frame-content-sidebarlistindex customer-sidebarsublist-box-relative" o-style="cursor:pointer">库存管理<a href="#" onclick="openVideoPage('0','库存管理','库存管理','');" class="frame-content-sidebarsublist-menu-video1 customer-sidebarsublist-box-absolute" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a><span class="icon-rightarrow"></span></span></div> <span class="icon-storage"></span> <ul class="frame-content-sidebarsublist customer-sidebarsublist-left-position"> <li class="full">	<h4 class="frame-content-sidebarsublist-dashboard"><a onclick="OpenChildPage('Stock/Index.aspx?1=1&amp;ModuleID=1843', this);" ;="" style="cursor:pointer">库存看板</a></h4> </li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">入库业务</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/ininfomanage.aspx?1=1&amp;moduleid=432&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">入仓单</a><a href="#" onclick="openVideoPage('0','入仓单','stock%2fininfomanage.aspx%3f1%3d1%26moduleid%3d432%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/purchaseallotinfoedit.aspx?1=1&amp;moduleid=2752&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">调拨入库</a><a href="#" onclick="openVideoPage('0','调拨入库','purchase%2fpurchaseallotinfoedit.aspx%3f1%3d1%26moduleid%3d2752%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/allotreturnforchainpurchase.aspx?moduleid=3090&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">调拨退货</a><a href="#" onclick="openVideoPage('0','调拨退货','stock%2fallotreturnforchainpurchase.aspx%3fmoduleid%3d3090%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/otherinoutinfomanage.aspx?flagid=1&amp;moduleid=1310&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">其他入库</a><a href="#" onclick="openVideoPage('0','其他入库','stock%2fotherinoutinfomanage.aspx%3fflagid%3d1%26moduleid%3d1310%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">出库业务</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/outinfomanage.aspx?1=1&amp;moduleid=433&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">出仓单</a><a href="#" onclick="openVideoPage('0','出仓单','stock%2foutinfomanage.aspx%3f1%3d1%26moduleid%3d433%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/allotinfomanage.aspx?1=1&amp;moduleid=186&amp;uniquecode=menu_stk_allot_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">调拨出库</a><a href="#" onclick="openVideoPage('0','调拨出库','stock%2fallotinfomanage.aspx%3f1%3d1%26moduleid%3d186%26uniquecode%3dmenu_stk_allot_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/in_out_whousegroupmanagement.aspx?moduleid=3830&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">出入仓分组管理</a><a href="#" onclick="openVideoPage('0','出入仓分组管理','stock%2fin_out_whousegroupmanagement.aspx%3fmoduleid%3d3830%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/outinfoconsole.aspx?&amp;moduleid=3951&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">发货区控制台</a><a href="#" onclick="openVideoPage('0','发货区控制台','stock%2foutinfoconsole.aspx%3f%26moduleid%3d3951%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/otherinoutinfomanage.aspx?flagid=-1&amp;moduleid=1311&amp;uniquecode=menu_stk_otherin_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">其他出库</a><a href="#" onclick="openVideoPage('0','其他出库','stock%2fotherinoutinfomanage.aspx%3fflagid%3d-1%26moduleid%3d1311%26uniquecode%3dmenu_stk_otherin_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">库存调整</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/checklistinfomanage.aspx?1=1&amp;moduleid=426&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">盘点清单</a><a href="#" onclick="openVideoPage('0','盘点清单','stock%2fchecklistinfomanage.aspx%3f1%3d1%26moduleid%3d426%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/checkinfomanage.aspx?1=1&amp;action=query&amp;moduleid=431&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">盘点调整单</a><a href="#" onclick="openVideoPage('0','盘点调整单','stock%2fcheckinfomanage.aspx%3f1%3d1%26action%3dquery%26moduleid%3d431%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/moveinfomanage.aspx?1=1&amp;moduleid=188&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">仓库移货</a><a href="#" onclick="openVideoPage('0','仓库移货','stock%2fmoveinfomanage.aspx%3f1%3d1%26moduleid%3d188%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/chainrepairmanage.aspx?1=1&amp;moduleid=1992&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">连锁补货</a><a href="#" onclick="openVideoPage('0','连锁补货','stock%2fchainrepairmanage.aspx%3f1%3d1%26moduleid%3d1992%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/stkbalance.aspx?typeid=1&amp;moduleid=692&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">库存浏览</a><a href="#" onclick="openVideoPage('0','库存浏览','report%2fstkbalance.aspx%3ftypeid%3d1%26moduleid%3d692%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('/report/reportbanlanceforbatch.aspx?typeid=1&amp;moduleid=4770&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">批次码浏览</a><a href="#" onclick="openVideoPage('0','批次码浏览','%2freport%2freportbanlanceforbatch.aspx%3ftypeid%3d1%26moduleid%3d4770%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/otherinoutinfomanage.aspx?1=1&amp;flagid=-1&amp;pagefrom=prodscrap&amp;moduleid=2910&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件报废</a><a href="#" onclick="openVideoPage('0','配件报废','stock%2fotherinoutinfomanage.aspx%3f1%3d1%26flagid%3d-1%26pagefrom%3dprodscrap%26moduleid%3d2910%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/reportproductpriceinfoedit.aspx?1=1&amp;moduleid=1130&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">库存优化</a><a href="#" onclick="openVideoPage('0','库存优化','report%2freportproductpriceinfoedit.aspx%3f1%3d1%26moduleid%3d1130%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/reportbalanceformoreshelf.aspx?1=1&amp;typeid=1&amp;moduleid=6150&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">一货多位库存查询</a><a href="#" onclick="openVideoPage('0','一货多位库存查询','report%2freportbalanceformoreshelf.aspx%3f1%3d1%26typeid%3d1%26moduleid%3d6150%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/centralizewhbanlance.aspx?1=1&amp;moduleid=6730&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">集中仓库存查询</a><a href="#" onclick="openVideoPage('0','集中仓库存查询','report%2fcentralizewhbanlance.aspx%3f1%3d1%26moduleid%3d6730%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">套件管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/structureinfomamage.aspx?1=1&amp;moduleid=1093&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">模块管理</a><a href="#" onclick="openVideoPage('0','模块管理','common%2fstructureinfomamage.aspx%3f1%3d1%26moduleid%3d1093%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/purpackageinfomanage.aspx?1=1&amp;moduleid=1090&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">套件组装</a><a href="#" onclick="openVideoPage('0','套件组装','purchase%2fpurpackageinfomanage.aspx%3f1%3d1%26moduleid%3d1090%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/purdismountinginfomanage.aspx?1=1&amp;moduleid=1091&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">套件拆装</a><a href="#" onclick="openVideoPage('0','套件拆装','purchase%2fpurdismountinginfomanage.aspx%3f1%3d1%26moduleid%3d1091%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/purkitassemblyinfomanage.aspx?moduleid=5390&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">套件装配</a><a href="#" onclick="openVideoPage('0','套件装配','purchase%2fpurkitassemblyinfomanage.aspx%3fmoduleid%3d5390%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">物流业务</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/receivingmanage.aspx?1=1&amp;moduleid=1950&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">物流收货单</a><a href="#" onclick="openVideoPage('0','物流收货单','stock%2freceivingmanage.aspx%3f1%3d1%26moduleid%3d1950%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/deliveryinfomanage.aspx?1=1&amp;moduleid=1951&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">物流发运单</a><a href="#" onclick="openVideoPage('0','物流发运单','sale%2fdeliveryinfomanage.aspx%3f1%3d1%26moduleid%3d1951%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/deliverybehalfcheck.aspx?moduleid=3030&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">物流代收对账</a><a href="#" onclick="openVideoPage('0','物流代收对账','stock%2fdeliverybehalfcheck.aspx%3fmoduleid%3d3030%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/deliverysendstate.aspx?moduleid=3011&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">发货查询</a><a href="#" onclick="openVideoPage('0','发货查询','stock%2fdeliverysendstate.aspx%3fmoduleid%3d3011%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">报表中心</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/index.aspx?1=1&amp;moduleid=187&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">报表中心</a><a href="#" onclick="openVideoPage('0','报表中心','report%2findex.aspx%3f1%3d1%26moduleid%3d187%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('&amp;ModuleID=3930');" ;="" style="cursor:pointer">云仓管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/routelossdeal.aspx?1=1&amp;moduleid=3931&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">云仓途损处理</a><a href="#" onclick="openVideoPage('0','云仓途损处理','stock%2froutelossdeal.aspx%3f1%3d1%26moduleid%3d3931%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/reportcloudstoreoutrate.aspx?1=1&amp;moduleid=5850&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">仓储出仓进度查询</a><a href="#" onclick="openVideoPage('0','仓储出仓进度查询','stock%2freportcloudstoreoutrate.aspx%3f1%3d1%26moduleid%3d5850%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://report.qpyun.cn//reportcloudstoreinrate/index?1=1&amp;moduleid=5810&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">仓储入仓进度查询</a><a href="#" onclick="openVideoPage('0','仓储入仓进度查询','https%3a%2f%2freport.qpyun.cn%2f%2freportcloudstoreinrate%2findex%3f1%3d1%26moduleid%3d5810%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li>     </ul> </li><li app-code="" app-end-date=""><div class="frame-content-sidebarsublist-div"><span onclick="return false;OpenChildPage('Purchase/Index.aspx?1=1&amp;ModuleID=1844');" ;="" class="frame-content-sidebarlistindex customer-sidebarsublist-box-relative" o-style="cursor:pointer">采购管理<a href="#" onclick="openVideoPage('0','采购管理','采购管理','');" class="frame-content-sidebarsublist-menu-video1 customer-sidebarsublist-box-absolute" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a><span class="icon-rightarrow"></span></span></div> <span class="icon-shopcart"></span> <ul class="frame-content-sidebarsublist customer-sidebarsublist-left-position"> <li class="full">	<h4 class="frame-content-sidebarsublist-dashboard"><a onclick="OpenChildPage('Purchase/Index.aspx?1=1&amp;ModuleID=1844', this);" ;="" style="cursor:pointer">采购看板</a></h4> </li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">基础设置</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/orderformula.aspx?1=1&amp;moduleid=424&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">采购订货公式</a><a href="#" onclick="openVideoPage('0','采购订货公式','purchase%2forderformula.aspx%3f1%3d1%26moduleid%3d424%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">供应商管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/customerinfomanager.aspx?flag=2&amp;moduleid=403&amp;uniquecode=menu_bas_vendor_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">供应商档案</a><a href="#" onclick="openVideoPage('0','供应商档案','common%2fcustomerinfomanager.aspx%3fflag%3d2%26moduleid%3d403%26uniquecode%3dmenu_bas_vendor_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/otherinoutinfomanage.aspx?1=1&amp;flagid=1&amp;typeid=1&amp;moduleid=2331&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">供应商赠品</a><a href="#" onclick="openVideoPage('0','供应商赠品','stock%2fotherinoutinfomanage.aspx%3f1%3d1%26flagid%3d1%26typeid%3d1%26moduleid%3d2331%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">采购业务</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/ordersmanage.aspx?1=1&amp;moduleid=184&amp;uniquecode=menu_pur_order_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">采购订单</a><a href="#" onclick="openVideoPage('0','采购订单','purchase%2fordersmanage.aspx%3f1%3d1%26moduleid%3d184%26uniquecode%3dmenu_pur_order_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/purchaseinfomanage.aspx?1=1&amp;moduleid=183&amp;uniquecode=menu_pur_purchase_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">采购入库</a><a href="#" onclick="openVideoPage('0','采购入库','purchase%2fpurchaseinfomanage.aspx%3f1%3d1%26moduleid%3d183%26uniquecode%3dmenu_pur_purchase_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/exigenceinfomanage.aspx?1=1&amp;moduleid=673&amp;uniquecode=menu_sal_exigence_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">急件处理</a><a href="#" onclick="openVideoPage('0','急件处理','sale%2fexigenceinfomanage.aspx%3f1%3d1%26moduleid%3d673%26uniquecode%3dmenu_sal_exigence_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/returninfomanage.aspx?1=1&amp;moduleid=182&amp;uniquecode=menu_pur_return_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">采购退货</a><a href="#" onclick="openVideoPage('0','采购退货','purchase%2freturninfomanage.aspx%3f1%3d1%26moduleid%3d182%26uniquecode%3dmenu_pur_return_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/purchasereadjustinfomanage.aspx?1=1&amp;moduleid=2232&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">采购调价</a><a href="#" onclick="openVideoPage('0','采购调价','purchase%2fpurchasereadjustinfomanage.aspx%3f1%3d1%26moduleid%3d2232%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/unsalablerecommendmanage.aspx?1=1&amp;moduleid=5212&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">滞品汇优势推荐</a><a href="#" onclick="openVideoPage('0','滞品汇优势推荐','purchase%2funsalablerecommendmanage.aspx%3f1%3d1%26moduleid%3d5212%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">付款业务</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accpaymentinfomanage.aspx?1=1&amp;pagefrom=payapply&amp;moduleid=2510&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">支付申请</a><a href="#" onclick="openVideoPage('0','支付申请','account%2faccpaymentinfomanage.aspx%3f1%3d1%26pagefrom%3dpayapply%26moduleid%3d2510%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/chainaccpaymentinfomanage.aspx?moduleid=5010&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">分店支付申请</a><a href="#" onclick="openVideoPage('0','分店支付申请','account%2fchainaccpaymentinfomanage.aspx%3fmoduleid%3d5010%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">报表中心</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/index.aspx?1=1&amp;moduleid=180&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">报表中心</a><a href="#" onclick="openVideoPage('0','报表中心','report%2findex.aspx%3f1%3d1%26moduleid%3d180%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li>     </ul> </li><li app-code="" app-end-date=""><div class="frame-content-sidebarsublist-div"><span onclick="return false;OpenChildPage('Account/Index.aspx?1=1&amp;ModuleID=1846');" ;="" class="frame-content-sidebarlistindex customer-sidebarsublist-box-relative" o-style="cursor:pointer">资金管理<a href="#" onclick="openVideoPage('0','资金管理','资金管理','');" class="frame-content-sidebarsublist-menu-video1 customer-sidebarsublist-box-absolute" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a><span class="icon-rightarrow"></span></span></div> <span class="icon-fund"></span> <ul class="frame-content-sidebarsublist customer-sidebarsublist-left-position"> <li class="full">	<h4 class="frame-content-sidebarsublist-dashboard"><a onclick="OpenChildPage('Account/Index.aspx?1=1&amp;ModuleID=1846', this);" ;="" style="cursor:pointer">资金看板</a></h4> </li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">应收管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accreceivableinfomanage.aspx?1=1&amp;moduleid=178&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">应收账款</a><a href="#" onclick="openVideoPage('0','应收账款','account%2faccreceivableinfomanage.aspx%3f1%3d1%26moduleid%3d178%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/predictreceiveinfomange.aspx?1=1&amp;moduleid=176&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">预收账款</a><a href="#" onclick="openVideoPage('0','预收账款','account%2fpredictreceiveinfomange.aspx%3f1%3d1%26moduleid%3d176%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/dealinfomanage.aspx?1=1&amp;moduleid=1312&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">批量收款</a><a href="#" onclick="openVideoPage('0','批量收款','account%2fdealinfomanage.aspx%3f1%3d1%26moduleid%3d1312%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/settlementmanage.aspx?1=1&amp;moduleid=532&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">现金收银</a><a href="#" onclick="openVideoPage('0','现金收银','sale%2fsettlementmanage.aspx%3f1%3d1%26moduleid%3d532%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/exigencesaleaccreceivable.aspx?moduleid=3810&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">急件销售单收款</a><a href="#" onclick="openVideoPage('0','急件销售单收款','account%2fexigencesaleaccreceivable.aspx%3fmoduleid%3d3810%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accotherinfomanage.aspx?1=1&amp;flag=in&amp;moduleid=732&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">其他收入</a><a href="#" onclick="openVideoPage('0','其他收入','account%2faccotherinfomanage.aspx%3f1%3d1%26flag%3din%26moduleid%3d732%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accrebateinfomanege.aspx?1=1&amp;moduleid=6670&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">返利单</a><a href="#" onclick="openVideoPage('0','返利单','account%2faccrebateinfomanege.aspx%3f1%3d1%26moduleid%3d6670%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accreceivableconfirminfomanage.aspx?1=1&amp;moduleid=2470&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">应收确认</a><a href="#" onclick="openVideoPage('0','应收确认','account%2faccreceivableconfirminfomanage.aspx%3f1%3d1%26moduleid%3d2470%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accreceivabledetailinfosearchmanage.aspx?1=1&amp;moduleid=2954&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">其他应收</a><a href="#" onclick="openVideoPage('0','其他应收','account%2faccreceivabledetailinfosearchmanage.aspx%3f1%3d1%26moduleid%3d2954%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/noteinfomanage.aspx?1=1&amp;moduleid=1510&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">销售票据</a><a href="#" onclick="openVideoPage('0','销售票据','sale%2fnoteinfomanage.aspx%3f1%3d1%26moduleid%3d1510%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">往来结算</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accgatheringinfomanage.aspx?1=1&amp;moduleid=472&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">收款</a><a href="#" onclick="openVideoPage('0','收款','account%2faccgatheringinfomanage.aspx%3f1%3d1%26moduleid%3d472%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accpaymentinfomanage.aspx?1=1&amp;moduleid=492&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">付款</a><a href="#" onclick="openVideoPage('0','付款','account%2faccpaymentinfomanage.aspx%3f1%3d1%26moduleid%3d492%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accountwriteoffslist.aspx?1=1&amp;moduleid=2110&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">应收冲应付</a><a href="#" onclick="openVideoPage('0','应收冲应付','account%2faccountwriteoffslist.aspx%3f1%3d1%26moduleid%3d2110%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/tripartitewriteoff.aspx?moduleid=4811&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">三方应收冲应付</a><a href="#" onclick="openVideoPage('0','三方应收冲应付','account%2ftripartitewriteoff.aspx%3fmoduleid%3d4811%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">应付管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accpayableinfomanage.aspx?1=1&amp;moduleid=177&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">应付账款</a><a href="#" onclick="openVideoPage('0','应付账款','account%2faccpayableinfomanage.aspx%3f1%3d1%26moduleid%3d177%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/predictpayinfomanage.aspx?1=1&amp;moduleid=175&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">预付账款</a><a href="#" onclick="openVideoPage('0','预付账款','account%2fpredictpayinfomanage.aspx%3f1%3d1%26moduleid%3d175%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/dealtovendorinfomanage.aspx?1=1&amp;moduleid=1314&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">批量付款</a><a href="#" onclick="openVideoPage('0','批量付款','account%2fdealtovendorinfomanage.aspx%3f1%3d1%26moduleid%3d1314%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/acccash.aspx?1=1&amp;moduleid=892&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">现金付款</a><a href="#" onclick="openVideoPage('0','现金付款','account%2facccash.aspx%3f1%3d1%26moduleid%3d892%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accotherinfomanage.aspx?1=1&amp;flag=out&amp;moduleid=752&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">费用支出</a><a href="#" onclick="openVideoPage('0','费用支出','account%2faccotherinfomanage.aspx%3f1%3d1%26flag%3dout%26moduleid%3d752%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accpayconfirminfomanage.aspx?moduleid=3690&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">应付确认</a><a href="#" onclick="openVideoPage('0','应付确认','account%2faccpayconfirminfomanage.aspx%3fmoduleid%3d3690%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/chainaccotherinfomanage.aspx?1=1&amp;moduleid=6290&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">连锁费用支出管理</a><a href="#" onclick="openVideoPage('0','连锁费用支出管理','account%2fchainaccotherinfomanage.aspx%3f1%3d1%26moduleid%3d6290%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accbalanceinfomanage.aspx?1=1&amp;moduleid=455&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">支付方式</a><a href="#" onclick="openVideoPage('0','支付方式','account%2faccbalanceinfomanage.aspx%3f1%3d1%26moduleid%3d455%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accexpensesinfomanege.aspx?1=1&amp;moduleid=1371&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">费用报销</a><a href="#" onclick="openVideoPage('0','费用报销','account%2faccexpensesinfomanege.aspx%3f1%3d1%26moduleid%3d1371%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accpayabledetailinfosearchmanage.aspx?1=1&amp;moduleid=2955&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">其他应付</a><a href="#" onclick="openVideoPage('0','其他应付','account%2faccpayabledetailinfosearchmanage.aspx%3f1%3d1%26moduleid%3d2955%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('purchase/noteinfomanage.aspx?1=1&amp;moduleid=2090&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">采购票据</a><a href="#" onclick="openVideoPage('0','采购票据','purchase%2fnoteinfomanage.aspx%3f1%3d1%26moduleid%3d2090%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/grouppayableinfomanage.aspx?type=1&amp;moduleid=4850&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">单店集团付款</a><a href="#" onclick="openVideoPage('0','单店集团付款','account%2fgrouppayableinfomanage.aspx%3ftype%3d1%26moduleid%3d4850%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">现金银行</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/accountinfomanage.aspx?1=1&amp;moduleid=453&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">账户</a><a href="#" onclick="openVideoPage('0','账户','account%2faccountinfomanage.aspx%3f1%3d1%26moduleid%3d453%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/acc_bankaccessinfomanage.aspx?1=1&amp;moduleid=612&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">银行转出帐</a><a href="#" onclick="openVideoPage('0','银行转出帐','account%2facc_bankaccessinfomanage.aspx%3f1%3d1%26moduleid%3d612%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('null?ModuleID=4710');" ;="" style="cursor:pointer">会员管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/rechargewriteoffcustomers.aspx?moduleid=4712&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">充值活动核销</a><a href="#" onclick="openVideoPage('0','充值活动核销','account%2frechargewriteoffcustomers.aspx%3fmoduleid%3d4712%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('specific/rechargeactivities.aspx?moduleid=4711&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">充值活动</a><a href="#" onclick="openVideoPage('0','充值活动','specific%2frechargeactivities.aspx%3fmoduleid%3d4711%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">报表中心</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/index.aspx?1=1&amp;moduleid=286&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">报表中心</a><a href="#" onclick="openVideoPage('0','报表中心','report%2findex.aspx%3f1%3d1%26moduleid%3d286%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('&amp;ModuleID=6493');" ;="" style="cursor:pointer">分期管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/installmentsetting.aspx?moduleid=6494&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">分期设置</a><a href="#" onclick="openVideoPage('0','分期设置','account%2finstallmentsetting.aspx%3fmoduleid%3d6494%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('&amp;ModuleID=6630');" ;="" style="cursor:pointer">开票管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/salinvoicemanage.aspx?moduleid=6631&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">开票管理</a><a href="#" onclick="openVideoPage('0','开票管理','account%2fsalinvoicemanage.aspx%3fmoduleid%3d6631%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">对账管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('account/debitworkbench.aspx?moduleid=5211&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">对账单工作台</a><a href="#" onclick="openVideoPage('0','对账单工作台','account%2fdebitworkbench.aspx%3fmoduleid%3d5211%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><a onclick="goEnterpriseAuthen(1);" ;="" class="frame-content-sidebarsublist-index" href="#">对账单列表</a><a onclick="goEnterpriseAuthen(1);" ;="" class="frame-content-sidebarsublist-index" href="#">对账规则</a><a onclick="goEnterpriseAuthen(1);" ;="" class="frame-content-sidebarsublist-index" href="#">对账日历图</a><a onclick="goEnterpriseAuthen(1);" ;="" class="frame-content-sidebarsublist-index" href="#">对账单日志</a><a onclick="goEnterpriseAuthen(1);" ;="" class="frame-content-sidebarsublist-index" href="#">自动通知</a></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">退款管理</a></h4><a onclick="goEnterpriseAuthen(1);" ;="" class="frame-content-sidebarsublist-index" href="#">线上原退</a></li>     </ul> </li><li app-code="" app-end-date=""><div class="frame-content-sidebarsublist-div"><span class="frame-content-sidebarlistindex customer-sidebarsublist-box-relative">配送管理<a href="#" onclick="openVideoPage('0','配送管理','配送管理','');" class="frame-content-sidebarsublist-menu-video1 customer-sidebarsublist-box-absolute" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a><span class="icon-rightarrow"></span></span></div> <span class="icon-transportation"></span> <ul class="frame-content-sidebarsublist customer-sidebarsublist-left-position"><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">配送</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/carnoinfomanage.aspx?1=1&amp;moduleid=1753&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配送车辆</a><a href="#" onclick="openVideoPage('0','配送车辆','common%2fcarnoinfomanage.aspx%3f1%3d1%26moduleid%3d1753%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/routeinfomanage.aspx?1=1&amp;moduleid=1754&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">线路设定</a><a href="#" onclick="openVideoPage('0','线路设定','common%2frouteinfomanage.aspx%3f1%3d1%26moduleid%3d1754%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/plandeliverymanagement.aspx?1=1&amp;moduleid=2790&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">发货管理（旧）</a><a href="#" onclick="openVideoPage('0','发货管理（旧）','common%2fplandeliverymanagement.aspx%3f1%3d1%26moduleid%3d2790%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/planinfomanage.aspx?1=1&amp;moduleid=1755&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配送单</a><a href="#" onclick="openVideoPage('0','配送单','common%2fplaninfomanage.aspx%3f1%3d1%26moduleid%3d1755%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/delivermanage.aspx?1=1&amp;moduleid=2150&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">打包装箱</a><a href="#" onclick="openVideoPage('0','打包装箱','sale%2fdelivermanage.aspx%3f1%3d1%26moduleid%3d2150%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/deliveryprint.aspx?moduleid=3010&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">物流安排</a><a href="#" onclick="openVideoPage('0','物流安排','sale%2fdeliveryprint.aspx%3fmoduleid%3d3010%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('sale/delivergoodsmanage.aspx?1=1&amp;moduleid=4817&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">送货单</a><a href="#" onclick="openVideoPage('0','送货单','sale%2fdelivergoodsmanage.aspx%3f1%3d1%26moduleid%3d4817%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/deliveryfreightsetting.aspx?1=1&amp;moduleid=6450&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">送货运费设置</a><a href="#" onclick="openVideoPage('0','送货运费设置','common%2fdeliveryfreightsetting.aspx%3f1%3d1%26moduleid%3d6450%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/deliveryareacontrolcenter.aspx?moduleid=4610&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">发货区控制中心</a><a href="#" onclick="openVideoPage('0','发货区控制中心','common%2fdeliveryareacontrolcenter.aspx%3fmoduleid%3d4610%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li>     </ul> </li><li app-code="" app-end-date=""><div class="frame-content-sidebarsublist-div"><span class="frame-content-sidebarlistindex customer-sidebarsublist-box-relative">系统设置<a href="#" onclick="openVideoPage('0','系统设置','系统设置','');" class="frame-content-sidebarsublist-menu-video1 customer-sidebarsublist-box-absolute" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a><span class="icon-rightarrow"></span></span></div> <span class="icon-setting"></span> <ul class="frame-content-sidebarsublist customer-sidebarsublist-left-position"><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">基本档案</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/batchcodemanage.aspx?1=1&amp;moduleid=2030&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">批次码管理</a><a href="#" onclick="openVideoPage('0','批次码管理','common%2fbatchcodemanage.aspx%3f1%3d1%26moduleid%3d2030%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/visitinfomanage.aspx?1=1&amp;moduleid=2751&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">拜访记录</a><a href="#" onclick="openVideoPage('0','拜访记录','common%2fvisitinfomanage.aspx%3f1%3d1%26moduleid%3d2751%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productinfomanage.aspx?1=1&amp;moduleid=401&amp;uniquecode=menu_bas_product_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件资料</a><a href="#" onclick="openVideoPage('0','配件资料','common%2fproductinfomanage.aspx%3f1%3d1%26moduleid%3d401%26uniquecode%3dmenu_bas_product_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/universalset.aspx?1=1&amp;moduleid=6270&amp;uniquecode=menu_bas_product_list',this);" ;="" class="frame-content-sidebarsublist-index" href="#">通用件</a><a href="#" onclick="openVideoPage('0','通用件','common%2funiversalset.aspx%3f1%3d1%26moduleid%3d6270%26uniquecode%3dmenu_bas_product_list','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/chaininfomanage.aspx?1=1&amp;moduleid=753&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">连锁管理</a><a href="#" onclick="openVideoPage('0','连锁管理','common%2fchaininfomanage.aspx%3f1%3d1%26moduleid%3d753%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/multipledictionarytypemanage.aspx?1=1&amp;typeid=2&amp;moduleid=1152&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">部门管理</a><a href="#" onclick="openVideoPage('0','部门管理','common%2fmultipledictionarytypemanage.aspx%3f1%3d1%26typeid%3d2%26moduleid%3d1152%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/flowlevelmanage.aspx?1=1&amp;moduleid=381&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">流动级别</a><a href="#" onclick="openVideoPage('0','流动级别','common%2fflowlevelmanage.aspx%3f1%3d1%26moduleid%3d381%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/storemanage.aspx?1=1&amp;moduleid=574&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">仓库</a><a href="#" onclick="openVideoPage('0','仓库','common%2fstoremanage.aspx%3f1%3d1%26moduleid%3d574%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/userinfomanage.aspx?1=1&amp;moduleid=192&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">用户管理</a><a href="#" onclick="openVideoPage('0','用户管理','common%2fuserinfomanage.aspx%3f1%3d1%26moduleid%3d192%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('/common/mainbusinessinfomanage.aspx?moduleid=3570&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">主营业务品牌</a><a href="#" onclick="openVideoPage('0','主营业务品牌','%2fcommon%2fmainbusinessinfomanage.aspx%3fmoduleid%3d3570%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('/common/productsynchronize.aspx?1=1&amp;moduleid=3631&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">联盟商资料同步</a><a href="#" onclick="openVideoPage('0','联盟商资料同步','%2fcommon%2fproductsynchronize.aspx%3f1%3d1%26moduleid%3d3631%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/customersynchronize.aspx?moduleid=3670&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">联盟商客户资料同步</a><a href="#" onclick="openVideoPage('0','联盟商客户资料同步','common%2fcustomersynchronize.aspx%3fmoduleid%3d3670%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/linkmaninfomanager.aspx?1=1&amp;moduleid=576&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">联系人档案</a><a href="#" onclick="openVideoPage('0','联系人档案','common%2flinkmaninfomanager.aspx%3f1%3d1%26moduleid%3d576%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productformulasetting.aspx?1:1&amp;moduleid=1132&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件价格参数设置</a><a href="#" onclick="openVideoPage('0','配件价格参数设置','common%2fproductformulasetting.aspx%3f1%3a1%26moduleid%3d1132%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/carsinfomanage.aspx?1=1&amp;moduleid=1012&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">车辆档案</a><a href="#" onclick="openVideoPage('0','车辆档案','common%2fcarsinfomanage.aspx%3f1%3d1%26moduleid%3d1012%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('stock/shelfmanage.aspx?1=1&amp;flagid=&amp;moduleid=2450&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">货架管理</a><a href="#" onclick="openVideoPage('0','货架管理','stock%2fshelfmanage.aspx%3f1%3d1%26flagid%3d%26moduleid%3d2450%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/producttypetree.aspx?1=1&amp;moduleid=2230&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">车型维护</a><a href="#" onclick="openVideoPage('0','车型维护','common%2fproducttypetree.aspx%3f1%3d1%26moduleid%3d2230%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/carnametree.aspx?1=1&amp;moduleid=2231&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">名称维护</a><a href="#" onclick="openVideoPage('0','名称维护','common%2fcarnametree.aspx%3f1%3d1%26moduleid%3d2231%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/securitycodefullbilllist.aspx?1=1&amp;moduleid=2490&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">防伪流水码表</a><a href="#" onclick="openVideoPage('0','防伪流水码表','common%2fsecuritycodefullbilllist.aspx%3f1%3d1%26moduleid%3d2490%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/areasalestaskmanage.aspx?moduleid=2530&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">区域销售任务</a><a href="#" onclick="openVideoPage('0','区域销售任务','common%2fareasalestaskmanage.aspx%3fmoduleid%3d2530%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/multiplemonthlymanage.aspx?1=1&amp;typeid=1&amp;moduleid=2550&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">月度分类任务管理</a><a href="#" onclick="openVideoPage('0','月度分类任务管理','common%2fmultiplemonthlymanage.aspx%3f1%3d1%26typeid%3d1%26moduleid%3d2550%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/multiplegoodscatgorymanage.aspx?1=1&amp;typeid=1&amp;moduleid=2551&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">商品分类任务管理</a><a href="#" onclick="openVideoPage('0','商品分类任务管理','common%2fmultiplegoodscatgorymanage.aspx%3f1%3d1%26typeid%3d1%26moduleid%3d2551%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/phonebox.aspx?moduleid=4230&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">电话录音记录</a><a href="#" onclick="openVideoPage('0','电话录音记录','common%2fphonebox.aspx%3fmoduleid%3d4230%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/multipledictionarytypemanage.aspx?1=1&amp;typeid=1&amp;moduleid=1112&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">商品类别</a><a href="#" onclick="openVideoPage('0','商品类别','common%2fmultipledictionarytypemanage.aspx%3f1%3d1%26typeid%3d1%26moduleid%3d1112%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/multipledictionarytypemanage.aspx?1=1&amp;typeid=4&amp;moduleid=2290&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">标签管理</a><a href="#" onclick="openVideoPage('0','标签管理','common%2fmultipledictionarytypemanage.aspx%3f1%3d1%26typeid%3d4%26moduleid%3d2290%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/freightmanage.aspx?moduleid=5511&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">运费管理</a><a href="#" onclick="openVideoPage('0','运费管理','common%2ffreightmanage.aspx%3fmoduleid%3d5511%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/batchcodepricesetting.aspx?moduleid=6210&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">批次定价</a><a href="#" onclick="openVideoPage('0','批次定价','common%2fbatchcodepricesetting.aspx%3fmoduleid%3d6210%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/report/reportpininfo.aspx?moduleid=5530&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">PIN查询</a><a href="#" onclick="openVideoPage('0','PIN查询','common%2freport%2freportpininfo.aspx%3fmoduleid%3d5530%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('/common/brandcusttype.aspx?1=1&amp;moduleid=6750&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">品牌号管理</a><a href="#" onclick="openVideoPage('0','品牌号管理','%2fcommon%2fbrandcusttype.aspx%3f1%3d1%26moduleid%3d6750%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">模板管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('mail/listmanager.aspx?1=1&amp;moduleid=972&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">邮件管理</a><a href="#" onclick="openVideoPage('0','邮件管理','mail%2flistmanager.aspx%3f1%3d1%26moduleid%3d972%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/userrightset.aspx?1=1&amp;moduleid=652&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">业务权限设置</a><a href="#" onclick="openVideoPage('0','业务权限设置','common%2fuserrightset.aspx%3f1%3d1%26moduleid%3d652%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('&amp;ModuleID=2730');" ;="" style="cursor:pointer">配件提成设置</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productbonuslist.aspx?category=0&amp;moduleid=2731&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">维修提成</a><a href="#" onclick="openVideoPage('0','维修提成','common%2fproductbonuslist.aspx%3fcategory%3d0%26moduleid%3d2731%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productbonuslist.aspx?category=1&amp;moduleid=2732&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">销售提成</a><a href="#" onclick="openVideoPage('0','销售提成','common%2fproductbonuslist.aspx%3fcategory%3d1%26moduleid%3d2732%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">配置管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/userparameterinfomanager.aspx?1=1&amp;moduleid=201&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统参数</a><a href="#" onclick="openVideoPage('0','系统参数','common%2fuserparameterinfomanager.aspx%3f1%3d1%26moduleid%3d201%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/systeminitial.aspx?1=1&amp;moduleid=812&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统初始化</a><a href="#" onclick="openVideoPage('0','系统初始化','common%2fsysteminitial.aspx%3f1%3d1%26moduleid%3d812%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/recordshare.aspx?1=1&amp;moduleid=2190&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件共享设置</a><a href="#" onclick="openVideoPage('0','配件共享设置','common%2frecordshare.aspx%3f1%3d1%26moduleid%3d2190%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/reportrightset.aspx?1=1&amp;moduleid=632&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">报表权限管理</a><a href="#" onclick="openVideoPage('0','报表权限管理','common%2freportrightset.aspx%3f1%3d1%26moduleid%3d632%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/managerightset.aspx?1=1&amp;moduleid=2832&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">所属经营设置</a><a href="#" onclick="openVideoPage('0','所属经营设置','common%2fmanagerightset.aspx%3f1%3d1%26moduleid%3d2832%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/pricecodeset.aspx?1=1&amp;moduleid=2833&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">价格替代码设置</a><a href="#" onclick="openVideoPage('0','价格替代码设置','common%2fpricecodeset.aspx%3f1%3d1%26moduleid%3d2833%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/defaultmodule.aspx?flag=1&amp;moduleid=1032&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统默认设置</a><a href="#" onclick="openVideoPage('0','系统默认设置','common%2fdefaultmodule.aspx%3fflag%3d1%26moduleid%3d1032%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/systemsetlist.aspx?1=1&amp;moduleid=1092&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统设置</a><a href="#" onclick="openVideoPage('0','系统设置','common%2fsystemsetlist.aspx%3f1%3d1%26moduleid%3d1092%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/chainkeyset.aspx?1=1&amp;moduleid=831&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">密钥设置</a><a href="#" onclick="openVideoPage('0','密钥设置','common%2fchainkeyset.aspx%3f1%3d1%26moduleid%3d831%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('thirdapisetting/bosch.aspx?moduleid=5890&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">博世配置</a><a href="#" onclick="openVideoPage('0','博世配置','thirdapisetting%2fbosch.aspx%3fmoduleid%3d5890%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/macinfo.aspx?moduleid=4450&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">MAC地址设置</a><a href="#" onclick="openVideoPage('0','MAC地址设置','common%2fmacinfo.aspx%3fmoduleid%3d4450%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">消息管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('crm/listmessagemanager.aspx?1=1&amp;moduleid=890&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">消息</a><a href="#" onclick="openVideoPage('0','消息','crm%2flistmessagemanager.aspx%3f1%3d1%26moduleid%3d890%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/messageconfig.aspx?1=1&amp;moduleid=2170&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">单据消息配置</a><a href="#" onclick="openVideoPage('0','单据消息配置','common%2fmessageconfig.aspx%3f1%3d1%26moduleid%3d2170%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">数据优化</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('report/counsel/main.aspx?1=1&amp;moduleid=733&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">出谋划策</a><a href="#" onclick="openVideoPage('0','出谋划策','report%2fcounsel%2fmain.aspx%3f1%3d1%26moduleid%3d733%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productinfoframe.aspx?1=1&amp;moduleid=2370&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">资料整理</a><a href="#" onclick="openVideoPage('0','资料整理','common%2fproductinfoframe.aspx%3f1%3d1%26moduleid%3d2370%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productpricemanage.aspx?1=1&amp;moduleid=1530&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">价格调整</a><a href="#" onclick="openVideoPage('0','价格调整','common%2fproductpricemanage.aspx%3f1%3d1%26moduleid%3d1530%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">权限管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/systemloginsecuritypolicy.aspx?moduleid=2690&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统登录安全策略</a><a href="#" onclick="openVideoPage('0','系统登录安全策略','common%2fsystemloginsecuritypolicy.aspx%3fmoduleid%3d2690%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://authority.qpyun.cn/common/rightlist.aspx?1=1&amp;moduleid=931&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统权限分配</a><a href="#" onclick="openVideoPage('0','系统权限分配','https%3a%2f%2fauthority.qpyun.cn%2fcommon%2frightlist.aspx%3f1%3d1%26moduleid%3d931%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/rolemanage.aspx?1=1&amp;moduleid=261&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">权限分配</a><a href="#" onclick="openVideoPage('0','权限分配','common%2frolemanage.aspx%3f1%3d1%26moduleid%3d261%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://authority.qpyun.cn/common/rightlist.aspx?1=1&amp;moduleid=713&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统权限分配</a><a href="#" onclick="openVideoPage('0','系统权限分配','https%3a%2f%2fauthority.qpyun.cn%2fcommon%2frightlist.aspx%3f1%3d1%26moduleid%3d713%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('xparts/onlineusers.aspx?1=1&amp;moduleid=2950&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">当前在线员工</a><a href="#" onclick="openVideoPage('0','当前在线员工','xparts%2fonlineusers.aspx%3f1%3d1%26moduleid%3d2950%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/erplogintimecontrol.aspx?1=1&amp;moduleid=2430&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">登录时间段控制</a><a href="#" onclick="openVideoPage('0','登录时间段控制','common%2ferplogintimecontrol.aspx%3f1%3d1%26moduleid%3d2430%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">日志管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/systemoperatelog.aspx?1=1&amp;moduleid=1790&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">操作日志</a><a href="#" onclick="openVideoPage('0','操作日志','common%2fsystemoperatelog.aspx%3f1%3d1%26moduleid%3d1790%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('importunit/importmanage.aspx?1=1&amp;moduleid=1590&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">导入记录</a><a href="#" onclick="openVideoPage('0','导入记录','importunit%2fimportmanage.aspx%3f1%3d1%26moduleid%3d1590%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">公告管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productnotice.aspx?1=1&amp;moduleid=1730&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件公告</a><a href="#" onclick="openVideoPage('0','配件公告','common%2fproductnotice.aspx%3f1%3d1%26moduleid%3d1730%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">辅助功能</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productunitadjust.aspx?1=1&amp;moduleid=422&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件整批调整</a><a href="#" onclick="openVideoPage('0','配件整批调整','common%2fproductunitadjust.aspx%3f1%3d1%26moduleid%3d422%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/dictionarylist.aspx?1=1&amp;moduleid=341&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件辅助资料</a><a href="#" onclick="openVideoPage('0','配件辅助资料','common%2fdictionarylist.aspx%3f1%3d1%26moduleid%3d341%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/binduserforwechat.aspx?1=1&amp;moduleid=4151&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">公众号用户绑定</a><a href="#" onclick="openVideoPage('0','公众号用户绑定','common%2fbinduserforwechat.aspx%3f1%3d1%26moduleid%3d4151%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/productmerge.aspx?flag=1&amp;moduleid=1052&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">合并配件信息</a><a href="#" onclick="openVideoPage('0','合并配件信息','common%2fproductmerge.aspx%3fflag%3d1%26moduleid%3d1052%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/recycleinfomanage.aspx?1=1&amp;moduleid=810&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">回收站</a><a href="#" onclick="openVideoPage('0','回收站','common%2frecycleinfomanage.aspx%3f1%3d1%26moduleid%3d810%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('common/systemoperatelog.aspx?1=1&amp;moduleid=830&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">系统日志</a><a href="#" onclick="openVideoPage('0','系统日志','common%2fsystemoperatelog.aspx%3f1%3d1%26moduleid%3d830%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">适配数据管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/vehicleprodmanage/skidpadadapterinfo?moduleid=5911&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">译车数据纠错</a><a href="#" onclick="openVideoPage('0','译车数据纠错','https%3a%2f%2fepcdata.qpyun.cn%2fvehicleprodmanage%2fskidpadadapterinfo%3fmoduleid%3d5911%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/vehicleprodmanage/vehicleadapterproductmanage?moduleid=5930&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">车型适配产品管理</a><a href="#" onclick="openVideoPage('0','车型适配产品管理','https%3a%2f%2fepcdata.qpyun.cn%2fvehicleprodmanage%2fvehicleadapterproductmanage%3fmoduleid%3d5930%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/brandepcprodextract/brandepcprodextractmanager?moduleid=5970&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">品牌件提取</a><a href="#" onclick="openVideoPage('0','品牌件提取','https%3a%2f%2fepcdata.qpyun.cn%2fbrandepcprodextract%2fbrandepcprodextractmanager%3fmoduleid%3d5970%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/brandepcprodextract/extractepcproductlog?moduleid=5971&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">品牌件提取日志</a><a href="#" onclick="openVideoPage('0','品牌件提取日志','https%3a%2f%2fepcdata.qpyun.cn%2fbrandepcprodextract%2fextractepcproductlog%3fmoduleid%3d5971%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/epcdatacleantask/epcdatacleantaskpage?moduleid=5990&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">数据清洗</a><a href="#" onclick="openVideoPage('0','数据清洗','https%3a%2f%2fepcdata.qpyun.cn%2fepcdatacleantask%2fepcdatacleantaskpage%3fmoduleid%3d5990%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/datadiagnosis/datadiagnosistasklist?moduleid=5991&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">数据诊断</a><a href="#" onclick="openVideoPage('0','数据诊断','https%3a%2f%2fepcdata.qpyun.cn%2fdatadiagnosis%2fdatadiagnosistasklist%3fmoduleid%3d5991%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/datadiagnosis/lesseestatement?moduleid=6070&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">租户适配报表</a><a href="#" onclick="openVideoPage('0','租户适配报表','https%3a%2f%2fepcdata.qpyun.cn%2fdatadiagnosis%2flesseestatement%3fmoduleid%3d6070%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/dataauth/benchmarksencebrand?sourceapptype=erp&amp;moduleid=6090&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">对标品牌设置</a><a href="#" onclick="openVideoPage('0','对标品牌设置','https%3a%2f%2fepcdata.qpyun.cn%2fdataauth%2fbenchmarksencebrand%3fsourceapptype%3derp%26moduleid%3d6090%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/vehicleprodmanage/prodvehicleoperatelog?moduleid=6170&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">配件车型操作日志</a><a href="#" onclick="openVideoPage('0','配件车型操作日志','https%3a%2f%2fepcdata.qpyun.cn%2fvehicleprodmanage%2fprodvehicleoperatelog%3fmoduleid%3d6170%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/commercialvehicle/importinfomanage?moduleid=6310&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">商用车数据导入</a><a href="#" onclick="openVideoPage('0','商用车数据导入','https%3a%2f%2fepcdata.qpyun.cn%2fcommercialvehicle%2fimportinfomanage%3fmoduleid%3d6310%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('https://epcdata.qpyun.cn/summary/epcprodlistbycarnew?moduleid=6350&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">按车型和名称匹配</a><a href="#" onclick="openVideoPage('0','按车型和名称匹配','https%3a%2f%2fepcdata.qpyun.cn%2fsummary%2fepcprodlistbycarnew%3fmoduleid%3d6350%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li>     </ul> </li><li app-code="" app-end-date=""><div class="frame-content-sidebarsublist-div"><span class="frame-content-sidebarlistindex customer-sidebarsublist-box-relative">审批管理<a href="#" onclick="openVideoPage('0','审批管理','审批管理','');" class="frame-content-sidebarsublist-menu-video1 customer-sidebarsublist-box-absolute" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a><span class="icon-rightarrow"></span></span></div> <span class="icon-order"></span> <ul class="frame-content-sidebarsublist customer-sidebarsublist-left-position"><li><h4 class="frame-content-sidebarsublist-head"><a onclick="OpenChildPage('');" ;="" style="cursor:pointer">OA管理</a></h4><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('workflow/web/oanewbase.aspx#/launchapplication?moduleid=5690&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">审批中心</a><a href="#" onclick="openVideoPage('0','审批中心','workflow%2fweb%2foanewbase.aspx%23%2flaunchapplication%3fmoduleid%3d5690%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('workflow/oalist.aspx?moduleid=5452&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">表单管理</a><a href="#" onclick="openVideoPage('0','表单管理','workflow%2foalist.aspx%3fmoduleid%3d5452%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div><div class="frame-content-sidebarsublist-div"><a onclick="OpenChildPage('workflow/approvalrecord.aspx?moduleid=5453&amp;uniquecode=',this);" ;="" class="frame-content-sidebarsublist-index" href="#">审批记录</a><a href="#" onclick="openVideoPage('0','审批记录','workflow%2fapprovalrecord.aspx%3fmoduleid%3d5453%26uniquecode%3d','');" class="frame-content-sidebarsublist-menu-video2" title="查看学习视频"><img src="Resourse/JavaScript/layer/ver3/skin/default/question.png" class="play-btn2"></a></div></li>     </ul> </li></ul></div>
+            </div>
+            <div class="qpy-frame-content-sidecontent">
+                <iframe frameborder="0" onload="DetailIframe.focus();" style="text-align: left; height: 1028px;" src="https://erp.qpyun.cn/companyindex.html?t=40806063f44549d59661fc7db52ac2b1z56g3" scrolling="yes" width="100%" id="DetailIframe"></iframe>
+            </div>
+        </div>
+        <!--汽配云在线客服-->
+        <div id="divOnlineCustomerService" class="new-btn" style="cursor: pointer; background-color: #F56C6C; position: fixed; bottom: 2px; left: 0; width: 30px; font-size: 15px; justify-content: center; height: 100px; border-radius: 2px 0 0 0; flex-direction: column; align-items: center;" onclick="showOnlineCustomerService();">
+            <div>
+                <img src="../Resourse/Images/yckfIcon.png"></div>
+            <div style="padding-left: 1px;">帮助中心</div>
+        </div>
+        <!--玉柴客服-->
+        
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.top.guid='cbcfaa1200b84fb2a83ff19b90020d11';//]]>
+</script>
+</form>
+    <div style="display: none; margin: 10px; line-height: 25px;" id="divCacheKey">
+        <table style="margin: 10px; width: 90%;">
+            <tbody><tr>
+                <td>
+                    是否公共：
+                </td>
+                <td>
+                    <input type="checkbox" name="cbx_isPub" id="cbx_isPub" value="1">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Key：
+                </td>
+                <td>
+                    <input type="text" name="txt_cacheKey" id="txt_cacheKey">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    日期：
+                </td>
+                <td>
+                    <input type="text" name="txt_date" id="txt_date">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="button" value="查询拦截的模板消息" id="btnWechat" onclick="queryblocktmplmsg()">
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+    <audio id="newOrderMsgAudio" style="display: none;"><source src="../Resourse/Images/NewOrderMsg.wav" type="audio/wav"></audio>
+    <audio id="newChainRepairAudio" style="display: none;"><source src="../Resourse/Images/NewChainRepair.wav" type="audio/wav"></audio>
+    <audio id="newOtherInAudio" style="display: none;"><source src="../Resourse/Images/NewOtherIn.wav" type="audio/wav"></audio>
+    <audio id="newQuoteEnquiry" style="display: none;"><source src="../Resourse/Images/quoteEnquiry.mp3" type="audio/mp3"></audio>
+
+<script type="text/javascript" src="Resourse/JavaScript/PerformanceStatistics.js"></script>
+
+</body></html>

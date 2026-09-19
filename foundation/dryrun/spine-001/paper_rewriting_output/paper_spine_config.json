@@ -1,0 +1,27 @@
+{
+  "drill": true,
+  "drill_id": "spine-001",
+  "note": "架构演练任务，非真实科研产出；主题为公开通用视觉主题，不涉及用户研究方向。",
+  "title": "高效视觉 Transformer 的方法学图谱（2021-2026）：证据约束小型综述（演练）",
+  "description": "以满足严格计算预算的视觉 Transformer 方法为对象，梳理其效率来源与证据边界。",
+  "workflow": "build_from_materials",
+  "article_genre": "mini_review",
+  "target": "未指定目标期刊（演练不指定载体）",
+  "language": "zh",
+  "research_mode": "materials_only",
+  "reading_depth": 6,
+  "learning_sets": {
+    "same_direction": 6,
+    "target_venue": 0
+  },
+  "delivery_formats": [
+    "pdf",
+    "docx",
+    "tex"
+  ],
+  "mechanism_figure": "omit",
+  "mechanism_figure_reason": "本综述不主张因果机制；效率来源以结构对照表与真实元数据图呈现更准确。",
+  "user_confirmed": false,
+  "provenance": "drill_prefill",
+  "provenance_note": "本配置由 Agent 按演练预设填写，未经用户逐项确认。上游规则明确：预填不等于保存；真实任务必须由用户确认。"
+}

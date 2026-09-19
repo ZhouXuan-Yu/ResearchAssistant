@@ -1,0 +1,36 @@
+contract_version: "1.0"
+stage: S5
+phase: Writing
+autonomy: 需人确认
+produced_by: nature-writing（结构）+ 自建 reexport.py（四交付面机械派生）
+produced_at: "2026-09-19T16:25:00+08:00"
+subject: "spine-001 演练：证据约束小型综述（单语义源 + 四交付面）"
+upstream: [S2, S4]
+inputs:
+  - foundation/dryrun/spine-001/paper_rewriting_output/evidence_bank.md
+  - foundation/dryrun/spine-001/paper_rewriting_output/figure_asset_map.md
+artifacts:
+  - foundation/dryrun/spine-001/paper_rewriting_output/final_paper/manuscript.md
+  - foundation/dryrun/spine-001/paper_rewriting_output/final_paper/paper.pdf
+  - foundation/dryrun/spine-001/paper_rewriting_output/final_paper/paper.docx
+  - foundation/dryrun/spine-001/paper_rewriting_output/final_paper/main.tex
+  - foundation/dryrun/spine-001/paper_rewriting_output/structured_review.md
+claims: [CL-1, CL-2, CL-3, CL-4, CL-5]
+gates:
+  single_source: pass
+  claim_strength_matched: pass
+  citation_identity: blocked
+  latex_face_compilable: pass
+reproducibility:
+  data_version: "n/a"
+  code_commit: "n/a"
+  seed: "n/a"
+verification:
+  checked: 4
+  unresolved: 1
+  notes: "四交付面（md 单源 → docx / tex→pdf / html→pdf）全部可构建；LaTeX 面由 tectonic 实编译验证，Missing character = 0"
+unresolved:
+  - "citation_identity 受阻：25 条候选中 6 条仅存 arXiv 标识（pending）、1 条 DOI 标题相似度 0.67（mismatched），已在正文 §5 局限第 5 条披露"
+  - "figure_story_check 仍未过 2 条：遗留 reference_plan 绑定；正文未出现 fig:evidence-landscape 标签串（后者需插原始 LaTeX 跨度，会污染 docx/html 两面，故未做）"
+  - "artifact_check 仍有 3 条同源 FAIL：citation_support_bank 未达 60 行/60 源阈值，已记 SOURCE_COVERAGE_BLOCKED 并说明不填数理由"
+next: S6

@@ -1,0 +1,12 @@
+warning: accessing absolute path `C:/Windows/fonts/msyh.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `C:/Windows/fonts/msyhl.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `C:/Windows/fonts/msyhbd.ttc`; build may not be reproducible in other environments
+warning: main.tex:416: Underfull \hbox (badness 2012) in paragraph at lines 350--416
+warning: main.tex:416: Underfull \hbox (badness 2608) in paragraph at lines 350--416
+warning: main.tex:416: Underfull \hbox (badness 1033) in paragraph at lines 350--416
+warning: main.tex:416: Underfull \hbox (badness 1270) in paragraph at lines 350--416
+warning: main.tex:416: Underfull \hbox (badness 2012) in paragraph at lines 350--416
+warning: main.tex:416: Underfull \hbox (badness 2608) in paragraph at lines 350--416
+warning: main.tex:416: Underfull \hbox (badness 1033) in paragraph at lines 350--416
+warning: main.tex:416: Underfull \hbox (badness 1270) in paragraph at lines 350--416
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

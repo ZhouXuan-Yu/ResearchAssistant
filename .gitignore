@@ -1,0 +1,51 @@
+# ── 凭据与敏感文件：绝不入库（历史一旦写入无法真正删除） ────────────────
+qpyun_cookies.txt
+env_vars.json
+**/auth.json
+**/device-credentials.json
+**/security/
+**/*.token
+**/*.key
+**/*.pem
+**/*.p12
+**/credentials*.json
+
+# ── 大体积第三方 / 克隆仓库：不入库，另由治理清单登记固定提交 ──────────────
+codex-skills/
+research-skills-setup/
+zotero-translate-final/
+langfuse/
+node_modules/
+**/node_modules/
+.venv/
+**/__pycache__/
+**/*.egg-info/
+foundation/downloads/
+foundation/packages/
+foundation/external/
+foundation/backup/
+foundation/tools/poppler/
+
+# ── 构建中间产物：可重建，不入库 ─────────────────────────────────────
+foundation/dryrun/*/texbuild/
+**/*.aux
+**/*.log
+**/*.fls
+**/*.fdb_latexmk
+**/*.synctex.gz
+**/__pycache__/
+
+# ── 临时与备份 ────────────────────────────────────────────────────
+*.bak
+*.bak2
+*.bak3
+*.bak4
+*.tmp
+*~
+debug*.png
+_temp_*
+_scratch/
+
+# ── 本地产物缓存（可重建） ─────────────────────────────────────────
+foundation/dryrun/*/visual_audit/preview/
+contract_check.md

@@ -1,0 +1,107 @@
+{
+  "worst": "FAIL",
+  "results": [
+    {
+      "section": "Skills",
+      "name": "磁盘技能数",
+      "status": "OK",
+      "detail": "286 个具名技能，0 个缺 frontmatter"
+    },
+    {
+      "section": "Skills",
+      "name": "启用条目",
+      "status": "OK",
+      "detail": "144 条"
+    },
+    {
+      "section": "Skills",
+      "name": "启用但磁盘无对应",
+      "status": "FAIL",
+      "detail": "WorkSpace, C:/Users/ZhouXuan/Desktop/OH-WorkSpace"
+    },
+    {
+      "section": "Deps",
+      "name": "关键依赖",
+      "status": "OK",
+      "detail": "7 项全部可导入"
+    },
+    {
+      "section": "Deps",
+      "name": "可选依赖",
+      "status": "WARN",
+      "detail": "缺失: pptx"
+    },
+    {
+      "section": "Deps",
+      "name": "Python 版本",
+      "status": "OK",
+      "detail": "3.14.0"
+    },
+    {
+      "section": "Models",
+      "name": "provider 数",
+      "status": "OK",
+      "detail": "deepseek, ollama, 商汤, openai-codex, xai-oauth"
+    },
+    {
+      "section": "Models",
+      "name": "deepseek 图像输入声明",
+      "status": "OK",
+      "detail": "含: deepseek-v4-flash"
+    },
+    {
+      "section": "Models",
+      "name": "能力表 deepseek-flash",
+      "status": "OK",
+      "detail": "image=true（已打补丁或官方已支持）"
+    },
+    {
+      "section": "Memory",
+      "name": "目录新鲜度",
+      "status": "OK",
+      "detail": "最近更新 0.1 天前"
+    },
+    {
+      "section": "Memory",
+      "name": "facts.db",
+      "status": "OK",
+      "detail": "36864 B"
+    },
+    {
+      "section": "Memory",
+      "name": "memory.md",
+      "status": "OK",
+      "detail": "595 B"
+    },
+    {
+      "section": "Memory",
+      "name": "daily-state.json",
+      "status": "OK",
+      "detail": "435 B"
+    },
+    {
+      "section": "Memory",
+      "name": "最近日志记忆报错",
+      "status": "OK",
+      "detail": "无"
+    },
+    {
+      "section": "Backup",
+      "name": "快照数",
+      "status": "OK",
+      "detail": "6 份"
+    },
+    {
+      "section": "Backup",
+      "name": "最新快照",
+      "status": "OK",
+      "detail": "20260918-155453（0.0 天前）"
+    },
+    {
+      "section": "Providers",
+      "name": "apiKey 形态",
+      "status": "OK",
+      "detail": "引用式 3 个"
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+app:
+  description: 'HR简历筛选助手 - 支持对比分析、岗位匹配、简报汇总、深度评估'
+  icon: "🤖"
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 'HR简历筛选助手'
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: yangyaofei/vllm:0.1.5@3eecf807d9767f40eb757ff70720291aa6055e9e1803893b4c93b61a5d4d4319
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      enabled: false
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods: [local_file, remote_url]
+      number_limits: 3
+    opening_statement: '你好！我是HR简历筛选助手。支持以下功能：&#10;1. 📊 对比分析 - "对比张三和李四"&#10;2. 🎯 岗位匹配 - "谁适合做后端开发"&#10;3. 📋 简报汇总 - "生成简报"&#10;4. 🔍 深度评估 - "评估张三"'
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - "评估所有候选人"
+    - "对比李潇潇和刘娅迪"
+    - "谁适合嵌入式开发岗位"
+    - "生成候选人简报"
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: start-to-http
+      source: '1782441398560'
+      sourceHandle: source
+      target: '1782457004897'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: http-to-code
+      source: '1782457004897'
+      sourceHandle: source
+      target: '1782456170155'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: code-to-llm
+      source: '1782456170155'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: llm-to-answer
+      source: llm
+      sourceHandle: source
+      target: '1782457152632'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: "用户输入"
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: xxx
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: xxx
+      height: 109
+      id: '1782441398560'
+      position: {x: 35, y: 59}
+      positionAbsolute: {x: 35, y: 59}
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        error_strategy: fail-branch
+        memory:
+          query_prompt_template: "{{#sys.query#}}\n\n{{#sys.files#}}\n\n{{#1782456170155.result#}}"
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.1
+            max_tokens: 4096
+          mode: chat
+          name: qwen3.5-35b
+          provider: yangyaofei/vllm/vllm
+        prompt_template:
+        - id: sys-1
+          role: system
+          text: "你是一个专业的HR简历筛选助手。根据用户的问题和候选人数据，自动选择最合适的分析模式输出结果。\n\n## 可用数据\n候选数据来自 {{#1782456170155.result#}} 中的 candidates 列表。每个候选人包含：name(姓名)、email(邮箱)、phone(电话)、education(学历信息)、experience(工作经历)、skills(技能列表)、raw_text(简历原文)。\n\n## 四种分析模式\n\n### 模式1：对比分析\n触发条件：用户提到\"对比\"\"比较\"\"哪个更好\"或指定多人姓名。\n输出 Markdown 格式对比表格：\n| 维度 | 候选人A | 候选人B |\n|------|--------|--------|\n| 学历 | xxx | xxx |\n| 核心技能 | xxx | xxx |\n| 工作年限 | x年 | x年 |\n| 项目亮点 | xxx | xxx |\n| 优势 | xxx | xxx |\n| 风险 | xxx | xxx |\n| 综合评分 | x/10 | x/10 |\n最后给出推荐结论（谁更合适，为什么）。\n\n### 模式2：岗位匹配\n触发条件：用户提到\"适合什么岗位\"\"谁能做\"\"匹配JD\"\"岗位要求\"或提供了具体职位描述。\n按匹配度从高到低排序，输出每个候选人的：\n- 候选人姓名 (匹配度: x/10)\n- 匹配理由（技能匹配点、经验匹配点）\n- 不足（欠缺的技能或经验）\n- 面试建议（是否推荐、面试重点考察方向）\n\n### 模式3：简报汇总\n触发条件：用户提到\"简报\"\"汇总\"\"报告\"\"全部候选人\"或\"所有\"。\n输出所有候选人的汇总表：\n| 姓名 | 学历 | 核心技能 | 年限 | 评分 | 面试建议 |\n|------|------|---------|------|------|---------|\n按综合评分从高到低排序。最后附加总体招聘建议。\n\n### 模式4：深度评估（默认）\n触发条件：其他情况或用户只询问某一个候选人。\n六维度评分体系：\n1. 技术能力(30%)：技术栈主流性、深度、架构能力\n2. 项目质量(25%)：复杂度、成果量化、创新性\n3. 问题解决(20%)：技术难题攻克、方案权衡\n4. 成长潜力(10%)：学习能力、职业规划\n5. 团队协作(10%)：跨部门协作、技术分享\n6. 稳定性(5%)：职业连贯性\n\n输出格式：\n## {姓名} 深度评估\n### 基本信息\n学历/学校/工作年限/联系方式\n### 六维度评分表\n| 维度 | 得分 | 评价 |\n|------|------|------|\n| 技术能力 | x/10 | ... |\n| ... | ... | ... |\n| **综合** | **x/10** | ... |\n### 亮点\n### 风险\n### 面试建议\n\n## 通用规则\n1. 评分客观公正，不因性别/年龄等因素偏见\n2. 7分以上建议面试，5-6分可考虑，5分以下不建议\n3. 数据不足时标注\"数据不足\"\n4. 用户问题不明确时默认使用简报汇总模式\n5. 输出使用 Markdown 格式，简洁专业"
+        - id: user-1
+          role: user
+          text: "{{#1782456170155.result#}}\n\n用户问题：{{#sys.query#}}"
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 154
+      id: llm
+      position: {x: 1064.680492089227, y: 70}
+      positionAbsolute: {x: 1064.680492089227, y: 70}
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\n\ndef main(arg1: str):\n    \"\"\"Parse extractions API response and format for LLM\"\"\"\n    try:\n        if isinstance(arg1, bytes):\n            arg1 = arg1.decode(\"utf-8\")\n        data = json.loads(arg1) if isinstance(arg1, str) else arg1\n    except Exception:\n        return {\"result\": json.dumps({\"error\": \"数据解析失败\", \"candidates\": []}, ensure_ascii=False)}\n    \n    items = data.get(\"items\", [])\n    if not items:\n        return {\"result\": json.dumps({\"total\": 0, \"candidates\": [], \"message\": \"暂无简历数据\"}, ensure_ascii=False)}\n    \n    candidates = []\n    for item in items:\n        d = item.get(\"data\", {})\n        raw = item.get(\"raw_text\", \"\")\n        candidates.append({\n            \"name\": d.get(\"name\", \"\"),\n            \"phone\": d.get(\"phone\", \"\"),\n            \"email\": d.get(\"email\", \"\"),\n            \"education\": d.get(\"education\", {}),\n            \"experience\": d.get(\"experience\", {}),\n            \"skills\": d.get(\"skills\", []),\n            \"raw_text\": raw[:3000]\n        })\n    \n    return {\"result\": json.dumps({\"total\": len(candidates), \"candidates\": candidates}, ensure_ascii=False)}"
+        code_language: python3
+        error_strategy: fail-branch
+        outputs:
+          result:
+            children: null
+            type: string
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: "代码执行"
+        type: code
+        variables:
+        - value_selector: ['1782457004897', body]
+          value_type: string
+          variable: arg1
+      height: 118
+      id: '1782456170155'
+      position: {x: 713.6804920892271, y: 70}
+      positionAbsolute: {x: 713.6804920892271, y: 70}
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        error_strategy: fail-branch
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: "HTTP 请求"
+        type: http-request
+        url: "http://host.docker.internal:8899/api/v1/extractions?per_page=50"
+        variables: []
+      height: 190
+      id: '1782457004897'
+      position: {x: 376.0606090373651, y: 80}
+      positionAbsolute: {x: 376.0606090373651, y: 80}
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: "{{#llm.text#}}"
+        selected: false
+        title: "直接回复"
+        type: answer
+        variables: []
+      height: 103
+      id: '1782457152632'
+      position: {x: 1392, y: 167}
+      positionAbsolute: {x: 1392, y: 167}
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -237.14300226703574
+      y: 234.78470191979687
+      zoom: 0.8705505632961241

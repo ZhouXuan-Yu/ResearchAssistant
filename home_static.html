@@ -1,0 +1,839 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	汽配云-帮您做管理、玩营销、拼金融的saas系统服务商，使命，让汽配经营更轻松!
+</title><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" /><meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style type="text/css">
+        input#txtName::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        input#txtName::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #fff;
+        }
+
+        input#txtName:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: #fff;
+        }
+
+        input#txtName:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #fff;
+        }
+
+        .new-btn {
+            padding: 0 5px;
+            box-sizing: border-box;
+            height: 18px;
+            background: #f0ad4e;
+            border-radius: 2px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 16px;
+            font-size: 10px;
+        }
+
+            .new-btn img {
+                width: 18px;
+                height: 18px;
+                margin-right: 2px;
+            }
+
+        .qpy-framehead-list-info {
+            padding-right: 17px !important;
+        }
+
+        .enterprise-icon {
+            width: 16px;
+            height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .message-btn {
+            margin-right: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .message-badge {
+            position: absolute;
+            background-color: #f56c6c;
+            border-radius: 10px;
+            top: 0;
+            left: 72px;
+            padding: 0 6px;
+            height: 14px;
+            line-height: 14px;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 111;
+        }
+
+        #finance {
+            position: relative;
+        }
+
+            #finance::after {
+                position: absolute;
+                content: '';
+                background-image: url('/Resourse/Images/hotTag.gif');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                font-size: 14px;
+                width: 30px;
+                height: 30px;
+                top: 3px;
+                left: 3px;
+            }
+
+        .aside-box {
+            background-color: #3b3e42;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .aside-item-box {
+            width: 100%;
+            position: relative;
+        }
+
+        .aside-item {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+            .aside-item:hover {
+                background-color: #3172d0;
+            }
+
+            .aside-item .frame-content-sidebarlistindex {
+                padding-left: 14px;
+            }
+
+        .aside-item-box.active .aside-item {
+            border-left: 4px solid #ffaa3d;
+            background-color: #4d92df;
+        }
+
+            .aside-item-box.active .aside-item .frame-content-sidebarlistindex {
+                padding-left: 10px;
+            }
+
+        .aside-item-text {
+            width: 0;
+            flex-grow: 1;
+        }
+
+        .aside-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            margin-right: 10px;
+        }
+
+        .aside-arrow {
+            width: 10px;
+            height: 20px;
+            margin-left: 10px;
+        }
+
+        .aside-box * {
+            box-sizing: border-box;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #4d92df;
+            width: max-content;
+            position: absolute;
+            left: 100%;
+            visibility: hidden;
+        }
+
+        .aside-item-box:hover .menu-container {
+            visibility: visible;
+        }
+
+        .menu-head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #fff;
+            padding: 10px 0;
+        }
+
+            .menu-head a {
+                cursor: pointer;
+            }
+
+        .menu-main {
+            display: flex;
+            flex-wrap: wrap;
+            display: flex;
+            flex-wrap: wrap;
+             overflow: hidden;
+        }
+
+        .menu-list {
+            width: 200px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-list-head {
+            width: 100%;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            background-color: #3172d0;
+            border-radius: 2px;
+        }
+
+            .menu-list-head > img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+        .menu-text {
+            width: 0;
+            flex-grow: 1;
+            color: #f9cb96;
+        }
+
+        .limit-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .menu-list-item {
+            width: 100%;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .menu-list-item-text {
+            width: 0;
+            flex-grow: 1;
+        }
+
+        .play-btn-a {
+            visibility: hidden;
+        }
+
+        .play-btn {
+            width: 18px;
+            height: 18px;
+            margin-left: 10px;
+            display: flex;
+        }
+
+        .play-btn2 {
+            width: 16px;
+            height: 16px;
+        }
+
+        .menu-list-item:hover {
+            background-color: #3172d0;
+        }
+
+            .menu-list-item:hover > .play-btn-a {
+                visibility: visible;
+            }
+
+        .aside-item-box:hover > .aside-item > .play-btn-a {
+            visibility: visible;
+        }
+
+        .aside-item [class*=icon-], .menu-list-head [class*=icon-] {
+            position: inherit !important;
+            margin: 0 .5em 0 0 !important;
+        }
+
+        .menu-list-item-text a {
+            text-decoration: none !important;
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+
+        .layui-layer-setwin .material-like a {
+            right: 50px;
+            width: 5em;
+        }
+
+            .layui-layer-setwin .material-like a.active {
+                color: Red;
+            }
+
+        body .layeropen .layui-layer-title {
+            background-color: #4D92DF;
+            color: White;
+        }
+
+        .frame-content-sidebarsublist-div {
+            display: inline-block;
+        }
+
+        .frame-content-sidebarsublist-menu-video1 {
+            margin-left: 8px;
+            display: none;
+        }
+
+        .frame-content-sidebarsublist-menu-video2 {
+            display: none;
+            position: absolute;
+            margin-left: -20px;
+            margin-top: 7px;
+        }
+
+        .frame-content-sidebarsublist-menu-video3 {
+            display: none !important;
+            margin-left: 2px;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        .frame-content-sidebarsublist-div:hover .frame-content-sidebarsublist-menu-video1,
+        .frame-content-sidebarsublist-div:hover > .frame-content-sidebarsublist-menu-video2,
+        .frame-content-sidebarsublist-div:hover > .frame-content-sidebarsublist-menu-video3 {
+            display: inline-block !important;
+        }
+
+        .frame-content-sidebarsublist .frame-content-sidebarsublist-index {
+            margin-right: 26px !important;
+        }
+
+        .frame-content-sidebarsublist.tricol {
+            width: 850px !important;
+        }
+
+        body .layui-layer-noticebar-sys {
+            background-color: #fffbe8;
+            color: #ff6a00;
+        }
+
+            body .layui-layer-noticebar-sys .layui-layer-setwin .layui-layer-close2 {
+                background: url('data:image/svg+xml;%20charset=utf8,%3C%3Fxml%20version%3D%221.0%22%20standalone%3D%22no%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20t%3D%221678343484579%22%20class%3D%22icon%22%20viewBox%3D%220%200%201024%201024%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20p-id%3D%222869%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cpath%20d%3D%22M808.680727%20212.650667a31.030303%2031.030303%200%200%201%200%2043.876848l-558.545454%20558.545455a31.030303%2031.030303%200%200%201-43.876849-43.876849l558.545455-558.545454a31.030303%2031.030303%200%200%201%2043.876848%200z%22%20fill%3D%22%23ff6a00%22%20p-id%3D%222870%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M206.258424%20212.650667a31.030303%2031.030303%200%200%201%2043.876849%200l558.545454%20558.545454a31.030303%2031.030303%200%200%201-43.876848%2043.876849l-558.545455-558.545455a31.030303%2031.030303%200%200%201%200-43.876848z%22%20fill%3D%22%23ff6a00%22%20p-id%3D%222871%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E') no-repeat;
+                top: 3px;
+            }
+
+            body .layui-layer-noticebar-sys .layui-layer-content {
+                padding: 4px 25px;
+                overflow: hidden;
+            }
+
+        body layui-layer-noticebar-sys .layui-layer-content a {
+            text-decoration: none;
+            color: #4359aa;
+        }
+
+        body .solution-btn .layui-layer-btn .layui-layer-btn0 {
+            background: #FFF;
+            border: none;
+            text-decoration: underline;
+            color: black
+        }
+
+        body .solution-btn .layui-layer-btn .layui-layer-btn1 {
+            background: #2e8ded;
+            border-color: #4898d5;
+            color: #FFF
+        }
+
+        body .show-notify-msg-dialog .layui-layer-title {
+            height: 30px;
+            line-height: 30px;
+            background: #6daae7;
+            color: #fff;
+            border: none;
+        }
+
+        body .show-notify-msg-dialog .layui-layer-content {
+            background: #e4e3e3;
+            font-weight: 600;
+            border: none;
+        }
+
+        .work-order-dropdown {
+            width: 400px !important;
+            height: 160px !important;
+            left: -145% !important;
+            border-radius: 8px;
+            padding: 14px 14px 0 14px;
+        }
+
+        .work-order-dropdown-title {
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            text-align: left;
+        }
+
+        .work-order-dropdown-item-box {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .work-order-dropdown-item {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .work-order-dropdown-inner-item {
+            color: #86888B;
+        }
+
+        .work-order-dropdown-value {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .work-order-dropdown-line {
+            height: 8px;
+            display: flex;
+            align-items: center;
+            margin: 0 14px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+        }
+
+        .work-order-dropdown-line-item {
+            height: 100%;
+        }
+
+        .inner-bg {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(#F2F8FF, #FFFFFF);
+        }
+
+        .work-order-dropdown-line-item:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .work-order-dropdown-line-item:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .return-money-dialog .layui-layer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            flex-wrap: wrap;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .new-btn img.service{
+            width: 16px;
+            height: 16px;
+        }
+        .frame-content-sidebarlist>li{
+            padding-right: 25px !important;
+        }
+        .frame-content-sidebarlist>li .frame-content-sidebarsublist-div:first-child{
+            width: 100%;
+        }
+        .customer-sidebarsublist-box-relative{
+            padding-right: 25px !important;
+        }
+        .customer-sidebarsublist-box-absolute{
+            position: absolute;
+            top: 13px;
+            right: 30px;
+        }
+        .qpy-frame-content-sidebar.fold{
+            width: 40px !important;
+            min-width: 40px !important;
+        }
+        .frame-content-sidebarlist>li.active {
+            border: 0px !important;
+            padding-left: 50px !important;
+        }
+        .qpy-frame-content-sidebar.fold .frame-content-sidebarlist>li, .qpy-frame-content-sidebar.fold .frame-content-sidebarlist>li.active{
+            padding-left: 0px !important;
+        }
+        .frame-content-sidebarlist>li.active:before {
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            height: 100% !important;
+            width: 4px !important;
+            background-color: #ffaa3d;
+        }
+        .frame-content-sidebarlist>li.active:hover .frame-content-sidebarsublist.hidethis, .frame-content-sidebarsublist, .frame-content-sidebarsublist.hidethis{
+            left: -1000px !important;
+        }
+        .framehead-dropdown-menu-new{
+            width: max-content !important;
+            left: inherit !important;
+            right: 0 !important;
+            min-width: 80px !important;
+        }
+    </style>
+<link type="text/css" rel="stylesheet" href="https://qpyun-icon.oss-cn-hangzhou.aliyuncs.com/erpframe/css/erpframe.css" /><link type="text/css" rel="stylesheet" href="https://qpyun-icon.oss-cn-hangzhou.aliyuncs.com/qpyun/style/qpyicon.css" /><link type="text/css" rel="stylesheet" href="https://erp.qpyun.cn/Resourse/JavaScript/layer/ver3/layui.css?v=26.07.24" /><link type="text/css" rel="stylesheet" href="https://erp.qpyun.cn/Resourse/CSS/tree.css?v=26.07.24" /><script src="https://erp.qpyun.cn/Resourse/JavaScript/jquery-1.11.2.min.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/layer/ver3/layer.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/app.qpyun.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/../config/language/app.language.zh-cn.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/../config/learningmaterials.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/jquery-1.11.2.min.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/layer/ver3/layer.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/jquery.cookie.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/xmlhttp.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/wsocket.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/home.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/mqttws31.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/EpcDataCom.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/erpframe.tt.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/reconnecting-websocket.min.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/modules/require.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/modules/require_config.js?v=26.07.24" type="text/javascript"></script><script src="https://erp.qpyun.cn/Resourse/JavaScript/listenImChat.js?v=26.07.24" type="text/javascript"></script></head>
+<body>
+    <input type="hidden" value="90728055" id="txtXpartsId" />
+    <input type="hidden" value="https://ssl.qpyun.cn" id="txtShopUrl" />
+    <input type="hidden" value="898613" id="txtUserId" data-isclient="0" />
+    <input type="hidden" value="" id="txtUrl" />
+    <input type="hidden" value="http://cloudpurchase.qpyun.cn/" id="txtCloudPurchaseUrl" />
+    <form name="form1" method="post" action="./home.aspx" id="form1" data-up-warehousingrejecttips="0" qpyun-pwdiseasy="0" systemuserid="12360" xid="90728055" rid="FXX7YKgOHEE5Z+MMIYQ31=CK" dcsuid="898613" data-up-isUnSendSalQuoteNotice="0" data-up-purchasevoicepromptinterval="5" tt="40806063f44549d59661fc7db52ac2b1z56g3" frmzxb="0" data-up-IsOtherInVoice="0" cid="FxC7YigOHDi5ZPwMIkl31=WK" data-up-IsPlayQuoteEnquiryVoice="0" data-up-IsPlayOrderChainVoice="0" uid="12360" data-up-isNewChainRepairNotice="0" data-up-purchasenoticevoiceprompt="0" data-up-IsUserLongTimeAutoOff="0,0">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="TizQ+BlsF3ueBF1y+Gd08o3iW5pZIQGZftt6J96xt3DPzGFzG31ocIqcAhyokNmZYAj/ITVJB3LMinH+2uZL6nVN4UrQE7rlz6W0bqri24CjLAVayG0Rocuwm57GKxwOjXvgSck7l/LtZvq545g+kwu1HWPdv14MIV3Iv5EMCcv20VO7cpeUtOt8gmOgwhLtAy9kmZNpKiYRzaNpy58B7Byo0FDG2hW4FTBxoW4rKmpcesbk5SyYVLe+i9+H3Hqhf6fPcfEzNgwTYwsD/Gk4CXx2SPgPahR805KFgIcH60sj2iUAglAxoxfKS8E8ZNccW8SZVs8yBQTs1k0St5MDtws9T+o/gFOMzPjdJUdRfXAm0xn0kB/qUkj8KHzevi5F6FwvE0novh2h6klaSw2qZms+zfvxUT+BXX0ynarpTZyjTk8kfRGo4EgAnbCuvcZWsdIktr1kRxvHisT1bfr4x+4hnIVYOao4EiB9dBoDsAIheDSM5oaJg8AhtbFBWGXLhdxVgj3FpMXPPTJPQwVHnMuQyo+UdQI5Q9F0+4ni6qSHJczjqTSzAc6LGFP8CvSLzRUlRVzC3/I6HuPQL68gK05qnhpPx+s/3jTSwTMSbdNs/edxAadRZWpe+LOLGjGCPPW4wkHXeCFRUqh8HllEjQIkelV7Hsx7XPK+MSt41i87dZ55iYr34DeYoVftemmaHJrJpP1fUd5pnumgDXPfd22JX3gBclaKzjjvWm+A5+QIZd/4coHtq1DW8eCxm+5qVV8z8yyUvUY1ZawM7mG7GkZfks1TQfw3fT89i2pk/htIN1kchvXLuLB/9KvHMYgAuTxAv2wnagKDFReGkBdsRBW5x9hKEZO3t9ectHM36+OANypy/4sQKkdvURb7Jf/O0a0eC5MurnsB7oQIE1270bUhUqNRBCUgiz3Sr/hges/90fgfIvEDfl6dGlcar0KwjlHK/lmvmEgiKJ369BE/evup8AmCYe6VRrW7upMvJs4CplmHBVVmty91xE6QbDZEE5ItYNTxC2I8P6CKlfwZrMIJRX11q10EPFHHC30faRJzOOU7BiE86dYoKktD+jWD5X1Y49lacLenFKYFZWzuw/wg1DU67RdcqASQqss0nLVio2tuyI6esaITJTHGm0eWDxrZC79AIp8vfluhjdOZNqsv4suGouqdkUkyalR1bHogHIzNZYfuSJ47C3/jdybO8j2Ocpr79wO/udzcfcJ8czi++xYfdIk2MTxnfu3If+/NLGOeAtovzwP6Do6tVQFzmD1zFXrWEoDaY1JeF87ML2hzXJk66jHndgraggJeHD7T7A+Ui7d/WZQJdL/lfcPqwrk0E8bQRfQPT39vtQaSSOgVO+WxkccJAYU+a0kdDsIoYuPoaET5K0RxQOyJV1FfCK1xFKhznD/L9a7EKctI2khs9Nw=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8D0E13E6" />
+</div>
+    
+    <div>
+            <audio id="voicePlay" src="" type="audio/wav" autoplay="autoplay">Your browser does not support the audio element.</audio>
+            <audio id="voicePlayPur" src="" type="audio/wav" autoplay="autoplay">Your browser does not support the audio element.</audio>
+        <audio id="voicePlay" src="" type="audio/wav" autoplay="autoplay">Your browser does not support the audio element.</audio>
+        <input name="txtImportUrl" type="hidden" id="txtImportUrl" value="http://imp.qpyun.cn" />
+        <input name="txtPrintUrl" type="hidden" id="txtPrintUrl" value="http://erp.qpyun.cn/RDLC/" />
+        <input name="txtReportPrintUrl" type="hidden" id="txtReportPrintUrl" value="https://1rprint.qpyun.cn/rdlc/" />
+        <input name="txtMshPushUrl" type="hidden" id="txtMshPushUrl" value="/" />
+        <input name="txtAppToken" type="hidden" id="txtAppToken" />
+        <input name="hidSpeechDomain" type="hidden" id="hidSpeechDomain" value="http://erp.qpyun.cn" />
+        <input name="txtWsHost" type="hidden" id="txtWsHost" value="mq.qpyun.cn" />
+        <input name="txtWsPort" type="hidden" id="txtWsPort" value="61615" />
+        <input name="txtMqHost" type="hidden" id="txtMqHost" value="tcp://172.16.167.201:60616?connectionTimeout=500" />
+        <input name="txtXid" type="hidden" id="txtXid" value="83257" /><!--询配码 -->
+        <input name="txtQueueName" type="hidden" id="txtQueueName" value="g83257_12040_12360" />
+        <input name="txtWsClientId" type="hidden" id="txtWsClientId" value="g90728055_12360" />
+        <input name="txtQueueNamePrinted" type="hidden" id="txtQueueNamePrinted" /><!--已打印 -->
+        <input name="txtWsClientIdPrinted" type="hidden" id="txtWsClientIdPrinted" />
+        <input name="TxtEpcArgs" type="hidden" id="TxtEpcArgs" value="https://login.qpyun.cn/Common/EpcDatasIndex?rid=FXX7YKgOHEE5Z%2bMMIYQ31%3dCK&amp;qpyid=FxUxY4MIHV8JZtlgI3K%3d1Jl%3dKfF73MCOMLF5&amp;uid=12360&amp;company=%e9%99%95%e8%a5%bf%e4%bd%a9%e7%89%b9%e6%9d%a5%e5%b7%a5%e8%b4%b8%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8" /><!--epc数据插件访问-->
+        <input name="hidIsWs" type="hidden" id="hidIsWs" value="0" data-hasRight="0" data-hasPrinter="0" />
+    </div>
+    <div class="qpy-framehead" id="divHomeHead">
+        <div class="qpy-framehead-logoarea">
+            <img src="Resourse/Images/qpyun_logo.png?t=20260725203919920" id="homeLogo" />
+        </div>
+        <ul class="qpy-framehead-list" id="headnav">
+        </ul>
+        <div class="qpy-framehead-more">
+            <a href="">
+                更多<span class="triangle-bottom"></span></a>
+            <ul class="qpy-framehead-more-list">
+            </ul>
+        </div>
+        <div class="qpy-framehead-list-info">
+            <div class="framehead-list-info-line" style="display: flex; align-items: center;">
+                <div class="new-btn message-btn" onclick="handleChat();" style="display: none;">
+                    <img src="../Resourse/Images/wdxxIcon.png" />
+                    我的消息
+                    <div class="message-badge" style="display: none">
+                    </div>
+                </div>
+                <span class="qpy-framehead-list-companyinfo hoveropen">
+                    消息&ensp; <span class="badge badge-emphasize" id="spmsgtotal">0</span>
+                    <ul class="dropdown-menu clear-inside">
+                        <li><a onclick="gotoMsg(54)">
+                            业务消息<span class="badge badge-emphasize pull-right" id="spordermsg">0</span></a></li>
+                        <li><a onclick="gotoMsg(52)">
+                            商家消息<span class="badge badge-emphasize pull-right" id="spshopmsg">0</span></a></li>
+                        <li><a onclick="gotoMsg(53)">
+                            内部消息<span class="badge badge-emphasize pull-right" id="spstaffmsg">0</span></a></li>
+                        <li><a onclick="gotoMsg(55)">
+                            平台消息<span class="badge badge-emphasize pull-right" id="spplatformmsg">0</span></a></li>
+                        <li><a onclick="gotoMsgs()">
+                            投诉消息<span class="badge badge-emphasize pull-right" id="spsalifbmsg">0</span></a></li>
+                    </ul>
+                </span> <span class="qpy-framehead-list-companyinfo">
+                        <span id="lblUserName">管理员</span>&nbsp;<span>
+                            欢迎您！</span> </span>
+                
+                <img src="../Resourse/Images/enterprise-un.png" class="enterprise-icon" onclick="goEnterpriseAuthen(0);" />
+                
+                <span class="qpy-framehead-list-companyinfo hoveropen">
+                    <span id="lblChainTitle">连锁</span>：
+                    <span id="LblRentName">陕西佩特来工贸有限公司</span>
+                    <span id="lblChangeChainTip">切换</span>
+                    <ul id="ulChain" class="dropdown-menu clear-inside qpyframe-dropdownmenu" style="float: right; margin-top: 30px; min-width: 300px;">
+                        <div>
+                            <input placeholder="请输入关键字" name="txtName" type="text" id="txtName" autocomplete="off"
+                                style="color: #000; width: 98%; height: 30px; background: #a0c4ed; border: none;
+                                padding-left: 20px; color: #fff;" search-key="txtName" onkeyup="BindChainList(); return false;">
+                        </div>
+                        <div class="tree" id="tree">
+                        </div>
+                        <ul id="ulChain2" style="float: left; padding-left: 10px;">
+                        </ul>
+                    </ul>
+                </span><span class="qpy-framehead-list-oper" onclick="closes();"><a rel="nofollow"
+                    style="cursor: pointer">
+                    退出</a></span>
+                <div style="display: none">
+                    <input type="submit" name="BtnLoadMenu" value="Button" id="BtnLoadMenu" style="height:0px;width:0px;" /><input type="image" name="BtnClose" id="BtnClose" class="hidden" src="" style="height:0px;width:0px;border-width:0px;" />
+                    <input name="hidBugSubmitUrl" type="hidden" id="hidBugSubmitUrl" />
+                    <input name="hidServerTypeID" type="hidden" id="hidServerTypeID" />
+                    <input name="hidRentID" type="hidden" id="hidRentID" />
+                    <input name="hidRentName" type="hidden" id="hidRentName" />
+                    <input name="hidChainID" type="hidden" id="hidChainID" value="12040" />
+                    <input name="hidChainName" type="hidden" id="hidChainName" value="%e9%99%95%e8%a5%bf%e4%bd%a9%e7%89%b9%e6%9d%a5%e5%b7%a5%e8%b4%b8%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8" />
+                    <input name="hidChainEmail" type="hidden" id="hidChainEmail" value="18609188315@139.com" />
+                    <input name="hidUserID" type="hidden" id="hidUserID" />
+                    <input name="hidUserName" type="hidden" id="hidUserName" />
+                    <input name="hidUserEmail" type="hidden" id="hidUserEmail" />
+                    <input name="hidUserMobile" type="hidden" id="hidUserMobile" />
+                    <input name="hidXPartsCompanyid" type="hidden" id="hidXPartsCompanyid" value="90728055" />
+                    <input name="hidCode" type="hidden" id="hidCode" />
+                    <input name="hidIsOpenyangchebang" type="hidden" id="hidIsOpenyangchebang" />
+                    <input name="hidDefaultApp" type="hidden" id="hidDefaultApp" />
+                    <input name="hidRentIsOutOfDate" type="hidden" id="hidRentIsOutOfDate" />
+                    <input name="hidflag" type="hidden" id="hidflag" value="0" />
+                    <input name="isOpenAnti" type="hidden" id="isOpenAnti" value="0" />
+                    <input name="chainMysqlCon" type="hidden" id="chainMysqlCon" />
+                    <input name="originalUrl" type="hidden" id="originalUrl" />
+                    <input name="isForceLogoff" type="hidden" id="isForceLogoff" value="0" />
+                    <input name="hidMJToken" type="hidden" id="hidMJToken" />
+                    <input name="txtCustComplainUrl" type="hidden" id="txtCustComplainUrl" value="https://ssl.qpyun.cn/CustomerComplain/Index?xid=90728055%26uid=12360" />
+                    <input name="txtRemindType" type="hidden" id="txtRemindType" value="0" />
+                    <input name="txtRemindTypeValue" type="hidden" id="txtRemindTypeValue" />
+                    <input name="txtIsShowAmtCollectionSucceedMsg" type="hidden" id="txtIsShowAmtCollectionSucceedMsg" value="0" />
+                    <input name="txtVoiceAccountRemind" type="hidden" id="txtVoiceAccountRemind" value="0" />
+                    <input name="hidIsNewNotifice" type="hidden" id="hidIsNewNotifice" />
+                </div>
+            </div>
+            <div class="framehead-list-info-line">
+                <span class="qpy-framehead-list-oper"><a href="javascript:void(0);" rel="nofollow"
+                    onclick='newWin();'>
+                    新窗口</a></span> <span class="qpy-framehead-list-oper"><a onclick="bugSubmitGoto(1);"
+                        style="cursor: pointer" rel="nofollow" id="workOrderDropdown">
+                        工单</a>
+                        <div class="qpy-framehead-QRcode-dropdown work-order-dropdown">
+                            <div class="triangle">
+                                <div class="triangle-inside">
+                                </div>
+                            </div>
+                            <div class="flex-column inner-bg">
+                                <div class="work-order-dropdown-title">
+                                    汽配云总工单进度概览</div>
+                                <div class="work-order-dropdown-line">
+                                    <div id="pendingLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                    <div id="schedulingLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                    <div id="devingLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                    <div id="resolvedLine" class="work-order-dropdown-line-item">
+                                    </div>
+                                </div>
+                                <div class="work-order-dropdown-item-box">
+                                    <div class="work-order-dropdown-item">
+                                        <div id="pendingValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            待处理</div>
+                                    </div>
+                                    <div class="work-order-dropdown-item">
+                                        <div id="schedulingValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            排期中</div>
+                                    </div>
+                                    <div class="work-order-dropdown-item">
+                                        <div id="devingValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            开发中</div>
+                                    </div>
+                                    <div class="work-order-dropdown-item">
+                                        <div id="resolvedValue" class="work-order-dropdown-value">
+                                        </div>
+                                        <div class="work-order-dropdown-inner-item">
+                                            已上线</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span><span class="qpy-framehead-list-oper">
+                        关注我们
+                        <div class="qpy-framehead-QRcode-dropdown">
+                            <div class="triangle">
+                                <div class="triangle-inside">
+                                </div>
+                            </div>
+                            <div class="qpy-framehead-QRcode-dropdown-imgcontent">
+                                <img src="https://pic.yangchebang.com.cn/ALY/4353/6569/2020/5/11/ID_202005110935470810452_337.jpg" id="imgPublicNumber" alt="公众号" />
+                                <p>
+                                    公众号</p>
+                            </div>
+                            <div class="qpy-framehead-QRcode-dropdown-imgcontent">
+                                <img src="https://qpyun-icon.oss-cn-hangzhou.aliyuncs.com/erpframe/image/SubscriptionQR.jpg" id="imgSubscriptionNumber" alt="订阅号" />
+                                <p>
+                                    订阅号</p>
+                            </div>
+                        </div>
+                    </span><span class="qpy-framehead-list-oper">
+                        投诉通道
+                        <div class="qpy-framehead-QRcode-dropdown" style="width: 160px; margin: 0; left: -96%;">
+                            <div class="triangle">
+                                <div class="triangle-inside">
+                                </div>
+                            </div>
+                            <div class="qpy-framehead-QRcode-dropdown-imgcontent" style="margin-top:5px;">
+                                <img id="imgCustomerComplain" alt="请扫二维码" />
+                                <p>
+                                    请扫二维码</p>
+                            </div>
+                        </div>
+                    </span>
+                 
+                    <div class="qpy-framehead-list-oper dropdown" >
+                        更多<span class="triangle-bottom"></span>
+                        <ul class="framehead-dropdown-menu framehead-dropdown-menu-new">
+                            <li><a onclick="opentHelpForm();" href="#" rel="nofollow">
+                                帮助</a></li>
+                            <li><a onclick="OpenQuestion();" href="#" rel="nofollow">
+                                问卷调查</a></li>
+                            <li><a onclick="return EditPwd();" href="#" rel="nofollow">
+                                修改密码</a></li>
+                            
+                        <li id="liInitializeData"><a onclick="return BaseData();" href="#"
+                            rel="nofollow">
+                            数据初始化</a></li>
+                        <li id="liOldVersion"><a href="index.aspx" target="_self" rel="nofollow">
+                            旧版本</a></li>
+                    </ul>
+                </div>
+                <div class="hoveropen" style="float: left; margin-right: 10px;">
+                    <div onclick="bugSubmitGoto(-1,'assistant');" class="new-btn">
+                        <img src="../Resourse/Images/znkfIcon1.png" class="service" />专属客服经理
+                    </div>
+                    <div id="divCompanyService" class='dropdown-menu clear-inside qpyframe-dropdownmenu qpyframe-dropdownmenu-padding qpyframe-dropdownmenu-width-1g'
+                        style="left: 0; right: auto; box-sizing: border-box;">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="qpy-frame-content" id="divHomeBody">
+            <div class="qpy-frame-content-sidebar" id="divHomeBodySidebar" style="width: auto;min-width: 165px;">
+                <div class="frame-content-sidebarhead">
+                    <h4 id="menuTopTitle">
+                        云ERP</h4>
+                    <span class="icon-circleback"></span><span class="icon-circleExtend"></span>
+                </div>
+                <div id="nav">
+                </div>
+            </div>
+            <div class="qpy-frame-content-sidecontent">
+                <iframe frameborder="0" onload="DetailIframe.focus();" style="text-align: left;"
+                    src="" scrolling="yes" width="100%" id="DetailIframe"></iframe>
+            </div>
+        </div>
+        <!--汽配云在线客服-->
+        <div id="divOnlineCustomerService" class="new-btn" style="cursor: pointer; background-color: #F56C6C; position: fixed; bottom: 2px; left: 0; width: 30px; font-size: 15px; justify-content: center; height: 100px; border-radius: 2px 0 0 0; flex-direction: column; align-items: center;" onclick="showOnlineCustomerService();">
+            <div>
+                <img src="../Resourse/Images/yckfIcon.png" /></div>
+            <div style='padding-left: 1px;'>帮助中心</div>
+        </div>
+        <!--玉柴客服-->
+        
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.top.guid='e9684330571e4f889bef1206e919de34';//]]>
+</script>
+</form>
+    <div style="display: none; margin: 10px; line-height: 25px;" id="divCacheKey">
+        <table style="margin: 10px; width: 90%;">
+            <tr>
+                <td>
+                    是否公共：
+                </td>
+                <td>
+                    <input type="checkbox" name="cbx_isPub" id="cbx_isPub" value="1">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Key：
+                </td>
+                <td>
+                    <input type="text" name="txt_cacheKey" id="txt_cacheKey">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    日期：
+                </td>
+                <td>
+                    <input type="text" name="txt_date" id="txt_date">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <input type="button" value="查询拦截的模板消息" id="btnWechat" onclick="queryblocktmplmsg()">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <audio id="newOrderMsgAudio" style="display: none;"><source src="../Resourse/Images/NewOrderMsg.wav" type="audio/wav"></audio>
+    <audio id="newChainRepairAudio" style="display: none;"><source src="../Resourse/Images/NewChainRepair.wav" type="audio/wav"></audio>
+    <audio id="newOtherInAudio" style="display: none;"><source src="../Resourse/Images/NewOtherIn.wav" type="audio/wav"></audio>
+    <audio id="newQuoteEnquiry" style="display: none;"><source src="../Resourse/Images/quoteEnquiry.mp3" type="audio/mp3"></audio>
+</body>
+<script type="text/javascript" src="Resourse/JavaScript/PerformanceStatistics.js"></script>
+</html>
