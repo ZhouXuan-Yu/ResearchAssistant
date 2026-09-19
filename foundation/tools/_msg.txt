@@ -1,0 +1,5 @@
+fix: git_snapshot 消息编码（Get-Content 默认按 ANSI 读，导致中文提交信息双编码损坏）
+
+- 改用 [IO.File]::ReadAllText(..., UTF8) 显式读取消息文件
+- 改用 UTF8 无 BOM 写入临时消息文件
+- 已知历史缺陷：提交 15b116f 的信息为乱码，内容未受影响；是否重写历史待用户决定

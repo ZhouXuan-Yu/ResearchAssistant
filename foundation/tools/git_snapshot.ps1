@@ -19,8 +19,11 @@ if (-not (Test-Path (Join-Path $Repo ".git"))) {
   exit 1
 }
 
-if ($MessageFile -and (Test-Path $MessageFile)) {
-  $Message = (Get-Content $MessageFile -Raw).Trim()
+if ($MessageFile) {
+  if (-not (Test-Path $MessageFile)) { Write-Output "message file not found: $MessageFile"; exit 1 }
+  # read as UTF-8 explicitly: Get-Content defaults to the ANSI codepage in PS 5.1
+  # and would double-encode a Chinese message (this bug shipped once, see 15b116f).
+  $Message = [System.IO.File]::ReadAllText($MessageFile, [System.Text.Encoding]::UTF8).Trim()
 }
 if (-not $Message) {
   $Message = "snapshot: " + (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
@@ -34,7 +37,8 @@ if ($staged -eq 0) {
 }
 
 $msgFile = Join-Path $env:TEMP ("gitmsg_" + [guid]::NewGuid().ToString("N") + ".txt")
-Set-Content -Path $msgFile -Value $Message -Encoding UTF8
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+[System.IO.File]::WriteAllText($msgFile, $Message, $utf8NoBom)
 git -C $Repo commit -q -F $msgFile
 Remove-Item $msgFile -Force -ErrorAction SilentlyContinue
 
