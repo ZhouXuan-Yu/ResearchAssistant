@@ -80,3 +80,12 @@
 - `.gitignore`
 - `"OH-Works/\347\232\207\345\256\266\345\215\253\345\243\253GGOB\347\232\204\345\267\241\346\243\200/patrol-log.md"`
 - `foundation/docs/git-tracking.md`
+
+## 2026-09-19 19:10:19
+
+**说明**：docs: 记录 HyperFrames 空白页修复（cmd 引号缺陷绕过）与插件面板/安装入口排查结论
+
+**变更规模**：1 file changed, 130 insertions(+)
+
+**文件清单**（不含本记录文件自身）：
+- `foundation/docs/plugin-fixes.md`
