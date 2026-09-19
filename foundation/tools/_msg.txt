@@ -1,5 +1,5 @@
-fix: git_snapshot 消息编码（Get-Content 默认按 ANSI 读，导致中文提交信息双编码损坏）
+feat: 每次改动自动提交 + 生成可读变更记录 + 推送到远端
 
-- 改用 [IO.File]::ReadAllText(..., UTF8) 显式读取消息文件
-- 改用 UTF8 无 BOM 写入临时消息文件
-- 已知历史缺陷：提交 15b116f 的信息为乱码，内容未受影响；是否重写历史待用户决定
+- git_snapshot.ps1 重写：暂存 → 写入 foundation/changelog/auto-changes.md 条目 → 提交 → 推送 origin
+- 推送失败不吞错、不阻塞提交（本地提交安全，失败会明确报出）
+- 新增本地裸仓库作为远端：C:\Users\ZhouXuan\Desktop\OH-WorkSpace-remote.git（零凭据；可随时换成 GitHub/Gitee）
