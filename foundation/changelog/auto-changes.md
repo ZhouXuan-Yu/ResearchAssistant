@@ -49,3 +49,23 @@
 **文件清单**（不含本记录文件自身）：
 - `foundation/tools/_fixmsg.py`
 - `foundation/tools/_goodmsg.txt`
+
+## 2026-09-19 18:37:37
+
+**说明**：chore: 接入 GitHub 远端并固化 git 工作流
+
+- origin 切到 https://github.com/ZhouXuan-Yu/ResearchAssistant.git（public，分支 main）
+- 保留本地裸仓库为备份远端 local-backup（离线冗余）
+- 凭据走 repo 级 credential.helper = !gh auth git-credential，不落盘明文 token
+- 提交身份改为 repo 级配置，不动全局
+- git_snapshot.ps1 改为双远端推送（origin + local-backup），失败不吞错
+- 新增 foundation/docs/git-tracking.md：现状、流程、排除规则、已踩的 5 个坑、历史重写记录
+- 清理一次性脚本（_do_rewrite*/_cleanup/_github_setup/_finish_remote/_fixmsg/_goodmsg）
+
+**变更规模**：4 files changed, 69 insertions(+), 43 deletions(-)
+
+**文件清单**（不含本记录文件自身）：
+- `foundation/docs/git-tracking.md`
+- `foundation/tools/_fixmsg.py`
+- `foundation/tools/_goodmsg.txt`
+- `foundation/tools/git_snapshot.ps1`

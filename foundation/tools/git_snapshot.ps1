@@ -71,16 +71,21 @@ $stats
 
 # ---------------------------------------------------------------- push
 if ($NoPush) { Write-Output "push skipped (-NoPush)"; exit 0 }
-$remote = (git -C $Repo remote) -join ","
-if (-not $remote) {
-  Write-Output "PUSH SKIPPED: no remote configured (git remote add origin <url>; see foundation/tools/git_remote_setup.md)"
+$remotes = @(git -C $Repo remote)
+if ($remotes.Count -eq 0) {
+  Write-Output "PUSH SKIPPED: no remote configured (git remote add origin <url>; see foundation/docs/git-tracking.md)"
   exit 0
 }
 $branch = (git -C $Repo rev-parse --abbrev-ref HEAD)
-$push = git -C $Repo push -u origin $branch 2>&1
-if ($LASTEXITCODE -eq 0) { Write-Output ("pushed " + $sha + " -> origin/" + $branch) }
-else {
-  Write-Output "PUSH FAILED (commit is safe locally):"
-  $push | Select-Object -Last 6
-  exit 2
+$failed = @()
+foreach ($r in @("origin", "local-backup")) {
+  if ($remotes -notcontains $r) { continue }
+  $push = git -C $Repo push $r $branch 2>&1
+  if ($LASTEXITCODE -eq 0) { Write-Output ("pushed " + $sha + " -> " + $r + "/" + $branch) }
+  else {
+    Write-Output ("PUSH FAILED to " + $r + " (commit is safe locally):")
+    $push | Select-Object -Last 4
+    $failed += $r
+  }
 }
+if ($failed.Count -gt 0) { exit 2 }
